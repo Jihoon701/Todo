@@ -11,6 +11,7 @@ class CalendarCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var UnderLineView: UIView!
     @IBOutlet weak var DateLabel: UILabel!
+    @IBOutlet weak var CircleImageView: UIImageView!
     var listExist: Bool = false
     
     override var isSelected: Bool {
@@ -38,6 +39,7 @@ class CalendarCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        CircleImageView.isHidden = true
         UnderLineView.isHidden = true
     }
     

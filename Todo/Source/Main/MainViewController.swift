@@ -47,6 +47,7 @@ class MainViewController: UIViewController {
     var checkAddingList = false
     var currentDate = false
     var selectedRow = 0
+    var addTodoListCalendarCheck = false
     
     var selectedDate = ""
     var calendarMonth = 0
@@ -235,10 +236,8 @@ class MainViewController: UIViewController {
         DateLabel.text = String(currentHomeDate)
         
         realmNotificationToken = realm.observe { (notification, realm) in
-            print("hhfhfhfh")
             self.TodoListTableView.reloadData()
         }
-        
         super.viewDidLoad()
     }
     
@@ -355,6 +354,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let cell = CalendarCollectionView.dequeueReusableCell(withReuseIdentifier: "CalendarCollectionViewCell", for: indexPath) as! CalendarCollectionViewCell
         cell.DateLabel.font = UIFont(name: "BMJUAOTF", size: 14)
         cell.listExist = false
+        cell.CircleImageView.isHidden = true
         
         switch indexPath.section {
         case 0:
@@ -373,13 +373,17 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             let currentDateFormatter = DateFormatter()
             currentDateFormatter.dateFormat = "d"
             
+            // addTodoListCalendarCheck -> false 그대로
+            // true add하던 날짜로 select
+            
+            // 오늘 날짜가 있으면 해당 날짜 select
             if currentDate && cell.DateLabel.text == currentDateFormatter.string(from: Date()) {
-                cell.DateLabel.font = UIFont(name: "BMJUAOTF", size: 17)
-                cell.DateLabel.textColor = #colorLiteral(red: 0.137254902, green: 0.3647058824, blue: 0.2666666667, alpha: 1)
+                cell.CircleImageView.isHidden = false
                 CalendarCollectionView.selectItem(at: indexPath, animated: false, scrollPosition: .centeredVertically)
                 selectedDate = "\(calendarYear)/\(calendarMonth)/\(daysInMonthType[indexPath.item])"
                 TodoListTableView.reloadData()
             }
+            // 없으면 첫째날 select
             else if cell.DateLabel.text == "1" {
                 CalendarCollectionView.selectItem(at: indexPath, animated: false, scrollPosition: .centeredVertically)
                 selectedDate = "\(calendarYear)/\(calendarMonth)/\(daysInMonthType[indexPath.item])"
@@ -400,6 +404,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             cell.ListExistCheck()
             cell.isUserInteractionEnabled = true
         }
+        // 해당 날짜에 투두 작성했으면 밑줄처리
         cell.ListExistCheck()
         
         return cell
@@ -544,7 +549,9 @@ extension MainViewController: NewTodoListDelegate, DeleteCellDelegate, EditVCDel
     
     func MakeNewTodoListDelegate() {
         checkAddingList = false
+        addTodoListCalendarCheck = true
         CalendarCollectionView.reloadSections(IndexSet(1...1))
+        addTodoListCalendarCheck = false
     }
     
     func RevokeAddCellDelegate() {
