@@ -24,16 +24,33 @@ class AddTodoListTableViewCell: UITableViewCell, UITextFieldDelegate {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        setKeyboardEvent()
         AddTodoListTextField.font = UIFont(name: "BMJUAOTF", size: 16)
         AddTodoListTextField.delegate = self
+        
+        // starts editing right away
+        AddTodoListTextField.becomeFirstResponder()
+        let storyboard = UIStoryboard(name: "Home", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
+        
+        vc.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:))))
+        
+        
     }
 
+    @objc func handleTap(sender: UITapGestureRecognizer) {
+       print("터터ㅓ터터터")
+        sender.cancelsTouchesInView = false
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
     
 //    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        print("터치")
 //        guard let text = AddTodoListTextField.text else {return}
+//        
 //        if text != "" {
 //            saveToRealm(text)
 //        }
@@ -67,5 +84,24 @@ class AddTodoListTableViewCell: UITableViewCell, UITextFieldDelegate {
         realm.add(newTodoList)
         try! realm.commitWrite()
         newListDelegate?.MakeNewTodoListDelegate()
+    }
+    
+    func setKeyboardEvent() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisappear(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc func keyboardWillAppear(_ sender: NotificationCenter) {
+        print("입력")
+        let storyboard = UIStoryboard(name: "Home", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
+        vc.view.frame.origin.y -= 150
+    }
+    
+    @objc func keyboardWillDisappear(_ sender: NotificationCenter) {
+        print("철회")
+        let storyboard = UIStoryboard(name: "Home", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
+        vc.view.frame.origin.y += 150
     }
 }

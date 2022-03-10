@@ -27,7 +27,7 @@
                         <color key="backgroundColor" red="0.23137254901960785" green="0.20000000000000001" blue="0.18431372549019609" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle_image" translatesAutoresizingMaskIntoConstraints="NO" id="0SM-fG-mcb">
-                        <rect key="frame" x="186.5" y="172" width="24" height="24"/>
+                        <rect key="frame" x="186.5" y="170" width="24" height="24"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="0SM-fG-mcb" secondAttribute="height" id="FNU-Rq-A4H"/>
                         </constraints>
@@ -38,7 +38,7 @@
             <constraints>
                 <constraint firstItem="cUw-5u-2cU" firstAttribute="top" secondItem="4wI-OY-wuo" secondAttribute="bottom" constant="1" id="7mL-4e-XVg"/>
                 <constraint firstItem="cUw-5u-2cU" firstAttribute="height" secondItem="4wI-OY-wuo" secondAttribute="height" multiplier="0.12" id="CVd-dm-JIW"/>
-                <constraint firstItem="4wI-OY-wuo" firstAttribute="top" secondItem="0SM-fG-mcb" secondAttribute="bottom" constant="1" id="Lxl-P9-YBF"/>
+                <constraint firstItem="4wI-OY-wuo" firstAttribute="top" secondItem="0SM-fG-mcb" secondAttribute="bottom" constant="3" id="Lxl-P9-YBF"/>
                 <constraint firstItem="cUw-5u-2cU" firstAttribute="trailing" secondItem="4wI-OY-wuo" secondAttribute="trailing" id="Rbh-1b-Hej"/>
                 <constraint firstItem="4wI-OY-wuo" firstAttribute="centerY" secondItem="ZTg-uK-7eu" secondAttribute="centerY" id="hp0-dG-c8B"/>
                 <constraint firstItem="0SM-fG-mcb" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" multiplier="0.06" id="kcs-Nx-47v"/>

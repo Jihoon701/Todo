@@ -24,8 +24,6 @@ class EditTodoListViewController: UIViewController {
     override func viewDidLoad() {
         TodoListContentTextField.text = TodoListContentText
         TodoListContentTextField.font = UIFont(name: "BMJUAOTF", size: 13)
-        TodoListContentTextField.font = UIFont(name: "BMJUAOTF", size: 13)
-        TodoListContentTextField.font = UIFont(name: "BMJUAOTF", size: 13)
         self.view.layer.cornerRadius = 15
         EmphasisSwitch.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
         AlarmSwitch.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
