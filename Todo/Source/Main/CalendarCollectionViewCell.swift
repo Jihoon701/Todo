@@ -8,7 +8,7 @@
 import UIKit
 
 class CalendarCollectionViewCell: UICollectionViewCell {
-
+    
     @IBOutlet weak var UnderLineView: UIView!
     @IBOutlet weak var DateLabel: UILabel!
     @IBOutlet weak var CircleImageView: UIImageView!
@@ -42,6 +42,4 @@ class CalendarCollectionViewCell: UICollectionViewCell {
         CircleImageView.isHidden = true
         UnderLineView.isHidden = true
     }
-    
-
 }

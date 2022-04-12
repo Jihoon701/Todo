@@ -9,7 +9,7 @@ import UIKit
 import RealmSwift
 
 class MainViewController: UIViewController {
-
+    
     @IBOutlet weak var DateLabel: UILabel!
     @IBOutlet weak var CalendarCollectionView: UICollectionView!
     @IBOutlet weak var CalendarCollectionViewHeight: NSLayoutConstraint!
@@ -21,17 +21,17 @@ class MainViewController: UIViewController {
     @IBOutlet weak var GraphImageView: UIImageView!
     @IBOutlet weak var TodoListTableView: UITableView!
     @IBOutlet weak var TodoListTableViewHeight: NSLayoutConstraint!
-    @IBOutlet weak var TodoScrollView: UIScrollView!
     @IBOutlet weak var TodoResultLabel: UILabel!
     
     let realm = try! Realm()
     var todoLists = [TodoList]()
     var list: Results<TodoList>!
     var realmNotificationToken: NotificationToken?
-
+    var todoListTableViewNotificationToken: NotificationToken?
+    
     //MARK: Check if this var is essential
     var currentHomeDate: String = "0000.00"
-
+    
     let now = Date()
     var cal = Calendar.current
     let dateFormatter = DateFormatter()
@@ -76,7 +76,6 @@ class MainViewController: UIViewController {
         calendarMonth = Int(currentComponents.month!)
         calendarDay = Int(currentComponents.day!)
         selectedDate = "\(calendarYear)/\(calendarMonth)/\(calendarDay)"
-        print("호호호호호",selectedDate)
         self.calculation()
     }
     
@@ -193,7 +192,7 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         self.initView()
-
+        
         //MARK: 밑에 코드 구현 안해도 됨 - 확인
         //MARK: 필터 적용시 cell 개수도 다시 확인
         list = realm.objects(TodoList.self).filter("date == %@", selectedDate).sorted(byKeyPath: "order", ascending: true)
@@ -201,7 +200,7 @@ class MainViewController: UIViewController {
         
         TodoResultLabel.font = UIFont(name: "BMJUAOTF", size: 16)
         TodoStatLine()
- 
+        
         print("ㅎㅎㅎ", currentHomeDate)
         let menuImageTapGesture = UITapGestureRecognizer(target: self, action: #selector(TodoMenu))
         let calendarImageTapGesture = UITapGestureRecognizer(target: self, action: #selector(ChangeCalendarType))
@@ -244,9 +243,11 @@ class MainViewController: UIViewController {
         realmNotificationToken = realm.observe { (notification, realm) in
             self.TodoListTableView.reloadData()
             // check this function
-            // 이 함수 호출하면 셀렉된 날짜 갔다가 다시 오늘 날짜로 돌아옴 
+            // 이 함수 호출하면 셀렉된 날짜 갔다가 다시 오늘 날짜로 돌아옴
 //            self.TodoStatLine()
         }
+        
+        //        todoListTableViewNotificationToken = TodoListTableView.obse
         super.viewDidLoad()
     }
     
@@ -281,21 +282,21 @@ class MainViewController: UIViewController {
             view.setNeedsLayout()
         }
         list = realm.objects(TodoList.self).filter("date == %@", selectedDate).sorted(byKeyPath: "order", ascending: true)
-        TodoListTableView.reloadData {
-            self.TodoScrollView.setContentOffset(CGPoint.zero, animated: true)
-        }
+        TodoListTableView.reloadData()
     }
     
     @objc func AddTodoList() {
+        print("시작가가가")
         checkAddingList = true
         TodoListTableView.reloadData()
+        TodoListTableView.scrollToBottom()
     }
     
     @objc func TodoMenu() {
         let storyboard = UIStoryboard(name: "Home", bundle: nil)
         let sideMenuViewController = storyboard.instantiateViewController(withIdentifier: "SideMenuViewController") as! SideMenuViewController
         let menu = SideMenuNavigation(rootViewController: sideMenuViewController)
-   
+        
         present(menu, animated: true, completion: nil)
     }
     
@@ -312,9 +313,7 @@ class MainViewController: UIViewController {
         calculation()
         CalendarCollectionView.reloadData()
         list = realm.objects(TodoList.self).filter("date == %@", selectedDate).sorted(byKeyPath: "order", ascending: true)
-        TodoListTableView.reloadData {
-            self.TodoScrollView.setContentOffset(CGPoint.zero, animated: true)
-        }
+        TodoListTableView.reloadData()
         CalendarCollectionViewHeight.constant = CalendarCollectionView.collectionViewLayout.collectionViewContentSize.height
         view.setNeedsLayout()
     }
@@ -326,9 +325,7 @@ class MainViewController: UIViewController {
         calculation()
         CalendarCollectionView.reloadData()
         list = realm.objects(TodoList.self).filter("date == %@", selectedDate).sorted(byKeyPath: "order", ascending: true)
-        TodoListTableView.reloadData {
-            self.TodoScrollView.setContentOffset(CGPoint.zero, animated: true)
-        }
+        TodoListTableView.reloadData()
         CalendarCollectionViewHeight.constant = CalendarCollectionView.collectionViewLayout.collectionViewContentSize.height
         view.setNeedsLayout()
     }
@@ -430,11 +427,9 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = CalendarCollectionView.dequeueReusableCell(withReuseIdentifier: "CalendarCollectionViewCell", for: indexPath) as! CalendarCollectionViewCell
         selectedDate = "\(calendarYear)/\(calendarMonth)/\(daysInMonthType[indexPath.item])"
-        TodoListTableView.reloadData {
-            self.TodoScrollView.setContentOffset(CGPoint.zero, animated: true)
-//            self.TodoStatLine()
-        }
-//        TodoStatLine()
+        TodoListTableView.reloadData()
+        //        self.TodoStatLine()
+        //MARK: result label 안됨
         cell.isSelected = true
     }
 }
@@ -471,6 +466,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource, UITabl
             let addCell = TodoListTableView.dequeueReusableCell(withIdentifier: "AddTodoListTableViewCell", for: indexPath) as! AddTodoListTableViewCell
             let tempDateArray = selectedDate.components(separatedBy: "/")
             addCell.AddTodoListTextField.text = ""
+            addCell.AddTodoListTextField.becomeFirstResponder()
             addCell.date = selectedDate
             addCell.order = list.count
             addCell.id = Constant.todoPrimaryKey
@@ -479,6 +475,8 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource, UITabl
             tempSelectedDate = tempDateArray[tempDateArray.count-1]
             //check if right
             checkAddingList = false
+            print("시험적 운행")
+//            self.TodoStatLine()
             return addCell
         }
         
@@ -497,7 +495,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource, UITabl
         let cellWidth = TodoListTableView.frame.width * 1/9
         return cellWidth
     }
-
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if (tableView.cellForRow(at: indexPath) as? TodoListTableViewCell) != nil {
             guard let vc = self.storyboard!.instantiateViewController(withIdentifier: "EditTodoListBackgroundViewController") as? EditTodoListBackgroundViewController else {return}
@@ -574,7 +572,7 @@ extension MainViewController: NewTodoListDelegate, DeleteCellDelegate, EditVCDel
         list = realm.objects(TodoList.self).filter("date == %@", selectedDate).sorted(byKeyPath: "order", ascending: true)
         print("v파파 \(list.count)")
         addTodoListCalendarCheck = true
-//        CalendarCollectionView.reloadSections(IndexSet(1...1))
+        //        CalendarCollectionView.reloadSections(IndexSet(1...1))
         CalendarCollectionView.reloadData()
     }
     

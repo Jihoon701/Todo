@@ -12,14 +12,14 @@ protocol EditVCDelegate: AnyObject {
 }
 
 class EditTodoListBackgroundViewController: UIViewController {
-
+    
     @IBOutlet weak var BackgroundView: UIView!
     weak var vcDelegate: EditVCDelegate?
     var TodoListContentBackground = ""
     var TodoListIdBackground = 0
     var TodoListIdStartIndex = 0
     var selfValue: MainViewController? = nil
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let backgroundTapGesture = UITapGestureRecognizer(target: self, action: #selector(Dismiss))

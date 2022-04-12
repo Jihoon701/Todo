@@ -9,19 +9,19 @@ import UIKit
 import RealmSwift
 
 class TodoListTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var CheckboxImageView: UIImageView!
     @IBOutlet weak var TodoListLabel: UILabel!
     private let realm = try! Realm()
     var todoLists = [TodoList]()
     var todoList = TodoList()
     var todoListConent = ""
-
+    
     var todolistDone = false
     var listCount = 0
-
+    
     override func awakeFromNib() {
-        TodoListLabel.font = UIFont(name: "BMJUAOTF", size: 16)
+        TodoListLabel.font = UIFont(name: "BMJUAOTF", size: 14)
         let checkboxTapGesture = UITapGestureRecognizer(target: self, action: #selector(PressCheckbox))
         CheckboxImageView.addGestureRecognizer(checkboxTapGesture)
         CheckboxImageView.isUserInteractionEnabled = true
@@ -51,7 +51,7 @@ class TodoListTableViewCell: UITableViewCell {
             TodoListLabel.attributedText = strikethroughlineAttributedString
         }
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }

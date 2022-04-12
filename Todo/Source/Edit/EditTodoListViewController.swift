@@ -14,7 +14,7 @@ protocol DeleteCellDelegate: AnyObject {
 }
 
 class EditTodoListViewController: UIViewController {
- 
+    
     weak var deleteDelegate: DeleteCellDelegate?
     var TodoListContentText = ""
     var TodoListId = 0
@@ -36,13 +36,13 @@ class EditTodoListViewController: UIViewController {
     }
     
     @IBAction func SaveEditedTodoList(_ sender: Any) {
-//        let editedTodoList = TodoList()
-//        editedTodoList.todoContent = TodoListContentTextField.text ?? ""
-//        editedTodoList.id = TodoListId
-//
-//        try! realm.write {
-//            realm.add(editedTodoList, update: .modified)
-//        }
+        //        let editedTodoList = TodoList()
+        //        editedTodoList.todoContent = TodoListContentTextField.text ?? ""
+        //        editedTodoList.id = TodoListId
+        //
+        //        try! realm.write {
+        //            realm.add(editedTodoList, update: .modified)
+        //        }
         try! realm.write {
             realm.create(TodoList.self, value: ["id": TodoListId, "todoContent": TodoListContentTextField.text ?? ""], update: .modified)
         }
@@ -60,9 +60,9 @@ class EditTodoListViewController: UIViewController {
     
     @IBAction func AlarmSwitchTapped(_ sender: Any) {
         if AlarmSwitch.isOn {
-//            try! realm.write {
-//                realm.create(TodoList.self, value: ["id": TodoListId, "alarm": false], update: .modified)
-//            }
+            //            try! realm.write {
+            //                realm.create(TodoList.self, value: ["id": TodoListId, "alarm": false], update: .modified)
+            //            }
             try! realm.write {
                 realm.create(TodoList.self, value: ["id": TodoListId, "alarm": true], update: .modified)
             }
@@ -73,15 +73,15 @@ class EditTodoListViewController: UIViewController {
             try! realm.write {
                 realm.create(TodoList.self, value: ["id": TodoListId, "alarm": false], update: .modified)
             }
-//            try! realm.write {
-//                realm.create(TodoList.self, value: ["id": TodoListId, "alarm": true], update: .modified)
-//            }
-//            requestAuthNoti()
-//            requestSendNoti()
-      
+            //            try! realm.write {
+            //                realm.create(TodoList.self, value: ["id": TodoListId, "alarm": true], update: .modified)
+            //            }
+            //            requestAuthNoti()
+            //            requestSendNoti()
+            
         }
         print("하하")
-//        dismiss(animated: true, completion: nil)
+        //        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func DeleteTodoList(_ sender: Any) {
@@ -114,8 +114,8 @@ class EditTodoListViewController: UIViewController {
         datComp.minute = 50
         
         
-//        let trigger = UNCalendarNotificationTrigger(dateMatching: datComp, repeats: true)
-
+        //        let trigger = UNCalendarNotificationTrigger(dateMatching: datComp, repeats: true)
+        
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: true)
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: notiContent, trigger: trigger)
         UNUserNotificationCenter.current().add(request) { (error) in
@@ -126,6 +126,6 @@ class EditTodoListViewController: UIViewController {
 
 extension EditTodoListViewController: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-          completionHandler([.alert, .badge, .sound])
-      }
+        completionHandler([.alert, .badge, .sound])
+    }
 }

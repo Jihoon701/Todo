@@ -25,21 +25,18 @@ class AddTodoListTableViewCell: UITableViewCell, UITextFieldDelegate {
     override func awakeFromNib() {
         super.awakeFromNib()
         setKeyboardEvent()
-        AddTodoListTextField.font = UIFont(name: "BMJUAOTF", size: 16)
+        AddTodoListTextField.font = UIFont(name: "BMJUAOTF", size: 14)
         AddTodoListTextField.delegate = self
         
-        // starts editing right away
-        AddTodoListTextField.becomeFirstResponder()
         let storyboard = UIStoryboard(name: "Home", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
         
         vc.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:))))
         
-        
     }
-
+    
     @objc func handleTap(sender: UITapGestureRecognizer) {
-       print("터터ㅓ터터터")
+        print("터터ㅓ터터터")
         sender.cancelsTouchesInView = false
     }
     
@@ -47,23 +44,23 @@ class AddTodoListTableViewCell: UITableViewCell, UITextFieldDelegate {
         super.setSelected(selected, animated: animated)
     }
     
-//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        print("터치")
-//        guard let text = AddTodoListTextField.text else {return}
-//        
-//        if text != "" {
-//            saveToRealm(text)
-//        }
-//        else {
-//            newListDelegate?.RevokeAddCellDelegate()
-//        }
-//     }
+    //    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    //        print("터치")
+    //        guard let text = AddTodoListTextField.text else {return}
+    //
+    //        if text != "" {
+    //            saveToRealm(text)
+    //        }
+    //        else {
+    //            newListDelegate?.RevokeAddCellDelegate()
+    //        }
+    //     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
-
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
         guard let text = AddTodoListTextField.text else {return}
         if text != "" {
