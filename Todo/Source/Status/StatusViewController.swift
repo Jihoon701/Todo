@@ -20,9 +20,6 @@ class StatusViewController: UIViewController {
         TitleLabel.font = UIFont(name: "BMJUAOTF", size: 20)
         SearchView.layer.cornerRadius = 18
         SearchTextField.layer.cornerRadius = 10
-//        let textFieldColor = #colorLiteral(red: 0.3490196078, green: 0.2666666667, blue: 0.8588235294, alpha: 1)
-//        SearchTextField.layer.borderColor = textFieldColor.cgColor
-//        SearchTextField.layer.borderWidth = 2
         SearchTextField.font = UIFont(name: "BMJUAOTF", size: 14)
         
         SearchTextField.textColor = UIColor.darkGray
