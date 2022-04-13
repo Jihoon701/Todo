@@ -51,6 +51,7 @@ class MainViewController: UIViewController {
     
     var selectedDate = ""
     var tempSelectedDate = ""
+    var currentTempDate = ""
     var calendarMonth = 0
     var calendarYear = 0
     var calendarDay = 0
@@ -76,6 +77,8 @@ class MainViewController: UIViewController {
         calendarMonth = Int(currentComponents.month!)
         calendarDay = Int(currentComponents.day!)
         selectedDate = "\(calendarYear)/\(calendarMonth)/\(calendarDay)"
+        currentTempDate = "\(calendarYear)/\(calendarMonth)/\(calendarDay)"
+        print("여기서는 -> \(selectedDate)")
         self.calculation()
     }
     
@@ -103,6 +106,8 @@ class MainViewController: UIViewController {
         daysInWeekType = weekCalendarCalculaton(weekday: currentWeekday, prevMonthDaysCount: daysCountInPrevMonth, currentMonthDaysCount: daysCountInMonth, nextMonthDaysCount: daysCountInNextMonth).map { String($0) }
         
         print(weekCalendarCalculaton(weekday: currentWeekday, prevMonthDaysCount: daysCountInPrevMonth, currentMonthDaysCount: daysCountInMonth, nextMonthDaysCount: daysCountInNextMonth))
+        
+        print("zigkgk ==== \(daysInWeekType)")
         
         self.daysInMonthType.removeAll()
         for day in weekdayAdding...daysCountInMonth {
@@ -244,7 +249,7 @@ class MainViewController: UIViewController {
             self.TodoListTableView.reloadData()
             // check this function
             // 이 함수 호출하면 셀렉된 날짜 갔다가 다시 오늘 날짜로 돌아옴
-//            self.TodoStatLine()
+            //            self.TodoStatLine()
         }
         
         //        todoListTableViewNotificationToken = TodoListTableView.obse
@@ -281,12 +286,18 @@ class MainViewController: UIViewController {
             CalendarCollectionViewHeight.constant = CalendarCollectionView.collectionViewLayout.collectionViewContentSize.height
             view.setNeedsLayout()
         }
-        list = realm.objects(TodoList.self).filter("date == %@", selectedDate).sorted(byKeyPath: "order", ascending: true)
+//        selectedDate = "\(calendarYear)/\(calendarMonth)/\(daysInMonthType[indexPath.item])"
+//        TodoListTableView.reloadData()
+        
+//        print("캘ㄹ린더타입 확인하자")
+//        selectedDate = currentTempDate
+//        print(selectedDate)
+        
+//        list = realm.objects(TodoList.self).filter("date == %@", selectedDate).sorted(byKeyPath: "order", ascending: true)
         TodoListTableView.reloadData()
     }
     
     @objc func AddTodoList() {
-        print("시작가가가")
         checkAddingList = true
         TodoListTableView.reloadData()
         TodoListTableView.scrollToBottom()
@@ -364,9 +375,11 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let cell = CalendarCollectionView.dequeueReusableCell(withReuseIdentifier: "CalendarCollectionViewCell", for: indexPath) as! CalendarCollectionViewCell
         cell.DateLabel.font = UIFont(name: "BMJUAOTF", size: 14)
         cell.listExist = false
+        // 현재 날짜 위에 circleImage 표시
         cell.CircleImageView.isHidden = true
         
         switch indexPath.section {
+            // 일 월 화 수 목 금 토
         case 0:
             cell.isUserInteractionEnabled = false
             cell.DateLabel.text = weeks[indexPath.item]
@@ -383,32 +396,49 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             let currentDateFormatter = DateFormatter()
             currentDateFormatter.dateFormat = "d"
             
+            // 오늘 날짜 있으면 현재 날짜 위에 circleImage
             if currentDate && cell.DateLabel.text == currentDateFormatter.string(from: Date()) {
                 cell.CircleImageView.isHidden = false
             }
             
-            if addTodoListCalendarCheck && cell.DateLabel.text == tempSelectedDate {
-                CalendarCollectionView.selectItem(at: indexPath, animated: false, scrollPosition: .centeredVertically)
-                selectedDate = "\(calendarYear)/\(calendarMonth)/\(daysInMonthType[indexPath.item])"
+            // Week 타입일 때 날짜 select
+            if Constant.calendarWeekTypeCheck! {
+                if cell.DateLabel.text == currentDateFormatter.string(from: Date()) {
+                    CalendarCollectionView.selectItem(at: indexPath, animated: false, scrollPosition: .centeredVertically)
+                    selectedDate = "\(calendarYear)/\(calendarMonth)/\(daysInWeekType[indexPath.item])"
+                    print(selectedDate)
+                    TodoListTableView.reloadData()
+                }
+                else {
+                    cell.isSelected = false
+                    cell.DateLabel.textColor = UIColor.black
+                }
             }
-            // 오늘 날짜가 있으면 해당 날짜 select
-            else if !addTodoListCalendarCheck && currentDate && cell.DateLabel.text == currentDateFormatter.string(from: Date()) {
-                cell.CircleImageView.isHidden = false
-                CalendarCollectionView.selectItem(at: indexPath, animated: false, scrollPosition: .centeredVertically)
-                selectedDate = "\(calendarYear)/\(calendarMonth)/\(daysInMonthType[indexPath.item])"
-                TodoListTableView.reloadData()
-            }
-            // 없으면 첫째날 select
-            else if !addTodoListCalendarCheck && cell.DateLabel.text == "1" {
-                CalendarCollectionView.selectItem(at: indexPath, animated: false, scrollPosition: .centeredVertically)
-                selectedDate = "\(calendarYear)/\(calendarMonth)/\(daysInMonthType[indexPath.item])"
-                TodoListTableView.reloadData()
-            }
+            // Month 타입일 때 날짜 select
             else {
-                cell.isSelected = false
-                cell.DateLabel.textColor = UIColor.black
+                if addTodoListCalendarCheck && cell.DateLabel.text == tempSelectedDate {
+                    CalendarCollectionView.selectItem(at: indexPath, animated: false, scrollPosition: .centeredVertically)
+                    selectedDate = "\(calendarYear)/\(calendarMonth)/\(daysInMonthType[indexPath.item])"
+                }
+                // 오늘 날짜가 있으면 해당 날짜 select
+                else if !addTodoListCalendarCheck && currentDate && cell.DateLabel.text == currentDateFormatter.string(from: Date()) {
+                    CalendarCollectionView.selectItem(at: indexPath, animated: false, scrollPosition: .centeredVertically)
+                    selectedDate = "\(calendarYear)/\(calendarMonth)/\(daysInMonthType[indexPath.item])"
+                    TodoListTableView.reloadData()
+                }
+                // 없으면 첫째날 select
+                else if !addTodoListCalendarCheck && cell.DateLabel.text == "1" {
+                    CalendarCollectionView.selectItem(at: indexPath, animated: false, scrollPosition: .centeredVertically)
+                    selectedDate = "\(calendarYear)/\(calendarMonth)/\(daysInMonthType[indexPath.item])"
+                    TodoListTableView.reloadData()
+                }
+                else {
+                    cell.isSelected = false
+                    cell.DateLabel.textColor = UIColor.black
+                }
             }
             
+            // 해당 날짜에 투두리스트 존재 유무 판단
             let existingDate = "\(calendarYear)/\(calendarMonth)/\(cell.DateLabel.text!)"
             if (realm.objects(TodoList.self).filter("date == %@", existingDate).count > 0 && indexPath.section == 1){
                 cell.listExist = true
@@ -426,7 +456,14 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = CalendarCollectionView.dequeueReusableCell(withReuseIdentifier: "CalendarCollectionViewCell", for: indexPath) as! CalendarCollectionViewCell
-        selectedDate = "\(calendarYear)/\(calendarMonth)/\(daysInMonthType[indexPath.item])"
+        if Constant.calendarWeekTypeCheck! {
+            selectedDate = "\(calendarYear)/\(calendarMonth)/\(daysInWeekType[indexPath.item])"
+        }
+        else {
+            selectedDate = "\(calendarYear)/\(calendarMonth)/\(daysInMonthType[indexPath.item])"
+        }
+        
+        print("부부젤라 ----> \(indexPath.item)     \(selectedDate)")
         TodoListTableView.reloadData()
         //        self.TodoStatLine()
         //MARK: result label 안됨
@@ -476,18 +513,28 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource, UITabl
             //check if right
             checkAddingList = false
             print("시험적 운행")
-//            self.TodoStatLine()
+            //            self.TodoStatLine()
             return addCell
         }
         
         let listCell = TodoListTableView.dequeueReusableCell(withIdentifier: "TodoListTableViewCell", for: indexPath) as! TodoListTableViewCell
+        print("ITS OK => \(selectedDate)")
         list = realm.objects(TodoList.self).filter("date == %@", selectedDate).sorted(byKeyPath: "order", ascending: true)
-        listCell.todoListConent = list[indexPath.row].todoContent
+        listCell.todoListContent = list[indexPath.row].todoContent
         listCell.todolistDone = list[indexPath.row].checkbox
         listCell.selectionStyle = .none
         listCell.listCount = list.count
         listCell.todoList = list[indexPath.row]
+        listCell.todoId = list[indexPath.row].id
         listCell.TodoListLabel.text = list[indexPath.row].todoContent
+        listCell.emphasisCheck = list[indexPath.row].emphasis
+        
+        if listCell.emphasisCheck {
+            listCell.FireImageView.isHidden = false
+        }
+        else {
+            listCell.FireImageView.isHidden = true
+        }
         return listCell
     }
     
@@ -504,6 +551,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource, UITabl
             vc.selfValue = self
             vc.TodoListContentBackground = list[indexPath.row].todoContent
             vc.TodoListIdBackground = list[indexPath.row].id
+            vc.TodoListIdEmphasis = list[indexPath.row].emphasis
             vc.modalPresentationStyle = .overCurrentContext
             vc.modalTransitionStyle = .crossDissolve
             vc.view.backgroundColor = .black.withAlphaComponent(0.7)

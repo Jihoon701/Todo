@@ -18,6 +18,7 @@ class EditTodoListBackgroundViewController: UIViewController {
     var TodoListContentBackground = ""
     var TodoListIdBackground = 0
     var TodoListIdStartIndex = 0
+    var TodoListIdEmphasis = false
     var selfValue: MainViewController? = nil
     
     override func viewDidLoad() {
@@ -33,8 +34,9 @@ class EditTodoListBackgroundViewController: UIViewController {
             vcDelegate?.DelegateEditVC()
             let containerVC = segue.destination as! EditTodoListViewController
             containerVC.deleteDelegate = selfValue
-            containerVC.TodoListContentText = TodoListContentBackground
-            containerVC.TodoListId = TodoListIdBackground
+            containerVC.todoListContentText = TodoListContentBackground
+            containerVC.emphasisValue = TodoListIdEmphasis
+            containerVC.todoListId = TodoListIdBackground
         }
     }
     

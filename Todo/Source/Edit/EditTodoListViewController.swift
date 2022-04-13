@@ -16,18 +16,27 @@ protocol DeleteCellDelegate: AnyObject {
 class EditTodoListViewController: UIViewController {
     
     weak var deleteDelegate: DeleteCellDelegate?
-    var TodoListContentText = ""
-    var TodoListId = 0
-    var TodoListOrder = 0
-    var TodoListCellCount = 0
+    var todoListContentText = ""
+    var todoListId = 0
+    var todoListOrder = 0
+    var todoListCellCount = 0
+    var emphasisValue = false
     
     override func viewDidLoad() {
-        TodoListContentTextField.text = TodoListContentText
+        TodoListContentTextField.text = todoListContentText
         TodoListContentTextField.font = UIFont(name: "BMJUAOTF", size: 13)
         self.view.layer.cornerRadius = 15
         EmphasisSwitch.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
         AlarmSwitch.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
         UNUserNotificationCenter.current().delegate = self
+        
+        if emphasisValue {
+            EmphasisSwitch.setOn(true, animated: false)
+        }
+        else {
+            EmphasisSwitch.setOn(false, animated: false)
+        }
+        
         super.viewDidLoad()
     }
     
@@ -44,7 +53,7 @@ class EditTodoListViewController: UIViewController {
         //            realm.add(editedTodoList, update: .modified)
         //        }
         try! realm.write {
-            realm.create(TodoList.self, value: ["id": TodoListId, "todoContent": TodoListContentTextField.text ?? ""], update: .modified)
+            realm.create(TodoList.self, value: ["id": todoListId, "todoContent": TodoListContentTextField.text ?? "", "emphasis": emphasisValue], update: .modified)
         }
         dismiss(animated: true, completion: nil)
     }
@@ -54,8 +63,16 @@ class EditTodoListViewController: UIViewController {
     @IBOutlet weak var AlarmSwitch: UISwitch!
     private let realm = try! Realm()
     
+    //    emphasisCheck
     @IBAction func EmphasisSwitchTapped(_ sender: Any) {
-        
+        if EmphasisSwitch.isOn {
+            print("ON")
+            emphasisValue = true
+        }
+        else {
+            print("OFF")
+            emphasisValue = false
+        }
     }
     
     @IBAction func AlarmSwitchTapped(_ sender: Any) {
@@ -64,14 +81,14 @@ class EditTodoListViewController: UIViewController {
             //                realm.create(TodoList.self, value: ["id": TodoListId, "alarm": false], update: .modified)
             //            }
             try! realm.write {
-                realm.create(TodoList.self, value: ["id": TodoListId, "alarm": true], update: .modified)
+                realm.create(TodoList.self, value: ["id": todoListId, "alarm": true], update: .modified)
             }
             requestAuthNoti()
             requestSendNoti()
         }
         else {
             try! realm.write {
-                realm.create(TodoList.self, value: ["id": TodoListId, "alarm": false], update: .modified)
+                realm.create(TodoList.self, value: ["id": todoListId, "alarm": false], update: .modified)
             }
             //            try! realm.write {
             //                realm.create(TodoList.self, value: ["id": TodoListId, "alarm": true], update: .modified)
@@ -85,11 +102,11 @@ class EditTodoListViewController: UIViewController {
     }
     
     @IBAction func DeleteTodoList(_ sender: Any) {
-        let TodoListToDelete = realm.objects(TodoList.self).filter("id == \(TodoListId)")
+        let TodoListToDelete = realm.objects(TodoList.self).filter("id == \(todoListId)")
         try! realm.write {
             realm.delete(TodoListToDelete)
         }
-        print(TodoListCellCount)
+        print(todoListCellCount)
         deleteDelegate?.ReorderDeletedList()
         dismiss(animated: true, completion: nil)
     }

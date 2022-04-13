@@ -23,16 +23,23 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G0R-Yu-gpH">
-                        <rect key="frame" x="69" y="8.5" width="401" height="69"/>
+                        <rect key="frame" x="69" y="8.5" width="371.5" height="69"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fire_image" translatesAutoresizingMaskIntoConstraints="NO" id="JLf-xh-XBD">
+                        <rect key="frame" x="450.5" y="31" width="24.5" height="24.5"/>
+                        <color key="tintColor" red="0.63529411759999999" green="0.2156862745" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="JLf-xh-XBD" secondAttribute="height" id="JIn-G4-BQ8"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="G0R-Yu-gpH" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="5B9-q7-WQc"/>
                     <constraint firstItem="sKW-CG-sLk" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.08" id="90m-8L-kNd"/>
-                    <constraint firstAttribute="trailing" secondItem="G0R-Yu-gpH" secondAttribute="trailing" constant="20" id="NCB-SO-7Dz"/>
+                    <constraint firstItem="JLf-xh-XBD" firstAttribute="leading" secondItem="G0R-Yu-gpH" secondAttribute="trailing" constant="10" id="AZI-AS-dyb"/>
                     <constraint firstItem="sKW-CG-sLk" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="QOs-wl-1iy"/>
                     <constraint firstItem="sKW-CG-sLk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="cVQ-HJ-jpK"/>
                     <constraint firstItem="G0R-Yu-gpH" firstAttribute="leading" secondItem="sKW-CG-sLk" secondAttribute="trailing" constant="10" id="tYH-rZ-UkI"/>
@@ -41,8 +48,14 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="njF-e1-oar" firstAttribute="trailing" secondItem="JLf-xh-XBD" secondAttribute="trailing" constant="15" id="5li-jK-Zqa"/>
+                <constraint firstItem="JLf-xh-XBD" firstAttribute="centerY" secondItem="njF-e1-oar" secondAttribute="centerY" id="6Z6-dN-pRE"/>
+                <constraint firstItem="JLf-xh-XBD" firstAttribute="width" secondItem="KGk-i7-Jjw" secondAttribute="width" multiplier="0.05" id="xnK-hm-NIz"/>
+            </constraints>
             <connections>
                 <outlet property="CheckboxImageView" destination="sKW-CG-sLk" id="Fa4-qN-gEo"/>
+                <outlet property="FireImageView" destination="JLf-xh-XBD" id="Ezf-Tj-fUH"/>
                 <outlet property="TodoListLabel" destination="G0R-Yu-gpH" id="V1h-a4-e2F"/>
             </connections>
             <point key="canvasLocation" x="255.07246376811597" y="99.776785714285708"/>
@@ -50,5 +63,6 @@
     </objects>
     <resources>
         <image name="emptybox_image" width="341" height="341"/>
+        <image name="fire_image" width="341" height="341"/>
     </resources>
 </document>

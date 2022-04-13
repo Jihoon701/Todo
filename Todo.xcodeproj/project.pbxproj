@@ -22,11 +22,11 @@
 		E9235D562794176E00C73737 /* AddTodoListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9235D542794176E00C73737 /* AddTodoListTableViewCell.swift */; };
 		E9235D572794176E00C73737 /* AddTodoListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9235D552794176E00C73737 /* AddTodoListTableViewCell.xib */; };
 		E9235D5A27947A5700C73737 /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9235D5927947A5700C73737 /* StatusViewController.swift */; };
-		E92E2D762794F33C0086E462 /* YearlyStatusCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92E2D752794F33C0086E462 /* YearlyStatusCollectionViewCell.swift */; };
 		E92E2D7827953FF40086E462 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9235C9A278EAA2300C73737 /* Home.storyboard */; };
 		E92E2D7B2795416B0086E462 /* EditTodoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92E2D7A2795416B0086E462 /* EditTodoListViewController.swift */; };
 		E92E2D7D279671FF0086E462 /* EditTodoListBackgroundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92E2D7C279671FF0086E462 /* EditTodoListBackgroundViewController.swift */; };
 		E93CDFDE27B2332C00F51899 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93CDFDD27B2332C00F51899 /* UITableView.swift */; };
+		E9584F9428066F3B00651C20 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9584F9328066F3B00651C20 /* UITextField.swift */; };
 		E984871727D6DC8B00FF7B21 /* BM JUA_otf.otf in Resources */ = {isa = PBXBuildFile; fileRef = E984871627D6DC8B00FF7B21 /* BM JUA_otf.otf */; };
 		E984872827D984C200FF7B21 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E984872727D984C200FF7B21 /* SideMenuViewController.swift */; };
 		E984872A27D985F800FF7B21 /* SideMenuNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E984872927D985F800FF7B21 /* SideMenuNavigation.swift */; };
@@ -61,10 +61,10 @@
 		E9235D542794176E00C73737 /* AddTodoListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodoListTableViewCell.swift; sourceTree = "<group>"; };
 		E9235D552794176E00C73737 /* AddTodoListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTodoListTableViewCell.xib; sourceTree = "<group>"; };
 		E9235D5927947A5700C73737 /* StatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; };
-		E92E2D752794F33C0086E462 /* YearlyStatusCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearlyStatusCollectionViewCell.swift; sourceTree = "<group>"; };
 		E92E2D7A2795416B0086E462 /* EditTodoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTodoListViewController.swift; sourceTree = "<group>"; };
 		E92E2D7C279671FF0086E462 /* EditTodoListBackgroundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTodoListBackgroundViewController.swift; sourceTree = "<group>"; };
 		E93CDFDD27B2332C00F51899 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
+		E9584F9328066F3B00651C20 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		E984871627D6DC8B00FF7B21 /* BM JUA_otf.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BM JUA_otf.otf"; sourceTree = "<group>"; };
 		E984872727D984C200FF7B21 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		E984872927D985F800FF7B21 /* SideMenuNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuNavigation.swift; sourceTree = "<group>"; };
@@ -199,7 +199,6 @@
 			isa = PBXGroup;
 			children = (
 				E9235D5927947A5700C73737 /* StatusViewController.swift */,
-				E92E2D752794F33C0086E462 /* YearlyStatusCollectionViewCell.swift */,
 			);
 			path = Status;
 			sourceTree = "<group>";
@@ -217,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				E93CDFDD27B2332C00F51899 /* UITableView.swift */,
+				E9584F9328066F3B00651C20 /* UITextField.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -348,7 +348,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E92E2D762794F33C0086E462 /* YearlyStatusCollectionViewCell.swift in Sources */,
 				E9235CC9278EC87C00C73737 /* CalendarCollectionViewCell.swift in Sources */,
 				E9235C95278EAA2300C73737 /* AppDelegate.swift in Sources */,
 				E9235D162794083000C73737 /* TodoListTableViewCell.swift in Sources */,
@@ -360,6 +359,7 @@
 				E9235CC5278EAB9500C73737 /* MainViewController.swift in Sources */,
 				E93CDFDE27B2332C00F51899 /* UITableView.swift in Sources */,
 				E9235D5A27947A5700C73737 /* StatusViewController.swift in Sources */,
+				E9584F9428066F3B00651C20 /* UITextField.swift in Sources */,
 				E984872A27D985F800FF7B21 /* SideMenuNavigation.swift in Sources */,
 				E984872827D984C200FF7B21 /* SideMenuViewController.swift in Sources */,
 				E9235D562794176E00C73737 /* AddTodoListTableViewCell.swift in Sources */,
