@@ -9,77 +9,73 @@ import UIKit
 import RealmSwift
 
 class TodoListTableViewCell: UITableViewCell {
-    
-    @IBOutlet weak var CheckboxImageView: UIImageView!
-    @IBOutlet weak var FireImageView: UIImageView!
-    @IBOutlet weak var TodoListLabel: UILabel!
+    @IBOutlet weak var checkboxImage: UIImageView!
+    @IBOutlet weak var bookmarkImage: UIImageView!
+    @IBOutlet weak var alarmImage: UIImageView!
+    @IBOutlet weak var todoListLabel: UILabel!
     private let realm = try! Realm()
-    var todoLists = [TodoList]()
-    var todoList = TodoList()
     var todoListContent = ""
-    var emphasisCheck = false
-    var alarmCheck = false
     var todoId = 0
-    
+    var bookmarkCheck = false
     var todolistDone = false
-    var listCount = 0
     
     override func awakeFromNib() {
-        TodoListLabel.font = UIFont(name: "BMJUAOTF", size: 14)
-        let checkboxTapGesture = UITapGestureRecognizer(target: self, action: #selector(PressCheckbox))
-        CheckboxImageView.addGestureRecognizer(checkboxTapGesture)
-        CheckboxImageView.isUserInteractionEnabled = true
-        FireImageView.isHidden = true
-        todoListContent = todoList.todoContent
-        EmphasisImage()
-        
         super.awakeFromNib()
     }
     
-    //MARK: 왜 CellforRowAt에서는 되고 여기서는 안되는지 확인
-    func EmphasisImage() {
-        if emphasisCheck {
-            FireImageView.isHidden = false
+    func initTodoCell(todolistDone: Bool, todoListContent: String, bookmarkCheck: Bool, alarmCheck: Bool, todoId: Int) {
+        self.todolistDone = todolistDone
+        self.todoListContent = todoListContent
+        self.bookmarkCheck = bookmarkCheck
+        self.todoId = todoId
+        self.selectionStyle = .none
+        let checkboxTapGesture = UITapGestureRecognizer(target: self, action: #selector(PressCheckbox))
+        checkboxImage.addGestureRecognizer(checkboxTapGesture)
+        checkboxImage.isUserInteractionEnabled = true
+        todoListLabel.font = .NanumSR(.regular, size: 13)
+        
+        bookmarkImage.isHidden = !bookmarkCheck
+        alarmImage.isHidden = !alarmCheck
+        
+        if todolistDone {
+            strikeThroughTodoList()
         }
         else {
-            FireImageView.isHidden = true
+            restoreTodoList()
         }
     }
     
-    //MARK: boxchecked 반대로 구현됨
-    @objc func PressCheckbox() {
-        let emphasisColor = #colorLiteral(red: 0.6352941176, green: 0.2156862745, blue: 0.262745098, alpha: 1)
-        let checkedEmphasisColor = #colorLiteral(red: 0.2274509804, green: 0.2941176471, blue: 0.3254901961, alpha: 1)
-        
-        // todoList Done
+    @objc func PressCheckbox(todoListDone: Bool) {
         if todolistDone {
-//            try! realm.write {
-//                realm.create(TodoList.self, value: ["id": todoId, "checkbox": todolistDone], update: .modified)
-//            }
-            todolistDone = false
-            CheckboxImageView.image = UIImage(named: "emptybox_image")
-            let attributeString = NSMutableAttributedString(string: todoListContent)
-            attributeString.removeAttribute(NSAttributedString.Key.strikethroughStyle, range: NSMakeRange(0, attributeString.length))
-            TodoListLabel.attributedText = attributeString
-            FireImageView.tintColor = emphasisColor
-            print("111")
-
+            updateRealmCheckbox(id: todoId, checkbox: false)
+            restoreTodoList()
         }
-        
-        // todoList Not Done
         else {
-//            try! realm.write {
-//                realm.create(TodoList.self, value: ["id": todoId, "checkbox": todolistDone], update: .modified)
-//            }
-            todolistDone = true
-            CheckboxImageView.image = UIImage(named: "checkbox_image")
-            let strikethroughlineAttribute = [NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.thick.rawValue]
-            let strikethroughlineAttributedString = NSAttributedString(string: todoListContent, attributes: strikethroughlineAttribute)
-            TodoListLabel.attributedText = strikethroughlineAttributedString
-            FireImageView.tintColor = checkedEmphasisColor
-            print("222")
-
+            updateRealmCheckbox(id: todoId, checkbox: true)
+            strikeThroughTodoList()
         }
+    }
+    
+    func updateRealmCheckbox(id: Int, checkbox: Bool) {
+        try! realm.write {
+            realm.create(TodoList.self, value: ["id": id, "checkbox": checkbox], update: .modified)
+        }
+    }
+    
+    func strikeThroughTodoList() {
+        checkboxImage.image = UIImage(named: "checkBox")
+        let strikethroughlineAttribute = [NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.thick.rawValue]
+        let strikethroughlineAttributedString = NSAttributedString(string: todoListContent, attributes: strikethroughlineAttribute)
+        todoListLabel.attributedText = strikethroughlineAttributedString
+        bookmarkImage.image = UIImage(named: "Group 33")
+    }
+    
+    func restoreTodoList() {
+        checkboxImage.image = UIImage(named: "emptyBox")
+        let attributeString = NSMutableAttributedString(string: todoListContent)
+        attributeString.removeAttribute(NSAttributedString.Key.strikethroughStyle, range: NSMakeRange(0, attributeString.length))
+        todoListLabel.attributedText = attributeString
+        bookmarkImage.image = UIImage(named: "Group 32")
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

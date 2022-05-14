@@ -10,15 +10,14 @@ import UIKit
 
 extension UITextField {
     func setupLeftImage(imageName:String) {
-        let imageContainerView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: self.frame.height * 0.7, height: self.frame.height))
-        let imageSize = 18
-        let imageView = UIImageView(frame: CGRect(x: Int(imageContainerView.center.x) - imageSize/2 + 3, y: Int(imageContainerView.center.y) - imageSize/2, width: imageSize, height: imageSize))
-        
+        let heightSize = self.frame.height
+        let imageContainerView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: heightSize * 0.7, height: heightSize))
+        let imageView = UIImageView(frame: CGRect(x: heightSize * 0.2 , y: imageContainerView.center.y - heightSize * 0.25, width: heightSize * 0.5, height: heightSize * 0.5))
         imageView.image = UIImage(named: imageName)
         imageContainerView.addSubview(imageView)
         leftView = imageContainerView
-//        leftView?.backgroundColor = .red
         leftViewMode = .always
         self.tintColor = .gray
     }
 }
+

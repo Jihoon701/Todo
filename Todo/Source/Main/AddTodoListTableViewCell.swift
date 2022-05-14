@@ -9,66 +9,40 @@ import UIKit
 import RealmSwift
 
 protocol NewTodoListDelegate: AnyObject {
-    func MakeNewTodoListDelegate()
-    func RevokeAddCellDelegate()
+    func makeNewTodoList()
+    func revokeAddCell()
 }
 
 class AddTodoListTableViewCell: UITableViewCell, UITextFieldDelegate {
     @IBOutlet weak var AddTodoListTextField: UITextField!
     weak var newListDelegate: NewTodoListDelegate?
     private let realm = try! Realm()
-    var todoLists = [TodoList]()
     var date = ""
     var order = 0
     var id = 0
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        setKeyboardEvent()
-        AddTodoListTextField.font = UIFont(name: "BMJUAOTF", size: 14)
-        AddTodoListTextField.delegate = self
-        
-        let storyboard = UIStoryboard(name: "Home", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
-        
-        vc.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:))))
-        
     }
     
-    @objc func handleTap(sender: UITapGestureRecognizer) {
-        print("터터ㅓ터터터")
-        sender.cancelsTouchesInView = false
+    func initAddCell(date: String, order: Int, id: Int) {
+        self.date = date
+        self.order = order
+        self.id = id
+        
+        AddTodoListTextField.text = ""
+        AddTodoListTextField.font = .NanumSR(.regular, size: 13)
+        AddTodoListTextField.delegate = self
+        AddTodoListTextField.returnKeyType = .done
+        AddTodoListTextField.becomeFirstResponder()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(stopAddingCell), name: UIApplication.didEnterBackgroundNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(stopAddingCell), name: UIApplication.willResignActiveNotification, object: nil)
+        
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-    }
-    
-    //    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-    //        print("터치")
-    //        guard let text = AddTodoListTextField.text else {return}
-    //
-    //        if text != "" {
-    //            saveToRealm(text)
-    //        }
-    //        else {
-    //            newListDelegate?.RevokeAddCellDelegate()
-    //        }
-    //     }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        guard let text = AddTodoListTextField.text else {return}
-        if text != "" {
-            saveToRealm(text)
-        }
-        else {
-            newListDelegate?.RevokeAddCellDelegate()
-        }
     }
     
     func saveToRealm(_ contentText: String) {
@@ -80,25 +54,22 @@ class AddTodoListTableViewCell: UITableViewCell, UITextFieldDelegate {
         newTodoList.id = id
         realm.add(newTodoList)
         try! realm.commitWrite()
-        newListDelegate?.MakeNewTodoListDelegate()
+        newListDelegate?.makeNewTodoList()
     }
     
-    func setKeyboardEvent() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillDisappear(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        let text = AddTodoListTextField.text
+        if text != "" {
+            saveToRealm(text!)
+        }
+        else {
+            newListDelegate?.revokeAddCell()
+        }
+        return true
     }
     
-    @objc func keyboardWillAppear(_ sender: NotificationCenter) {
-        print("입력")
-        let storyboard = UIStoryboard(name: "Home", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
-        vc.view.frame.origin.y -= 150
-    }
-    
-    @objc func keyboardWillDisappear(_ sender: NotificationCenter) {
-        print("철회")
-        let storyboard = UIStoryboard(name: "Home", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
-        vc.view.frame.origin.y += 150
+    @objc func stopAddingCell() {
+        AddTodoListTextField.text = ""
+        textFieldShouldReturn(self.AddTodoListTextField)
     }
 }

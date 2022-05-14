@@ -8,6 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		A86DD6F75275A231F4D1542D /* Pods_Todo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA8CE4E1B3986BB7C5F82A60 /* Pods_Todo.framework */; };
+		E90DAF0E28165BEA001F33E4 /* AlarmSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90DAF0D28165BEA001F33E4 /* AlarmSettingViewController.swift */; };
+		E90DAF1A2816A14C001F33E4 /* DetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E90DAF192816A14C001F33E4 /* DetailTableViewCell.xib */; };
+		E90DAF1C2816A158001F33E4 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90DAF1B2816A158001F33E4 /* DetailTableViewCell.swift */; };
+		E90DAF1E2816D59A001F33E4 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90DAF1D2816D59A001F33E4 /* UILabel.swift */; };
+		E90DAF2528170376001F33E4 /* SettingDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90DAF2328170376001F33E4 /* SettingDetailTableViewCell.swift */; };
+		E90DAF2628170376001F33E4 /* SettingDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E90DAF2428170376001F33E4 /* SettingDetailTableViewCell.xib */; };
+		E90DAF282817219C001F33E4 /* DataSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90DAF272817219C001F33E4 /* DataSettingViewController.swift */; };
+		E90DAF4C281824D8001F33E4 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90DAF4B281824D7001F33E4 /* UIViewController.swift */; };
+		E920C55F282FE50A00938497 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E920C55E282FE50A00938497 /* UIButton.swift */; };
 		E9235C95278EAA2300C73737 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9235C94278EAA2300C73737 /* AppDelegate.swift */; };
 		E9235C97278EAA2300C73737 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9235C96278EAA2300C73737 /* SceneDelegate.swift */; };
 		E9235C9E278EAA2500C73737 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9235C9D278EAA2500C73737 /* Assets.xcassets */; };
@@ -21,15 +30,32 @@
 		E9235D172794083000C73737 /* TodoListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9235D152794083000C73737 /* TodoListTableViewCell.xib */; };
 		E9235D562794176E00C73737 /* AddTodoListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9235D542794176E00C73737 /* AddTodoListTableViewCell.swift */; };
 		E9235D572794176E00C73737 /* AddTodoListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9235D552794176E00C73737 /* AddTodoListTableViewCell.xib */; };
-		E9235D5A27947A5700C73737 /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9235D5927947A5700C73737 /* StatusViewController.swift */; };
 		E92E2D7827953FF40086E462 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9235C9A278EAA2300C73737 /* Home.storyboard */; };
 		E92E2D7B2795416B0086E462 /* EditTodoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92E2D7A2795416B0086E462 /* EditTodoListViewController.swift */; };
 		E92E2D7D279671FF0086E462 /* EditTodoListBackgroundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92E2D7C279671FF0086E462 /* EditTodoListBackgroundViewController.swift */; };
+		E932F49D280BB6AD00231232 /* NanumSquareRoundOTFB.otf in Resources */ = {isa = PBXBuildFile; fileRef = E932F495280BB6AD00231232 /* NanumSquareRoundOTFB.otf */; };
+		E932F49E280BB6AD00231232 /* NanumSquareRoundOTFR.otf in Resources */ = {isa = PBXBuildFile; fileRef = E932F496280BB6AD00231232 /* NanumSquareRoundOTFR.otf */; };
+		E932F4A0280BB6AD00231232 /* NanumSquareRoundOTFL.otf in Resources */ = {isa = PBXBuildFile; fileRef = E932F498280BB6AD00231232 /* NanumSquareRoundOTFL.otf */; };
+		E932F4A3280BB6AD00231232 /* NanumSquareRoundOTFEB.otf in Resources */ = {isa = PBXBuildFile; fileRef = E932F49B280BB6AD00231232 /* NanumSquareRoundOTFEB.otf */; };
+		E932F4A7280BB8AA00231232 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = E932F4A6280BB8AA00231232 /* UIFont.swift */; };
+		E932F4F2280C3A1700231232 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E932F4F1280C3A1700231232 /* SearchViewController.swift */; };
+		E932F51B280E459F00231232 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E932F51A280E459F00231232 /* SettingViewController.swift */; };
+		E932F51D280E4C7600231232 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E932F51C280E4C7600231232 /* SettingTableViewCell.swift */; };
+		E932F520280E60C700231232 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E932F51F280E60C700231232 /* DetailViewController.swift */; };
+		E932F522280E63D400231232 /* AlarmDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E932F521280E63D400231232 /* AlarmDetailViewController.swift */; };
 		E93CDFDE27B2332C00F51899 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93CDFDD27B2332C00F51899 /* UITableView.swift */; };
+		E94B1577280FBAC100DA2E35 /* BookmarkDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94B1576280FBAC100DA2E35 /* BookmarkDetailViewController.swift */; };
+		E94B157B280FBAF800DA2E35 /* IncompleteDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94B157A280FBAF800DA2E35 /* IncompleteDetailViewController.swift */; };
+		E94B157D280FBB0A00DA2E35 /* CompletedDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94B157C280FBB0A00DA2E35 /* CompletedDetailViewController.swift */; };
+		E94B157F280FBB1700DA2E35 /* MonthlyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94B157E280FBB1700DA2E35 /* MonthlyDetailViewController.swift */; };
 		E9584F9428066F3B00651C20 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9584F9328066F3B00651C20 /* UITextField.swift */; };
-		E984871727D6DC8B00FF7B21 /* BM JUA_otf.otf in Resources */ = {isa = PBXBuildFile; fileRef = E984871627D6DC8B00FF7B21 /* BM JUA_otf.otf */; };
-		E984872827D984C200FF7B21 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E984872727D984C200FF7B21 /* SideMenuViewController.swift */; };
-		E984872A27D985F800FF7B21 /* SideMenuNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E984872927D985F800FF7B21 /* SideMenuNavigation.swift */; };
+		E9A41260281014D40030935F /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A4125F281014D40030935F /* SearchTableViewCell.swift */; };
+		E9A412622810BCA10030935F /* OpenSourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A412612810BCA10030935F /* OpenSourceViewController.swift */; };
+		E9A412642813ADB30030935F /* UIString.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A412632813ADB30030935F /* UIString.swift */; };
+		E9A412662813C6890030935F /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A412652813C6890030935F /* Date.swift */; };
+		E9A4127B2814A8010030935F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9A4127A2814A8010030935F /* LaunchScreen.storyboard */; };
+		E9D845792824B652002DEF9E /* TodoCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D845782824B652002DEF9E /* TodoCalendar.swift */; };
+		E9D845BE282CD09F002DEF9E /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D845BD282CD09F002DEF9E /* RealmService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,11 +67,20 @@
 		B3B816C630AE00C583927AB2 /* Pods-Todo-TodoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Todo-TodoUITests.debug.xcconfig"; path = "Target Support Files/Pods-Todo-TodoUITests/Pods-Todo-TodoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CC39CA641BA42A88B20D8901 /* Pods_TodoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D22A47BD43E8639D2B9EF062 /* Pods-Todo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Todo.debug.xcconfig"; path = "Target Support Files/Pods-Todo/Pods-Todo.debug.xcconfig"; sourceTree = "<group>"; };
+		E90DAF0D28165BEA001F33E4 /* AlarmSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmSettingViewController.swift; sourceTree = "<group>"; };
+		E90DAF192816A14C001F33E4 /* DetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailTableViewCell.xib; sourceTree = "<group>"; };
+		E90DAF1B2816A158001F33E4 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
+		E90DAF1D2816D59A001F33E4 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
+		E90DAF2328170376001F33E4 /* SettingDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingDetailTableViewCell.swift; sourceTree = "<group>"; };
+		E90DAF2428170376001F33E4 /* SettingDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingDetailTableViewCell.xib; sourceTree = "<group>"; };
+		E90DAF272817219C001F33E4 /* DataSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSettingViewController.swift; sourceTree = "<group>"; };
+		E90DAF4B281824D7001F33E4 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		E920C55E282FE50A00938497 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		E9235C91278EAA2300C73737 /* Todo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9235C94278EAA2300C73737 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9235C96278EAA2300C73737 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E9235C9B278EAA2300C73737 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Home.storyboard; sourceTree = "<group>"; };
-		E9235C9D278EAA2500C73737 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E9235C9D278EAA2500C73737 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Todo/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		E9235CA0278EAA2500C73737 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E9235CA2278EAA2500C73737 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E9235CAB278EAA2600C73737 /* TodoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTests.swift; sourceTree = "<group>"; };
@@ -60,14 +95,31 @@
 		E9235D152794083000C73737 /* TodoListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodoListTableViewCell.xib; sourceTree = "<group>"; };
 		E9235D542794176E00C73737 /* AddTodoListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodoListTableViewCell.swift; sourceTree = "<group>"; };
 		E9235D552794176E00C73737 /* AddTodoListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTodoListTableViewCell.xib; sourceTree = "<group>"; };
-		E9235D5927947A5700C73737 /* StatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; };
 		E92E2D7A2795416B0086E462 /* EditTodoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTodoListViewController.swift; sourceTree = "<group>"; };
 		E92E2D7C279671FF0086E462 /* EditTodoListBackgroundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTodoListBackgroundViewController.swift; sourceTree = "<group>"; };
+		E932F495280BB6AD00231232 /* NanumSquareRoundOTFB.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRoundOTFB.otf; sourceTree = "<group>"; };
+		E932F496280BB6AD00231232 /* NanumSquareRoundOTFR.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRoundOTFR.otf; sourceTree = "<group>"; };
+		E932F498280BB6AD00231232 /* NanumSquareRoundOTFL.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRoundOTFL.otf; sourceTree = "<group>"; };
+		E932F49B280BB6AD00231232 /* NanumSquareRoundOTFEB.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRoundOTFEB.otf; sourceTree = "<group>"; };
+		E932F4A6280BB8AA00231232 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
+		E932F4F1280C3A1700231232 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		E932F51A280E459F00231232 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		E932F51C280E4C7600231232 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
+		E932F51F280E60C700231232 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		E932F521280E63D400231232 /* AlarmDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmDetailViewController.swift; sourceTree = "<group>"; };
 		E93CDFDD27B2332C00F51899 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
+		E94B1576280FBAC100DA2E35 /* BookmarkDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkDetailViewController.swift; sourceTree = "<group>"; };
+		E94B157A280FBAF800DA2E35 /* IncompleteDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncompleteDetailViewController.swift; sourceTree = "<group>"; };
+		E94B157C280FBB0A00DA2E35 /* CompletedDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedDetailViewController.swift; sourceTree = "<group>"; };
+		E94B157E280FBB1700DA2E35 /* MonthlyDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyDetailViewController.swift; sourceTree = "<group>"; };
 		E9584F9328066F3B00651C20 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
-		E984871627D6DC8B00FF7B21 /* BM JUA_otf.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BM JUA_otf.otf"; sourceTree = "<group>"; };
-		E984872727D984C200FF7B21 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
-		E984872927D985F800FF7B21 /* SideMenuNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuNavigation.swift; sourceTree = "<group>"; };
+		E9A4125F281014D40030935F /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		E9A412612810BCA10030935F /* OpenSourceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceViewController.swift; sourceTree = "<group>"; };
+		E9A412632813ADB30030935F /* UIString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIString.swift; sourceTree = "<group>"; };
+		E9A412652813C6890030935F /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		E9A4127A2814A8010030935F /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E9D845782824B652002DEF9E /* TodoCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCalendar.swift; sourceTree = "<group>"; };
+		E9D845BD282CD09F002DEF9E /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		F3C2B9AFDC77AE56B68C49E8 /* Pods-TodoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodoTests.debug.xcconfig"; path = "Target Support Files/Pods-TodoTests/Pods-TodoTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -161,8 +213,11 @@
 			isa = PBXGroup;
 			children = (
 				E9235C9A278EAA2300C73737 /* Home.storyboard */,
+				E9A4127A2814A8010030935F /* LaunchScreen.storyboard */,
+				E932F4F0280C3A0800231232 /* Search */,
 				E92E2D792795414D0086E462 /* Edit */,
-				E9235D5827947A3D00C73737 /* Status */,
+				E932F51E280E60B200231232 /* Detail */,
+				E932F513280D225B00231232 /* Setting */,
 				E9235CCF278FC96800C73737 /* Main */,
 			);
 			path = Source;
@@ -174,7 +229,9 @@
 				E98C582B27D6A13300EF75A7 /* Font */,
 				E93CDFDC27B2331000F51899 /* Extension */,
 				E9235CCD278FBBBC00C73737 /* Constant.swift */,
+				E9D845782824B652002DEF9E /* TodoCalendar.swift */,
 				E9235D122792A57300C73737 /* TodoList.swift */,
+				E9D845BD282CD09F002DEF9E /* RealmService.swift */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
@@ -189,18 +246,8 @@
 				E9235D152794083000C73737 /* TodoListTableViewCell.xib */,
 				E9235D542794176E00C73737 /* AddTodoListTableViewCell.swift */,
 				E9235D552794176E00C73737 /* AddTodoListTableViewCell.xib */,
-				E984872927D985F800FF7B21 /* SideMenuNavigation.swift */,
-				E984872727D984C200FF7B21 /* SideMenuViewController.swift */,
 			);
 			path = Main;
-			sourceTree = "<group>";
-		};
-		E9235D5827947A3D00C73737 /* Status */ = {
-			isa = PBXGroup;
-			children = (
-				E9235D5927947A5700C73737 /* StatusViewController.swift */,
-			);
-			path = Status;
 			sourceTree = "<group>";
 		};
 		E92E2D792795414D0086E462 /* Edit */ = {
@@ -212,11 +259,55 @@
 			path = Edit;
 			sourceTree = "<group>";
 		};
+		E932F4F0280C3A0800231232 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				E932F4F1280C3A1700231232 /* SearchViewController.swift */,
+				E9A4125F281014D40030935F /* SearchTableViewCell.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		E932F513280D225B00231232 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				E932F51A280E459F00231232 /* SettingViewController.swift */,
+				E932F51C280E4C7600231232 /* SettingTableViewCell.swift */,
+				E9A412612810BCA10030935F /* OpenSourceViewController.swift */,
+				E90DAF272817219C001F33E4 /* DataSettingViewController.swift */,
+				E90DAF0D28165BEA001F33E4 /* AlarmSettingViewController.swift */,
+				E90DAF2328170376001F33E4 /* SettingDetailTableViewCell.swift */,
+				E90DAF2428170376001F33E4 /* SettingDetailTableViewCell.xib */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		E932F51E280E60B200231232 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				E932F51F280E60C700231232 /* DetailViewController.swift */,
+				E94B157E280FBB1700DA2E35 /* MonthlyDetailViewController.swift */,
+				E932F521280E63D400231232 /* AlarmDetailViewController.swift */,
+				E90DAF1B2816A158001F33E4 /* DetailTableViewCell.swift */,
+				E90DAF192816A14C001F33E4 /* DetailTableViewCell.xib */,
+				E94B1576280FBAC100DA2E35 /* BookmarkDetailViewController.swift */,
+				E94B157A280FBAF800DA2E35 /* IncompleteDetailViewController.swift */,
+				E94B157C280FBB0A00DA2E35 /* CompletedDetailViewController.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
 		E93CDFDC27B2331000F51899 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
 				E93CDFDD27B2332C00F51899 /* UITableView.swift */,
 				E9584F9328066F3B00651C20 /* UITextField.swift */,
+				E932F4A6280BB8AA00231232 /* UIFont.swift */,
+				E9A412632813ADB30030935F /* UIString.swift */,
+				E9A412652813C6890030935F /* Date.swift */,
+				E90DAF1D2816D59A001F33E4 /* UILabel.swift */,
+				E920C55E282FE50A00938497 /* UIButton.swift */,
+				E90DAF4B281824D7001F33E4 /* UIViewController.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -224,7 +315,10 @@
 		E98C582B27D6A13300EF75A7 /* Font */ = {
 			isa = PBXGroup;
 			children = (
-				E984871627D6DC8B00FF7B21 /* BM JUA_otf.otf */,
+				E932F498280BB6AD00231232 /* NanumSquareRoundOTFL.otf */,
+				E932F496280BB6AD00231232 /* NanumSquareRoundOTFR.otf */,
+				E932F495280BB6AD00231232 /* NanumSquareRoundOTFB.otf */,
+				E932F49B280BB6AD00231232 /* NanumSquareRoundOTFEB.otf */,
 			);
 			path = Font;
 			sourceTree = "<group>";
@@ -289,12 +383,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E932F4A0280BB6AD00231232 /* NanumSquareRoundOTFL.otf in Resources */,
 				E9235CCA278EC87C00C73737 /* CalendarCollectionViewCell.xib in Resources */,
 				E9235D572794176E00C73737 /* AddTodoListTableViewCell.xib in Resources */,
+				E90DAF2628170376001F33E4 /* SettingDetailTableViewCell.xib in Resources */,
 				E9235CA1278EAA2500C73737 /* LaunchScreen.storyboard in Resources */,
+				E9A4127B2814A8010030935F /* LaunchScreen.storyboard in Resources */,
 				E92E2D7827953FF40086E462 /* Home.storyboard in Resources */,
-				E984871727D6DC8B00FF7B21 /* BM JUA_otf.otf in Resources */,
+				E932F4A3280BB6AD00231232 /* NanumSquareRoundOTFEB.otf in Resources */,
+				E932F49E280BB6AD00231232 /* NanumSquareRoundOTFR.otf in Resources */,
+				E932F49D280BB6AD00231232 /* NanumSquareRoundOTFB.otf in Resources */,
 				E9235D172794083000C73737 /* TodoListTableViewCell.xib in Resources */,
+				E90DAF1A2816A14C001F33E4 /* DetailTableViewCell.xib in Resources */,
 				E9235C9E278EAA2500C73737 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -349,19 +449,39 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9235CC9278EC87C00C73737 /* CalendarCollectionViewCell.swift in Sources */,
+				E9D845BE282CD09F002DEF9E /* RealmService.swift in Sources */,
+				E932F522280E63D400231232 /* AlarmDetailViewController.swift in Sources */,
+				E90DAF0E28165BEA001F33E4 /* AlarmSettingViewController.swift in Sources */,
+				E932F4A7280BB8AA00231232 /* UIFont.swift in Sources */,
 				E9235C95278EAA2300C73737 /* AppDelegate.swift in Sources */,
+				E90DAF1E2816D59A001F33E4 /* UILabel.swift in Sources */,
+				E9D845792824B652002DEF9E /* TodoCalendar.swift in Sources */,
 				E9235D162794083000C73737 /* TodoListTableViewCell.swift in Sources */,
+				E9A412662813C6890030935F /* Date.swift in Sources */,
 				E92E2D7D279671FF0086E462 /* EditTodoListBackgroundViewController.swift in Sources */,
 				E9235CCE278FBBBC00C73737 /* Constant.swift in Sources */,
+				E94B157B280FBAF800DA2E35 /* IncompleteDetailViewController.swift in Sources */,
 				E9235D132792A57300C73737 /* TodoList.swift in Sources */,
+				E94B1577280FBAC100DA2E35 /* BookmarkDetailViewController.swift in Sources */,
 				E9235C97278EAA2300C73737 /* SceneDelegate.swift in Sources */,
+				E90DAF4C281824D8001F33E4 /* UIViewController.swift in Sources */,
 				E92E2D7B2795416B0086E462 /* EditTodoListViewController.swift in Sources */,
+				E932F520280E60C700231232 /* DetailViewController.swift in Sources */,
 				E9235CC5278EAB9500C73737 /* MainViewController.swift in Sources */,
+				E90DAF1C2816A158001F33E4 /* DetailTableViewCell.swift in Sources */,
+				E94B157F280FBB1700DA2E35 /* MonthlyDetailViewController.swift in Sources */,
+				E90DAF282817219C001F33E4 /* DataSettingViewController.swift in Sources */,
 				E93CDFDE27B2332C00F51899 /* UITableView.swift in Sources */,
-				E9235D5A27947A5700C73737 /* StatusViewController.swift in Sources */,
+				E932F51D280E4C7600231232 /* SettingTableViewCell.swift in Sources */,
+				E920C55F282FE50A00938497 /* UIButton.swift in Sources */,
+				E932F4F2280C3A1700231232 /* SearchViewController.swift in Sources */,
+				E9A412622810BCA10030935F /* OpenSourceViewController.swift in Sources */,
+				E9A41260281014D40030935F /* SearchTableViewCell.swift in Sources */,
 				E9584F9428066F3B00651C20 /* UITextField.swift in Sources */,
-				E984872A27D985F800FF7B21 /* SideMenuNavigation.swift in Sources */,
-				E984872827D984C200FF7B21 /* SideMenuViewController.swift in Sources */,
+				E94B157D280FBB0A00DA2E35 /* CompletedDetailViewController.swift in Sources */,
+				E932F51B280E459F00231232 /* SettingViewController.swift in Sources */,
+				E9A412642813ADB30030935F /* UIString.swift in Sources */,
+				E90DAF2528170376001F33E4 /* SettingDetailTableViewCell.swift in Sources */,
 				E9235D562794176E00C73737 /* AddTodoListTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -439,7 +559,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -494,7 +614,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -521,6 +641,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Home;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -551,6 +672,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Home;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

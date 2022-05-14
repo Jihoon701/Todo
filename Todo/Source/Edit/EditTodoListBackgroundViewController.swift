@@ -7,18 +7,14 @@
 
 import UIKit
 
-protocol EditVCDelegate: AnyObject {
-    func DelegateEditVC()
-}
-
 class EditTodoListBackgroundViewController: UIViewController {
-    
     @IBOutlet weak var BackgroundView: UIView!
-    weak var vcDelegate: EditVCDelegate?
-    var TodoListContentBackground = ""
-    var TodoListIdBackground = 0
-    var TodoListIdStartIndex = 0
-    var TodoListIdEmphasis = false
+    var todoListContent = ""
+    var todoListId = 0
+    var todoListDate = ""
+    var todoListAlarmTime = ""
+    var todoListBookmark = false
+    var todoListAlarm = false
     var selfValue: MainViewController? = nil
     
     override func viewDidLoad() {
@@ -30,13 +26,15 @@ class EditTodoListBackgroundViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "embededEditTodo" {
-            print("프리페어")
-            vcDelegate?.DelegateEditVC()
             let containerVC = segue.destination as! EditTodoListViewController
-            containerVC.deleteDelegate = selfValue
-            containerVC.todoListContentText = TodoListContentBackground
-            containerVC.emphasisValue = TodoListIdEmphasis
-            containerVC.todoListId = TodoListIdBackground
+            //MARK: CHECK
+            containerVC.editTodoDelegate = selfValue as! EditTodoDelegate
+            containerVC.todoContent = todoListContent
+            containerVC.todoDate = todoListDate
+            containerVC.todoBookmark = todoListBookmark
+            containerVC.todoAlarm = todoListAlarm
+            containerVC.todoAlarmTime = todoListAlarmTime
+            containerVC.todoId = todoListId
         }
     }
     

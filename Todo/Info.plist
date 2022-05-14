@@ -4,8 +4,11 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
+		<string>NanumSquareRoundOTFL.otf</string>
+		<string>NanumSquareRoundOTFR.otf</string>
+		<string>NanumSquareRoundOTFB.otf</string>
+		<string>NanumSquareRoundOTFEB.otf</string>
 		<string>BM JUA_otf.otf</string>
-		<string>BMJUA_ttf.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
