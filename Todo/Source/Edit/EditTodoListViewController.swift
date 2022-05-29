@@ -2,7 +2,7 @@
 //  EditTodoListViewController.swift
 //  Todo
 //
-//  Created by 김지훈 on 2022/01/17.
+//  Created by 김지훈 on 2022/01/18.
 //
 
 import UIKit
@@ -15,6 +15,8 @@ protocol EditTodoDelegate: AnyObject {
 }
 
 class EditTodoListViewController: UIViewController, UITextFieldDelegate {
+    @IBOutlet weak var BackgroundView: UIView!
+    @IBOutlet weak var editView: UIView!
     @IBOutlet weak var todoListContentTextField: UITextField!
     @IBOutlet weak var bookmarkSwitch: UISwitch!
     @IBOutlet weak var alarmSwitch: UISwitch!
@@ -25,7 +27,7 @@ class EditTodoListViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var alarmPickerView: UIPickerView!
     @IBOutlet weak var alarmTimeSetLabel: UILabel!
-
+    
     let pickerViewRows = 10000
     let alarmHour: [Int] = Array(0...24)
     let alarmMinute: [Int] = Array(0...59)
@@ -47,21 +49,25 @@ class EditTodoListViewController: UIViewController, UITextFieldDelegate {
     var todoAlarmTime = ""
     
     override func viewDidLoad() {
+        let backgroundTapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissEditView))
+        BackgroundView.addGestureRecognizer(backgroundTapGesture)
+        BackgroundView.isUserInteractionEnabled = true
+        
         bookmarkSwitch.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
         alarmSwitch.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
         
         todoListContentTextField.text = todoContent
         todoListContentTextField.font = .NanumSR(.regular, size: 14)
-        backButton.setupButtonTitleLabel(text: "뒤로가기")
-        saveButton.setupButtonTitleLabel(text: "저장하기")
+        backButton.setupButtonTitleLabel(text: "닫기")
+        saveButton.setupButtonTitleLabel(text: "저장")
         deleteButton.setupButtonTitleLabel(text: "삭제")
         bookmarkLabel.setupLabel(text: "북마크")
         alarmLabel.setupLabel(text: "알림")
         alarmTimeSetLabel.font = .NanumSR(.bold, size: 12)
         alarmTimeSetLabel.textColor = .darkGray
+        setInitialAlarmTime()
         
-        timeSetHour = Calendar.current.component(.hour, from: Date())
-        timeSetMinute = Calendar.current.component(.minute, from: Date())
+        print("지금 시간", "\(timeSetHour):\(timeSetMinute)")
         alarmTimeSetLabel.text = "\(timeSetHour):\(timeSetMinute)"
         
         alarmPickerView.delegate = self
@@ -82,12 +88,38 @@ class EditTodoListViewController: UIViewController, UITextFieldDelegate {
         }
         
         bookmarkSwitch.setOn(todoBookmark, animated: false)
-        alarmSwitch.setOn(todoAlarm, animated: false)
-        alarmTimeSetLabel.isHidden = !todoAlarm
-        alarmTimeSetLabel.text = todoAlarmTime
         
-        self.view.layer.cornerRadius = 15
+        if todoAlarm {
+            alarmSwitch.setOn(true, animated: false)
+            alarmTimeSetLabel.isHidden = false
+            alarmTimeSetLabel.text = todoAlarmTime
+        }
+        else {
+            alarmSwitch.setOn(false, animated: false)
+            alarmTimeSetLabel.isHidden = true
+        }
+        
+        editView.layer.cornerRadius = 15
         super.viewDidLoad()
+    }
+    
+    func setInitialAlarmTime() {
+        if todoAlarmTime != "" {
+            let index = todoAlarmTime.firstIndex(of: ":") ?? todoAlarmTime.endIndex
+            let aftIndex = todoAlarmTime.index(after: index)
+            timeSetHour = Int(todoAlarmTime[..<index])!
+            timeSetMinute = Int(todoAlarmTime[aftIndex..<todoAlarmTime.endIndex])!
+            print(timeSetHour)
+            print(timeSetMinute)
+        }
+        else {
+            timeSetHour = Calendar.current.component(.hour, from: Date())
+            timeSetMinute = Calendar.current.component(.minute, from: Date())
+        }
+    }
+    
+    @objc func dismissEditView() {
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func backToHome(_ sender: Any) {
@@ -101,7 +133,7 @@ class EditTodoListViewController: UIViewController, UITextFieldDelegate {
     }
     
     func alarmTimeComparedToCurrentTime() -> AlarmTimeStatus {
-        if dateCompare() > 0 {
+        if compareDate() > 0 {
             return .future
         }
         else if timeSetHour == currentTimeComponent.hour! && timeSetMinute > currentTimeComponent.minute!  {
@@ -120,7 +152,7 @@ class EditTodoListViewController: UIViewController, UITextFieldDelegate {
             switch alarmTimeComparedToCurrentTime() {
             case .past:
                 presentErrorAlert(errorTitle: "알림", errorMessage: "이미 지난 시간에는 알람을 설정할 수 없습니다\n시간을 다시 설정해주세요")
-                removeNofiticaion(identifier: "todoAlarm_\(todoId)")
+                userNotiCenter.removeDeliveredNotifications(withIdentifiers: ["todoAlarm_\(todoId)"])
             case .present:
                 saveAlarm()
             case .future:
@@ -137,11 +169,11 @@ class EditTodoListViewController: UIViewController, UITextFieldDelegate {
             dismiss(animated: true, completion: nil)
         }
     }
-
+    
     func saveAlarm() {
         todoAlarmTime = "\(timeSetHour):\(timeSetMinute)"
         todoAlarm = true
-        requestSendNotification(todoContent: todoContent, todoId: todoId, todoDate: todoDate, notiHour: timeSetHour, notiMinute: timeSetMinute)
+        requestSendNotification(todoContent: todoListContentTextField.text ?? "", todoId: todoId, todoDate: todoDate, notiHour: timeSetHour, notiMinute: timeSetMinute)
         editTodoDelegate?.alertAlarmComplete()
         
         try! realm.write {
@@ -173,8 +205,9 @@ class EditTodoListViewController: UIViewController, UITextFieldDelegate {
         alarmTimeSetLabel.isHidden = true
         
         if alarmSwitch.isOn {
+            requestAuthNotification(authCheck: checkAuthNotification())
             // 알람 설정 날짜가 과거일 때
-            if dateCompare() < 0 {
+            if compareDate() < 0 {
                 let setAlarmErrorAlert = UIAlertController(title: "알람설정 실패", message: "이미 지난 시간에는 알람을 설정할 수 없습니다", preferredStyle: .alert)
                 let confirmAction = UIAlertAction(title: "확인", style: .default) { [self]
                     (action) in
@@ -188,15 +221,13 @@ class EditTodoListViewController: UIViewController, UITextFieldDelegate {
                     realm.create(TodoList.self, value: ["id": todoId, "alarm": todoAlarm], update: .modified)
                 }
             }
-            else {  // 알람 날짜는 가능
-                checkAuthNotification() //MARK: false면 설정에서 알림 허용하게 만들기
-                requestAuthNotification()
+            else {
                 alarmPickerView.isHidden = false
                 alarmTimeSetLabel.isHidden = false
                 todoAlarm = true
             }
         }
-        else {  // switch is off
+        else {
             todoAlarm = false
             try! realm.write {
                 realm.create(TodoList.self, value: ["id": todoId, "alarm": todoAlarm], update: .modified)
@@ -213,32 +244,29 @@ class EditTodoListViewController: UIViewController, UITextFieldDelegate {
         dismiss(animated: true, completion: nil)
     }
     
-    func dateCompare() -> Double {
-        var date = Date()
+    func compareDate() -> Double {
+        var todoWrittenDate = Date()
         let dateString = todoDate.replacingOccurrences(of: "/", with: "-")
-        date = dateString.stringToDate()!   // todo 작성한 날짜
+        todoWrittenDate = dateString.stringToDate()!
         
         currentComponent = Calendar.current.dateComponents([.year, .month, .day], from: Date())
         currentComponent.timeZone = TimeZone(abbreviation: "UTC")
-        let currentTime = Calendar.current.date(from: currentComponent)!   // 현재 날짜 시간까지
+        let currentTime = Calendar.current.date(from: currentComponent)!
         
-        let selectedDateInterval = date.timeIntervalSince1970  //선택한 날짜
-        let currentDateInterval = currentTime.timeIntervalSince1970  //현재날짜
+        let selectedDateInterval = todoWrittenDate.timeIntervalSince1970
+        let currentDateInterval = currentTime.timeIntervalSince1970
         return selectedDateInterval - currentDateInterval
     }
     
-    func requestAuthNotification() {
+    func requestAuthNotification(authCheck: Bool) {
+        if authCheck == false {
+            return
+        }
+        
         let notiAuthOptions = UNAuthorizationOptions(arrayLiteral: [.alert, .badge, .sound])
         userNotiCenter.requestAuthorization(options: notiAuthOptions) { [self] (didAllow, error) in
             if didAllow == false {
-                print("requestAuthorization didAllow False")
-                //                DispatchQueue.main.async {
-                //                    bookmarkSwitch.setOn(false, animated: true)
-                //                }
-                
-                //                bookmarkSwitch.setOn(false, animated: true)
-                todoAlarm = false
-                
+                presentAlarmSettingAlert()
             }
             if let error = error {
                 print(#function, error)
@@ -256,10 +284,27 @@ class EditTodoListViewController: UIViewController, UITextFieldDelegate {
                 authCheck = false
             }
         })
+        print("authCheck:", authCheck)
         return authCheck
     }
     
+    func presentAlarmSettingAlert() {
+        DispatchQueue.main.async {
+            self.presentAlert(title: "설정", message: "기기 설정에서 알림 설정을 허용으로 변경해주세요", isCancelActionIncluded: true) { [self] action in
+                moveToAppSettingPage()
+            }
+        }
+    }
+    
+    func moveToAppSettingPage() {
+        guard let url = URL(string: UIApplication.openSettingsURLString) else { return }
+        if UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url)
+        }
+    }
+    
     func requestSendNotification(todoContent: String, todoId: Int, todoDate: String, notiHour: Int, notiMinute: Int) {
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["todoAlarm_\(todoId)"])
         let notiContent = UNMutableNotificationContent()
         notiContent.title = "TODO 알림"
         notiContent.body = todoContent
@@ -278,10 +323,6 @@ class EditTodoListViewController: UIViewController, UITextFieldDelegate {
         userNotiCenter.add(request) { (error) in
             print(#function, error)
         }
-    }
-    
-    func removeNofiticaion(identifier: String) {
-        userNotiCenter.removeDeliveredNotifications(withIdentifiers: [identifier])
     }
 }
 
@@ -359,3 +400,4 @@ extension EditTodoListViewController: UNUserNotificationCenterDelegate, UIPicker
         return view
     }
 }
+

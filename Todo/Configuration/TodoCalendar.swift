@@ -45,7 +45,7 @@ class TodoCalendar {
         let daysCountInPrevMonth = cal.range(of: .day, in: .month, for: numberOfDaysInMonth(month: .prevMonth))!.count
         let daysCountInCurrentMonth = cal.range(of: .day, in: .month, for: numberOfDaysInMonth(month: .currentMonth))!.count
         let daysCountInNextMonth = cal.range(of: .day, in: .month, for: numberOfDaysInMonth(month: .nextMonth))!.count
-     
+        
         daysInWeekType = calculateDaysInWeekType(weekday: currentWeekday, daysCountInPrevMonth: daysCountInPrevMonth, daysCountInCurrentMonth: daysCountInCurrentMonth, daysCountInNextMonth: daysCountInNextMonth).map { String($0) }
         daysInMonthType = calculateDaysInMonthType(emptiedDaysInMonth: 2 - weekdayOfFirstDayInCurrentMonth, daysCountInMonth: daysCountInCurrentMonth)
     }
@@ -100,10 +100,10 @@ class TodoCalendar {
         return daysInMonthType
     }
     
-    private func createDays(startOfWeek: Int, endOfWeek: Int, initDaysInWeekType: inout Array<Int>, daysCountInPrevMonth: Int) -> Array<Int> {
+    private func createDays(startOfWeek: Int, endOfWeek: Int, initDaysInWeekType: inout Array<Int>, daysCountInFirstMonth: Int) -> Array<Int> {
         var daysCount = 0
         
-        for i in startOfWeek...daysCountInPrevMonth {
+        for i in startOfWeek...daysCountInFirstMonth {
             initDaysInWeekType[i-startOfWeek] = i
             daysCount += 1
         }
@@ -125,13 +125,13 @@ class TodoCalendar {
         // 달력 앞부분이 prevMonth와 합쳐질 때
         if startOfWeek < 1 {
             startOfWeek = daysCountInPrevMonth + startOfWeek
-            return createDays(startOfWeek: startOfWeek, endOfWeek: endOfWeek, initDaysInWeekType: &initDaysInWeekType, daysCountInPrevMonth: daysCountInPrevMonth)
+            return createDays(startOfWeek: startOfWeek, endOfWeek: endOfWeek, initDaysInWeekType: &initDaysInWeekType, daysCountInFirstMonth: daysCountInPrevMonth)
         }
-       
+        
         // 달력 뒷부분이 nextMonth와 합쳐질 때
         if endOfWeek > daysCountInCurrentMonth {
             endOfWeek = endOfWeek - daysCountInCurrentMonth
-            return createDays(startOfWeek: startOfWeek, endOfWeek: endOfWeek, initDaysInWeekType: &initDaysInWeekType, daysCountInPrevMonth: daysCountInPrevMonth)
+            return createDays(startOfWeek: startOfWeek, endOfWeek: endOfWeek, initDaysInWeekType: &initDaysInWeekType, daysCountInFirstMonth: daysCountInCurrentMonth)
         }
         
         // prevMonth와 nextMonth와 겹치지 않을 때

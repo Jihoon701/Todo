@@ -11,6 +11,6 @@ import UIKit
 extension UIButton {
     func setupButtonTitleLabel(text: String) {
         self.titleLabel?.font = .NanumSR(.regular, size: 14)
-        self.titleLabel?.text = text
+        self.setTitle(text, for: .normal)
     }
 }

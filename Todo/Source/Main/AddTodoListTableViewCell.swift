@@ -25,16 +25,17 @@ class AddTodoListTableViewCell: UITableViewCell, UITextFieldDelegate {
         super.awakeFromNib()
     }
     
+    // TODO: 데이터 전달 확인
     func initAddCell(date: String, order: Int, id: Int) {
         self.date = date
         self.order = order
         self.id = id
-        
         AddTodoListTextField.text = ""
         AddTodoListTextField.font = .NanumSR(.regular, size: 13)
         AddTodoListTextField.delegate = self
         AddTodoListTextField.returnKeyType = .done
-        AddTodoListTextField.becomeFirstResponder()
+//        print("BECOMEFIRSTRESPONDER", AddTodoListTextField.becomeFirstResponder())
+
         
         NotificationCenter.default.addObserver(self, selector: #selector(stopAddingCell), name: UIApplication.didEnterBackgroundNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(stopAddingCell), name: UIApplication.willResignActiveNotification, object: nil)

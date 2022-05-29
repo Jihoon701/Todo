@@ -17,13 +17,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="W7s-9J-1JV">
-                        <rect key="frame" x="10" y="16" width="387" height="16"/>
+                        <rect key="frame" x="10" y="15" width="387" height="18"/>
                         <color key="tintColor" red="0.23137254900000001" green="0.20000000000000001" blue="0.1843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uys-2y-NWG">
-                        <rect key="frame" x="10" y="35" width="387" height="1"/>
+                        <rect key="frame" x="10" y="36" width="387" height="1"/>
                         <color key="backgroundColor" red="0.1176470588" green="0.1176470588" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="uwV-hh-S23"/>
@@ -36,6 +36,7 @@
                     <constraint firstItem="uys-2y-NWG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="It8-NW-oPH"/>
                     <constraint firstItem="uys-2y-NWG" firstAttribute="top" secondItem="W7s-9J-1JV" secondAttribute="bottom" constant="3" id="QK5-DG-gSD"/>
                     <constraint firstItem="W7s-9J-1JV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="sBB-rN-dyd"/>
+                    <constraint firstItem="W7s-9J-1JV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="vq7-Cj-9vp"/>
                     <constraint firstAttribute="trailing" secondItem="W7s-9J-1JV" secondAttribute="trailing" constant="10" id="xvQ-wu-Wj2"/>
                 </constraints>
             </tableViewCellContentView>

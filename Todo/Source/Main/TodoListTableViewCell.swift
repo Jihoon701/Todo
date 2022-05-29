@@ -41,14 +41,14 @@ class TodoListTableViewCell: UITableViewCell {
             strikeThroughTodoList()
         }
         else {
-            restoreTodoList()
+            originalTodoList()
         }
     }
     
     @objc func PressCheckbox(todoListDone: Bool) {
         if todolistDone {
             updateRealmCheckbox(id: todoId, checkbox: false)
-            restoreTodoList()
+            originalTodoList()
         }
         else {
             updateRealmCheckbox(id: todoId, checkbox: true)
@@ -70,7 +70,7 @@ class TodoListTableViewCell: UITableViewCell {
         bookmarkImage.image = UIImage(named: "Group 33")
     }
     
-    func restoreTodoList() {
+    func originalTodoList() {
         checkboxImage.image = UIImage(named: "emptyBox")
         let attributeString = NSMutableAttributedString(string: todoListContent)
         attributeString.removeAttribute(NSAttributedString.Key.strikethroughStyle, range: NSMakeRange(0, attributeString.length))

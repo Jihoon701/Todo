@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 willPresent notification: UNNotification,
                                 withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        completionHandler([.alert, .badge, .sound])
+        completionHandler([.list, .banner, .badge, .sound])
     }
 
     func userNotificationCenter(_ center: UNUserNotificationCenter,
@@ -44,6 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                                 withCompletionHandler completionHandler: @escaping () -> Void) {
 
         // deep link처리 시 아래 url값 가지고 처리
+        // TODO: 확인
         let url = response.notification.request.content.userInfo
 
         completionHandler()
