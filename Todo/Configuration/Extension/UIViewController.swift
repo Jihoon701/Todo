@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 import SnapKit
 
-
 extension UIViewController {
     func presentAlert(title: String, message: String? = nil, isCancelActionIncluded: Bool = false, preferredStyle style: UIAlertController.Style = .alert, handler: ((UIAlertAction) -> Void)? = nil) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: style)

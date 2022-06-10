@@ -17,6 +17,5 @@ class RealmService {
             realm.create(TodoList.self, value: ["id": id, "checkbox": checkbox], update: .modified)
         }
     }
-   
 }
 

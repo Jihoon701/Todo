@@ -45,10 +45,10 @@ class DetailTableViewCell: UITableViewCell {
         }
         
         if bookmark {
-            bookmarkImage.image = UIImage(named: "Group 32")
+            bookmarkImage.image = UIImage.coloredBookmarkImage(bookmarkImage.image!)()
         }
         else {
-            bookmarkImage.image = UIImage(named: "Group 33")
+            bookmarkImage.image = UIImage(named: "bookmark_gray")
         }
         
     }

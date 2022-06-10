@@ -48,13 +48,17 @@
 		E94B157D280FBB0A00DA2E35 /* CompletedDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94B157C280FBB0A00DA2E35 /* CompletedDetailViewController.swift */; };
 		E94B157F280FBB1700DA2E35 /* MonthlyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94B157E280FBB1700DA2E35 /* MonthlyDetailViewController.swift */; };
 		E9584F9428066F3B00651C20 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9584F9328066F3B00651C20 /* UITextField.swift */; };
+		E97010E62848FC2600F32370 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97010E52848FC2600F32370 /* UIColor.swift */; };
 		E9A41260281014D40030935F /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A4125F281014D40030935F /* SearchTableViewCell.swift */; };
 		E9A412622810BCA10030935F /* OpenSourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A412612810BCA10030935F /* OpenSourceViewController.swift */; };
 		E9A412642813ADB30030935F /* UIString.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A412632813ADB30030935F /* UIString.swift */; };
 		E9A412662813C6890030935F /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A412652813C6890030935F /* Date.swift */; };
 		E9A4127B2814A8010030935F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9A4127A2814A8010030935F /* LaunchScreen.storyboard */; };
+		E9AD3EF62850DE7F00F17700 /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AD3EF52850DE7F00F17700 /* UICollectionView.swift */; };
 		E9D845792824B652002DEF9E /* TodoCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D845782824B652002DEF9E /* TodoCalendar.swift */; };
 		E9D845BE282CD09F002DEF9E /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D845BD282CD09F002DEF9E /* RealmService.swift */; };
+		E9EE56162845C38C00315863 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EE56152845C38C00315863 /* UIImage.swift */; };
+		E9EE56182845CD0A00315863 /* ScreenSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EE56172845CD0A00315863 /* ScreenSettingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -111,13 +115,17 @@
 		E94B157C280FBB0A00DA2E35 /* CompletedDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedDetailViewController.swift; sourceTree = "<group>"; };
 		E94B157E280FBB1700DA2E35 /* MonthlyDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyDetailViewController.swift; sourceTree = "<group>"; };
 		E9584F9328066F3B00651C20 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
+		E97010E52848FC2600F32370 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		E9A4125F281014D40030935F /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		E9A412612810BCA10030935F /* OpenSourceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceViewController.swift; sourceTree = "<group>"; };
 		E9A412632813ADB30030935F /* UIString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIString.swift; sourceTree = "<group>"; };
 		E9A412652813C6890030935F /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		E9A4127A2814A8010030935F /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E9AD3EF52850DE7F00F17700 /* UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
 		E9D845782824B652002DEF9E /* TodoCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCalendar.swift; sourceTree = "<group>"; };
 		E9D845BD282CD09F002DEF9E /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
+		E9EE56152845C38C00315863 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		E9EE56172845CD0A00315863 /* ScreenSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenSettingViewController.swift; sourceTree = "<group>"; };
 		F3C2B9AFDC77AE56B68C49E8 /* Pods-TodoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodoTests.debug.xcconfig"; path = "Target Support Files/Pods-TodoTests/Pods-TodoTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -269,10 +277,11 @@
 			isa = PBXGroup;
 			children = (
 				E932F51A280E459F00231232 /* SettingViewController.swift */,
-				E932F51C280E4C7600231232 /* SettingTableViewCell.swift */,
-				E9A412612810BCA10030935F /* OpenSourceViewController.swift */,
+				E9EE56172845CD0A00315863 /* ScreenSettingViewController.swift */,
 				E90DAF272817219C001F33E4 /* DataSettingViewController.swift */,
 				E90DAF0D28165BEA001F33E4 /* AlarmSettingViewController.swift */,
+				E9A412612810BCA10030935F /* OpenSourceViewController.swift */,
+				E932F51C280E4C7600231232 /* SettingTableViewCell.swift */,
 				E90DAF2328170376001F33E4 /* SettingDetailTableViewCell.swift */,
 				E90DAF2428170376001F33E4 /* SettingDetailTableViewCell.xib */,
 			);
@@ -305,6 +314,9 @@
 				E90DAF1D2816D59A001F33E4 /* UILabel.swift */,
 				E920C55E282FE50A00938497 /* UIButton.swift */,
 				E90DAF4B281824D7001F33E4 /* UIViewController.swift */,
+				E9EE56152845C38C00315863 /* UIImage.swift */,
+				E97010E52848FC2600F32370 /* UIColor.swift */,
+				E9AD3EF52850DE7F00F17700 /* UICollectionView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -451,6 +463,7 @@
 				E90DAF0E28165BEA001F33E4 /* AlarmSettingViewController.swift in Sources */,
 				E932F4A7280BB8AA00231232 /* UIFont.swift in Sources */,
 				E9235C95278EAA2300C73737 /* AppDelegate.swift in Sources */,
+				E9EE56162845C38C00315863 /* UIImage.swift in Sources */,
 				E90DAF1E2816D59A001F33E4 /* UILabel.swift in Sources */,
 				E9D845792824B652002DEF9E /* TodoCalendar.swift in Sources */,
 				E9235D162794083000C73737 /* TodoListTableViewCell.swift in Sources */,
@@ -462,10 +475,12 @@
 				E94B1577280FBAC100DA2E35 /* BookmarkDetailViewController.swift in Sources */,
 				E9235C97278EAA2300C73737 /* SceneDelegate.swift in Sources */,
 				E90DAF4C281824D8001F33E4 /* UIViewController.swift in Sources */,
+				E9AD3EF62850DE7F00F17700 /* UICollectionView.swift in Sources */,
 				E932F520280E60C700231232 /* DetailViewController.swift in Sources */,
 				E9235CC5278EAB9500C73737 /* MainViewController.swift in Sources */,
 				E90DAF1C2816A158001F33E4 /* DetailTableViewCell.swift in Sources */,
 				E94B157F280FBB1700DA2E35 /* MonthlyDetailViewController.swift in Sources */,
+				E97010E62848FC2600F32370 /* UIColor.swift in Sources */,
 				E90DAF282817219C001F33E4 /* DataSettingViewController.swift in Sources */,
 				E93CDFDE27B2332C00F51899 /* UITableView.swift in Sources */,
 				E932F51D280E4C7600231232 /* SettingTableViewCell.swift in Sources */,
@@ -475,6 +490,7 @@
 				E9A41260281014D40030935F /* SearchTableViewCell.swift in Sources */,
 				E9584F9428066F3B00651C20 /* UITextField.swift in Sources */,
 				E94B157D280FBB0A00DA2E35 /* CompletedDetailViewController.swift in Sources */,
+				E9EE56182845CD0A00315863 /* ScreenSettingViewController.swift in Sources */,
 				E932F51B280E459F00231232 /* SettingViewController.swift in Sources */,
 				E9A412642813ADB30030935F /* UIString.swift in Sources */,
 				E90DAF2528170376001F33E4 /* SettingDetailTableViewCell.swift in Sources */,
@@ -637,6 +653,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Home;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -668,6 +685,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Home;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

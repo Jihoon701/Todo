@@ -240,6 +240,7 @@ class EditTodoListViewController: UIViewController, UITextFieldDelegate {
         try! realm.write {
             realm.delete(TodoListToDelete)
         }
+        print("5555")
         editTodoDelegate?.reorderDeletedList()
         dismiss(animated: true, completion: nil)
     }

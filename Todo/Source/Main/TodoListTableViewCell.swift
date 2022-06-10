@@ -67,7 +67,7 @@ class TodoListTableViewCell: UITableViewCell {
         let strikethroughlineAttribute = [NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.thick.rawValue]
         let strikethroughlineAttributedString = NSAttributedString(string: todoListContent, attributes: strikethroughlineAttribute)
         todoListLabel.attributedText = strikethroughlineAttributedString
-        bookmarkImage.image = UIImage(named: "Group 33")
+        bookmarkImage.image = UIImage(named: "bookmark_gray")
     }
     
     func originalTodoList() {
@@ -75,7 +75,7 @@ class TodoListTableViewCell: UITableViewCell {
         let attributeString = NSMutableAttributedString(string: todoListContent)
         attributeString.removeAttribute(NSAttributedString.Key.strikethroughStyle, range: NSMakeRange(0, attributeString.length))
         todoListLabel.attributedText = attributeString
-        bookmarkImage.image = UIImage(named: "Group 32")
+        bookmarkImage.image = UIImage.coloredBookmarkImage(bookmarkImage.image!)()
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

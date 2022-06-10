@@ -52,7 +52,6 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
         controller.dismiss(animated: true, completion: nil)
     }
     
-    //MARK: infolist 확인하기
     //MARK: appID 바꾸기
     func rateThisApp() {
         if let reviewURL = URL(string: "itms-apps://itunes.apple.com/app/itunes-u/id\(1597618795)?ls=1&mt=8&action=write-review"), UIApplication.shared.canOpenURL(reviewURL) {
@@ -79,7 +78,9 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
         case 0:
             break
         case 1:
-            break
+            let vc = storyboard?.instantiateViewController(withIdentifier: "ScreenSettingViewController") as! ScreenSettingViewController
+            self.navigationController?.pushViewController(vc, animated: true)
+            
         case 2:
             let vc = storyboard?.instantiateViewController(withIdentifier: "DataSettingViewController") as! DataSettingViewController
             self.navigationController?.pushViewController(vc, animated: true)

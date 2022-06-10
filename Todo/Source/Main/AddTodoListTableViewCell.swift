@@ -34,8 +34,6 @@ class AddTodoListTableViewCell: UITableViewCell, UITextFieldDelegate {
         AddTodoListTextField.font = .NanumSR(.regular, size: 13)
         AddTodoListTextField.delegate = self
         AddTodoListTextField.returnKeyType = .done
-//        print("BECOMEFIRSTRESPONDER", AddTodoListTextField.becomeFirstResponder())
-
         
         NotificationCenter.default.addObserver(self, selector: #selector(stopAddingCell), name: UIApplication.didEnterBackgroundNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(stopAddingCell), name: UIApplication.willResignActiveNotification, object: nil)

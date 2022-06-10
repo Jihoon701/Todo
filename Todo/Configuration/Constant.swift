@@ -44,4 +44,14 @@ struct Constant {
             UserDefaults.standard.set(todoPrimaryKey, forKey: "todoPrimaryKey")
         }
     }
+    
+    static var bookmarkColor: String?
+    = UserDefaults.standard.string(forKey: "bookmarkColor")
+    {
+        didSet {
+            let bookmarkColor = bookmarkColor
+//            print("bookmarkColor:  \(bookmarkColor)")
+            UserDefaults.standard.set(bookmarkColor, forKey: "bookmarkColor")
+        }
+    }
 }

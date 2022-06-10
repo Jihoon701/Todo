@@ -8,7 +8,6 @@
 import Foundation
 import RealmSwift
 
-// todoContent nil
 class TodoList: Object {
     @objc dynamic var todoContent: String = ""
     @objc dynamic var date: String = ""
