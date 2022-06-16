@@ -52,9 +52,8 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
         controller.dismiss(animated: true, completion: nil)
     }
     
-    //MARK: appID 바꾸기
     func rateThisApp() {
-        if let reviewURL = URL(string: "itms-apps://itunes.apple.com/app/itunes-u/id\(1597618795)?ls=1&mt=8&action=write-review"), UIApplication.shared.canOpenURL(reviewURL) {
+        if let reviewURL = URL(string: "itms-apps://itunes.apple.com/app/itunes-u/id\(1630140322)?ls=1&mt=8&action=write-review"), UIApplication.shared.canOpenURL(reviewURL) {
             if #available(iOS 10.0, *) {
                 UIApplication.shared.open(reviewURL, options: [:], completionHandler: nil) } else { UIApplication.shared.openURL(reviewURL) } }
     }
