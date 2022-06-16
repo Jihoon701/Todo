@@ -19,6 +19,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var todoListTableView: UITableView!
     
     let todoCalendar = TodoCalendar()
+    let todoDate = TodoDate()
     let realm = try! Realm()
     var list: Results<TodoList>!
     var realmNotificationToken: NotificationToken?
@@ -26,12 +27,12 @@ class MainViewController: UIViewController {
     var weeks: [String] = ["일", "월", "화", "수", "목", "금", "토"]
     var addTodoListCellExist = false
     var selectedRow = 0
-    var todoListEdited = false
     var selectedDateConfirmed = false
     var selectedDate = ""
     var editedTodoListDate = ""
+    var newSelectedDate = ""
     
-    func initCollection() {
+    func initialSetup() {
         CalendarCollectionView.delegate = self
         CalendarCollectionView.dataSource = self
         
@@ -52,62 +53,54 @@ class MainViewController: UIViewController {
         todoListTableView.reloadData()
     }
     
+    
     override func viewDidLoad() {
-        self.initCollection()
+        self.initialSetup()
         todoCalendar.initCalendar()
-        calendarDateLabel.setupTitleLabel(text: todoCalendar.CalendarTitle())
-        list = realm.objects(TodoList.self).filter("date == %@", selectedDate).sorted(byKeyPath: "order", ascending: true)
         todoListTableView.layer.cornerRadius = 10
         addTodoListCellExist = false
-        
-        if Constant.calendarWeekType! {
-            nextMonthButton.isHidden = true
-            previousMonthButton.isHidden = true
-        }
-        else {
-            nextMonthButton.isHidden = false
-            previousMonthButton.isHidden = false
-        }
-        
+        calendarDateLabel.setupTitleLabel(text: todoCalendar.CalendarTitle())
+        nextMonthButton.isHidden = Constant.isWeekType!
+        previousMonthButton.isHidden = Constant.isWeekType!
+        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: Constant.reloadBookmark, object: nil)
+        newSelectedDate = todoDate.changeDayStatus(checkCurrentDayMonth: todoCalendar.checkCurrentDayMonth())
         print(Realm.Configuration.defaultConfiguration.fileURL!)
         realmNotification()
         super.viewDidLoad()
     }
     
+    @objc func reload() {
+        self.todoListTableView.reloadData()
+    }
+    
     func realmNotification() {
         realmNotificationToken = realm.observe { [self] (notification, realm) in
-            todoListTableView.reloadData { [self] in
-                // TODO: check tableveiw reload state
-                todoListTableView.reloadData()
-                CalendarCollectionView.reloadData()
-            }
-            // ????
-            todoListEdited = true
-            // TODO: collectionview reload하면 selectday 바뀜
+            todoListTableView.reloadData()
+            CalendarCollectionView.reloadData()
         }
     }
     
     func changeCalendar(_ calendarType: Bool) {
         todoCalendar.initCalendar()
-        Constant.calendarWeekType = !calendarType
+        changeCalendarLayout(calendarType: calendarType)
+        if calendarType {
+            createWeeklySelectedDate()
+        }
+        else {
+            createMonthlySelectedDate()
+        }
+        rearrangeCalendar()
+    }
+    
+    func changeCalendarLayout(calendarType: Bool) {
+        Constant.isWeekType = !calendarType
         nextMonthButton.isHidden = !calendarType
         previousMonthButton.isHidden = !calendarType
         calendarDateLabel.setupTitleLabel(text: todoCalendar.CalendarTitle())
-        CalendarCollectionView.reloadData { [self] in
-            CalendarCollectionViewHeight.constant = CalendarCollectionView.collectionViewLayout.collectionViewContentSize.height
-            todoListTableView.reloadData()
-            view.setNeedsLayout()
-        }
-        
-        //        CalendarCollectionViewHeight.constant = CalendarCollectionView.collectionViewLayout.collectionViewContentSize.height
-        //        view.setNeedsLayout()
-        //        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()) { [self] in
-        //            todoListTableView.reloadData()
-        //        }
     }
     
     @IBAction func changeCalendarType(_ sender: Any) {
-        changeCalendar(Constant.calendarWeekType!)
+        changeCalendar(Constant.isWeekType!)
     }
     
     @IBAction func addTodoList(_ sender: Any) {
@@ -134,42 +127,26 @@ class MainViewController: UIViewController {
     
     @IBAction func toSettingVC(_ sender: Any) {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "SettingViewController")as! SettingViewController
-        let screenVC = self.storyboard?.instantiateViewController(withIdentifier: "ScreenSettingViewController")as! ScreenSettingViewController
-        screenVC.screenSettingDelegate = self
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func rearrangeCalendar() {
-        //        list = realm.objects(TodoList.self).filter("date == %@", selectedDate).sorted(byKeyPath: "order", ascending: true)
-        //        print("Arranged List")
-        //        print(selectedDate)
-        ////        selectedDate = "2022/5/1"
-        //        print(selectedDate)
-        //        print(list)
-        //        CalendarCollectionView.reloadData()
-        //        print("@@@", selectedDate)
-        //        CalendarCollectionViewHeight.constant = CalendarCollectionView.collectionViewLayout.collectionViewContentSize.height
-        //        todoListTableView.reloadData()
-        //        view.setNeedsLayout()
-        
-        print("Selected Date", selectedDate)
-        CalendarCollectionView.reloadData { [self] in
-            CalendarCollectionViewHeight.constant = CalendarCollectionView.collectionViewLayout.collectionViewContentSize.height
-            list = realm.objects(TodoList.self).filter("date == %@", selectedDate).sorted(byKeyPath: "order", ascending: true)
-            print("Selected Date!!", selectedDate)
-            todoListTableView.reloadData()
-        }
+        list = realm.objects(TodoList.self).filter("date == %@", selectedDate).sorted(byKeyPath: "order", ascending: true)
+        CalendarCollectionView.reloadData()
+        CalendarCollectionViewHeight.constant = CalendarCollectionView.collectionViewLayout.collectionViewContentSize.height
+        todoListTableView.reloadData()
         view.setNeedsLayout()
     }
     
     @IBAction func toPreviousMonth(_ sender: Any) {
         todoCalendar.moveCalendarMonth(value: -1, calendarTitleLabel: calendarDateLabel)
-        print("toPreviousMonth Selected Date",selectedDate)
+        createMonthlySelectedDate()
         rearrangeCalendar()
     }
     
     @IBAction func toNextMonth(_ sender: Any) {
         todoCalendar.moveCalendarMonth(value: 1, calendarTitleLabel: calendarDateLabel)
+        createMonthlySelectedDate()
         rearrangeCalendar()
     }
     
@@ -177,22 +154,15 @@ class MainViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    //MARK: 두번 작동 확인
     override func viewDidLayoutSubviews() {
-        print("viewDidLayoutSubviews    viewDidLayoutSubviews   viewDidLayoutSubviews")
         super.viewDidLayoutSubviews()
         CalendarCollectionViewHeight.constant = CalendarCollectionView.collectionViewLayout.collectionViewContentSize.height
-        //        todoListTableView.beginUpdates()
-        //        todoListTableView.endUpdates()
-        
         view.setNeedsLayout()
     }
 }
 
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        print("콜렉션뷰")
-        print(selectedDate)
         return 2
     }
     
@@ -201,7 +171,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         case 0:
             return 7
         default:
-            if Constant.calendarWeekType! {
+            if Constant.isWeekType! {
                 return todoCalendar.daysInWeekType.count
             }
             else {
@@ -210,118 +180,70 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }
     }
     
+    func createMonthlySelectedDate() {
+        newSelectedDate = todoDate.changeDayStatus(checkCurrentDayMonth: todoCalendar.checkCurrentDayMonth())
+        selectedDate = "\(todoCalendar.calendarYear)/\(todoCalendar.calendarMonth)/"
+        selectedDate += newSelectedDate
+    }
+    
+    func createWeeklySelectedDate() {
+        newSelectedDate = todoDate.changeDayStatus(checkCurrentDayMonth: todoCalendar.checkCurrentDayMonth())
+        selectedDate = "\(todoCalendar.checkWeekTypeCategory(weekTypeCategory: todoCalendar.weekTypeCategory))/"
+        selectedDate += newSelectedDate
+    }
+    
     func createSelectedDate(indexPath: IndexPath, calendarType: Bool) {
         if calendarType {
+            newSelectedDate = "\(todoCalendar.daysInWeekType[indexPath.item])"
             selectedDate = "\(todoCalendar.checkWeekTypeCategory(weekTypeCategory: todoCalendar.weekTypeCategory))/"
-            selectedDate += "\(todoCalendar.daysInWeekType[indexPath.item])"
+            selectedDate += newSelectedDate
         }
         else {
+            newSelectedDate =  "\(todoCalendar.daysInMonthType[indexPath.item])"
             selectedDate = "\(todoCalendar.calendarYear)/\(todoCalendar.calendarMonth)/"
-            selectedDate += "\(todoCalendar.daysInMonthType[indexPath.item])"
+            selectedDate += newSelectedDate
         }
         print("-> ",selectedDate)
     }
     
-    func selectCalendarCell(indexPath: IndexPath, calendarType: Bool) {  // true if weektype else false
-        print("createSelectedDate   createSelectedDate")
+    func selectCalendarCell(indexPath: IndexPath, calendarType: Bool) {
         createSelectedDate(indexPath: indexPath, calendarType: calendarType)
-        print("-> -> ",selectedDate)
         CalendarCollectionView.selectItem(at: indexPath, animated: false, scrollPosition: .centeredVertically)
-        //        todoListTableView.reloadData()
-    }
-    
-    enum SelectedDayStatus {
-        case selectableDate
-        case ordinaryDay
-    }
-    
-    func checkSelectedWeeklyStatus(currentDay: String) -> SelectedDayStatus {
-        if todoListEdited && currentDay == editedTodoListDate {
-            todoListEdited = false
-            selectedDateConfirmed = true
-            return .selectableDate
-        }
-        else if selectedDateConfirmed == false && currentDay == String(todoCalendar.currentDate.day) {
-            return .selectableDate
-        }
-        else {
-            return .ordinaryDay
-        }
-    }
-    
-    func confirmSelectedDate() -> Bool {
-        if todoListEdited == false && selectedDateConfirmed == false {
-            return true
-        }
-        else {
-            return false
-        }
-    }
-    
-    func checkSelectedMonthlyStatus(currentDay: String, isTodayDate: Bool) -> SelectedDayStatus {
-        // 새로운 셀 추가할 때 (AddTodoList)
-        // TODO: 밑에 조건들보다 addcell하는 날짜가 더 앞에 있으면 밑에 조건들로 select 바뀜
-        if todoListEdited && currentDay == editedTodoListDate { // 1
-            todoListEdited = false
-            selectedDateConfirmed = true
-            return .selectableDate
-        }
-        // 오늘 날짜가 있으면 해당 날짜 select
-        // selectedDateConfirmed false여야됨
-        else if confirmSelectedDate() && isTodayDate && currentDay == String(todoCalendar.currentDate.day) {    // 2
-            return .selectableDate
-        }
-        // 없으면 1일 select
-        else if confirmSelectedDate() && currentDay == String(1) {  // 3
-            return .selectableDate
-        }
-        else {
-            return .ordinaryDay
-        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        print("콜렉션뷰 cellforitemat")
         let cell = CalendarCollectionView.dequeueReusableCell(withReuseIdentifier: "CalendarCollectionViewCell", for: indexPath) as! CalendarCollectionViewCell
-        let isTodayDate = todoCalendar.isTodayDate()
+        var daysInAccordanceWithType = ""
+        
         if indexPath.section == 0 {
             cell.initWeekdayCell(text: weeks[indexPath.item])
             return cell
         }
         
-        //MARK: delegate 사용해서 custom cell view 안에다 함수 정의하기 OR MainViewcontroller에다 부분 정의
-        //MARK: Constant calendarWeekType 타입 불리언 OR 스트링 -> Enum
-        if Constant.calendarWeekType! {    // 일주일 단위로 보여줄 때 week type
+        if Constant.isWeekType! {     // MARK: Week Type
             let weekTypeDate = todoCalendar.checkWeekTypeCategory(weekTypeCategory: todoCalendar.weekTypeCategory)
-            cell.initDayCell(currentDay: todoCalendar.daysInWeekType[indexPath.item], isTodayDate: isTodayDate, date: weekTypeDate)
-            print(Constant.calendarWeekType)
-            // if문도 불리언으로 값 전달
-            switch checkSelectedWeeklyStatus(currentDay: todoCalendar.daysInWeekType[indexPath.item]) {
-            case .selectableDate:
-                selectCalendarCell(indexPath: indexPath, calendarType: true)
-            default:
-                cell.isSelected = false
-                cell.DateLabel.textColor = UIColor.black
-            }
+            daysInAccordanceWithType = todoCalendar.daysInWeekType[indexPath.item]
+            cell.initDayCell(currentDay: daysInAccordanceWithType, isTodayDate: todoCalendar.checkCurrentDayMonth(), date: weekTypeDate)
         }
-        else {  // 한달 단위로 보여줄 때 month type
-            cell.initDayCell(currentDay: todoCalendar.daysInMonthType[indexPath.item], isTodayDate: isTodayDate, date: "\(todoCalendar.calendarYear)/\(todoCalendar.calendarMonth)")
-            switch checkSelectedMonthlyStatus(currentDay: todoCalendar.daysInMonthType[indexPath.item], isTodayDate: isTodayDate) {
-            case .selectableDate:
-                selectCalendarCell(indexPath: indexPath, calendarType: false)
-            default:
-                cell.isSelected = false
-                cell.DateLabel.textColor = UIColor.black
-            }
+        else {      // MARK: Month Type
+            daysInAccordanceWithType = todoCalendar.daysInMonthType[indexPath.item]
+            cell.initDayCell(currentDay: daysInAccordanceWithType, isTodayDate: todoCalendar.checkCurrentDayMonth(), date: "\(todoCalendar.calendarYear)/\(todoCalendar.calendarMonth)")
         }
-        //        todoListTableView.reloadData()
+        
+        if newSelectedDate == daysInAccordanceWithType {
+            cell.isSelected = true
+            selectCalendarCell(indexPath: indexPath, calendarType: Constant.isWeekType!)
+        }
+        else {
+            cell.isSelected = false
+            cell.DateLabel.textColor = UIColor.black
+        }
+        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = CalendarCollectionView.dequeueReusableCell(withReuseIdentifier: "CalendarCollectionViewCell", for: indexPath) as! CalendarCollectionViewCell
-        createSelectedDate(indexPath: indexPath, calendarType: Constant.calendarWeekType!)
-        cell.isSelected = true
+        createSelectedDate(indexPath: indexPath, calendarType: Constant.isWeekType!)
         todoListTableView.reloadData()
     }
 }
@@ -345,8 +267,6 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
 extension MainViewController: UITableViewDelegate, UITableViewDataSource, UITableViewDragDelegate, UITableViewDropDelegate, UITextFieldDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         list = realm.objects(TodoList.self).filter("date == %@", selectedDate).sorted(byKeyPath: "order", ascending: true)
-        print("테이블뷰")
-        print(selectedDate)
         
         if addTodoListCellExist {
             return list.count + 1
@@ -354,19 +274,20 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource, UITabl
         return list.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func extractDateFromSelectedDate(selectedDate: String) -> String {
         let editedDateArray = selectedDate.components(separatedBy: "/")
-        editedTodoListDate = editedDateArray[editedDateArray.count-1]
-        print("TableView Selected Date", selectedDate, editedTodoListDate)
+        return editedDateArray[editedDateArray.count-1]
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        editedTodoListDate = extractDateFromSelectedDate(selectedDate: selectedDate)
         if indexPath.row == list.count && addTodoListCellExist {
             let addCell = todoListTableView.dequeueReusableCell(withIdentifier: "AddTodoListTableViewCell", for: indexPath) as! AddTodoListTableViewCell
-            addCell.initAddCell(date: selectedDate, order: list.count, id: Constant.todoPrimaryKey)
-            print("현재 primaryKey Value")
+            addCell.initAddCell(selectedDate: selectedDate, date: editedTodoListDate, order: list.count, id: Constant.todoPrimaryKey)
             Constant.todoPrimaryKey += 1
             addCell.newListDelegate = self
             // TODO: 메인 화면에서 함수 호출 -> cell 안에서 작동하게 하는 방법 찾기
             textFieldShouldReturn(addCell.AddTodoListTextField)
-            
             addTodoListCellExist = false
             
             return addCell
@@ -393,6 +314,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource, UITabl
         if (tableView.cellForRow(at: indexPath) as? TodoListTableViewCell) != nil {
             guard let vc = self.storyboard!.instantiateViewController(withIdentifier: "EditTodoListViewController") as? EditTodoListViewController else {return}
             selectedRow = indexPath.row
+            editedTodoListDate = extractDateFromSelectedDate(selectedDate: selectedDate)
             // TODO: 데이터 전달 확인
             vc.todoContent = list[indexPath.row].todoContent
             vc.editTodoDelegate = self
@@ -400,14 +322,14 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource, UITabl
             vc.todoBookmark = list[indexPath.row].bookmark
             vc.todoAlarm = list[indexPath.row].alarm
             vc.todoAlarmTime = list[indexPath.row].alarmTime
-            vc.todoDate = list[indexPath.row].date
+            vc.todoSelectedDate = list[indexPath.row].date
+            vc.date = editedTodoListDate
             vc.modalPresentationStyle = .overCurrentContext
             vc.modalTransitionStyle = .crossDissolve
             vc.view.backgroundColor = .black.withAlphaComponent(0.7)
             self.present(vc, animated: true, completion: nil)
         }
     }
-    
     
     func tableView(_ tableView: UITableView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
         return [UIDragItem(itemProvider: NSItemProvider())]
@@ -444,43 +366,32 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource, UITabl
             sourceList.order = destinationListOrder
         }
     }
-    
 }
 
-extension MainViewController: NewTodoListDelegate, EditTodoDelegate, ScreenSettingDelegate {
-    
-    func alertAlarmComplete() {
-        print("22222")
+extension MainViewController: NewTodoListDelegate, EditTodoDelegate {
+    func alertAlarmComplete(date: String) {
         self.presentBottomAlert(message: "알림이 설정되었습니다")
+        newSelectedDate = todoDate.changeEditedDayStatus(editedDate: date)
     }
     
-    func reorderDeletedList() {
-        print("11111")
+    func reorderDeletedList(date: String) {
         let endIndex = list.count
         let startIndex = selectedRow
         try! realm.write {
             for index in startIndex..<endIndex {
-                print(index)
                 list[index].order -= 1
             }
         }
-        CalendarCollectionView.reloadData()
+        newSelectedDate = todoDate.changeEditedDayStatus(editedDate: date)
     }
     
-    func makeNewTodoList() {
-        list = realm.objects(TodoList.self).filter("date == %@", selectedDate).sorted(byKeyPath: "order", ascending: true)
-        todoListEdited = true
-        CalendarCollectionView.reloadData()
-        todoListTableView.reloadData()
+    func makeNewTodoList(date: String) {
+        newSelectedDate = todoDate.changeEditedDayStatus(editedDate: date)
     }
     
-    func revokeAddCell() {
+    func revokeAddCell(date: String) {
         addTodoListCellExist = false
-        todoListTableView.reloadData()
-    }
-    
-    func reloadBookmarkImage() {
-        print("reloadBookmarkImagereloadBookmarkImage")
+        newSelectedDate = todoDate.changeEditedDayStatus(editedDate: date)
         todoListTableView.reloadData()
     }
 }

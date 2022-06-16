@@ -49,6 +49,7 @@
 		E94B157F280FBB1700DA2E35 /* MonthlyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94B157E280FBB1700DA2E35 /* MonthlyDetailViewController.swift */; };
 		E9584F9428066F3B00651C20 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9584F9328066F3B00651C20 /* UITextField.swift */; };
 		E97010E62848FC2600F32370 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97010E52848FC2600F32370 /* UIColor.swift */; };
+		E978BC2C2856FD9100A64CCB /* TodoDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E978BC2B2856FD9100A64CCB /* TodoDate.swift */; };
 		E9A41260281014D40030935F /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A4125F281014D40030935F /* SearchTableViewCell.swift */; };
 		E9A412622810BCA10030935F /* OpenSourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A412612810BCA10030935F /* OpenSourceViewController.swift */; };
 		E9A412642813ADB30030935F /* UIString.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A412632813ADB30030935F /* UIString.swift */; };
@@ -116,6 +117,7 @@
 		E94B157E280FBB1700DA2E35 /* MonthlyDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyDetailViewController.swift; sourceTree = "<group>"; };
 		E9584F9328066F3B00651C20 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		E97010E52848FC2600F32370 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		E978BC2B2856FD9100A64CCB /* TodoDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDate.swift; sourceTree = "<group>"; };
 		E9A4125F281014D40030935F /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		E9A412612810BCA10030935F /* OpenSourceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceViewController.swift; sourceTree = "<group>"; };
 		E9A412632813ADB30030935F /* UIString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIString.swift; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 				E9D845782824B652002DEF9E /* TodoCalendar.swift */,
 				E9235D122792A57300C73737 /* TodoList.swift */,
 				E9D845BD282CD09F002DEF9E /* RealmService.swift */,
+				E978BC2B2856FD9100A64CCB /* TodoDate.swift */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
@@ -474,6 +477,7 @@
 				E9235D132792A57300C73737 /* TodoList.swift in Sources */,
 				E94B1577280FBAC100DA2E35 /* BookmarkDetailViewController.swift in Sources */,
 				E9235C97278EAA2300C73737 /* SceneDelegate.swift in Sources */,
+				E978BC2C2856FD9100A64CCB /* TodoDate.swift in Sources */,
 				E90DAF4C281824D8001F33E4 /* UIViewController.swift in Sources */,
 				E9AD3EF62850DE7F00F17700 /* UICollectionView.swift in Sources */,
 				E932F520280E60C700231232 /* DetailViewController.swift in Sources */,

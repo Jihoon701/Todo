@@ -8,29 +8,14 @@
 import Foundation
 
 struct Constant {
+
+    static let reloadBookmark = Notification.Name("reloadBookmark")
     
-    enum CalendarCase: String {
-        case week
-        case month
-    }
-    
-    //    static var calendarType: String
-    //    = UserDefaults.standard.string(forKey: "calendarTypeCheck")
-    ////     Constant.CalendarCase(rawValue: UserDefaults.standard.string(forKey: "calendarTypeCheck")!) ?? <#default value#>
-    //    {
-    //        didSet {
-    //            guard let calendarTypeCheck = calendarType else { return }
-    //            UserDefaults.standard.set(calendarTypeCheck, forKey: "calendarType")
-    //        }
-    //    }
-    
-    
-    //MARK: 캘린더 타입 변경 true:Week false:Month (Bool 타입 or String 타입)
-    static var calendarWeekType: Bool?
+    static var isWeekType: Bool?
     = UserDefaults.standard.bool(forKey: "calendarMonthTypeCheck")
     {
         didSet {
-            guard let calendarWeekTypeCheck = calendarWeekType else { return }
+            guard let calendarWeekTypeCheck = isWeekType else { return }
             UserDefaults.standard.set(calendarWeekTypeCheck, forKey: "calendarWeekTypeCheck")
         }
     }

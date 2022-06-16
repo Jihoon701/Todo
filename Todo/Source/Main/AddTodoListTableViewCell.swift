@@ -9,14 +9,15 @@ import UIKit
 import RealmSwift
 
 protocol NewTodoListDelegate: AnyObject {
-    func makeNewTodoList()
-    func revokeAddCell()
+    func makeNewTodoList(date: String)
+    func revokeAddCell(date: String)
 }
 
 class AddTodoListTableViewCell: UITableViewCell, UITextFieldDelegate {
     @IBOutlet weak var AddTodoListTextField: UITextField!
     weak var newListDelegate: NewTodoListDelegate?
     private let realm = try! Realm()
+    var selectedDate = ""
     var date = ""
     var order = 0
     var id = 0
@@ -26,7 +27,8 @@ class AddTodoListTableViewCell: UITableViewCell, UITextFieldDelegate {
     }
     
     // TODO: 데이터 전달 확인
-    func initAddCell(date: String, order: Int, id: Int) {
+    func initAddCell(selectedDate: String, date: String, order: Int, id: Int) {
+        self.selectedDate = selectedDate
         self.date = date
         self.order = order
         self.id = id
@@ -48,12 +50,12 @@ class AddTodoListTableViewCell: UITableViewCell, UITextFieldDelegate {
         realm.beginWrite()
         let newTodoList = TodoList()
         newTodoList.todoContent = contentText
-        newTodoList.date = date
+        newTodoList.date = selectedDate
         newTodoList.order = order
         newTodoList.id = id
         realm.add(newTodoList)
         try! realm.commitWrite()
-        newListDelegate?.makeNewTodoList()
+        newListDelegate?.makeNewTodoList(date: date)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -62,7 +64,7 @@ class AddTodoListTableViewCell: UITableViewCell, UITextFieldDelegate {
             saveToRealm(text!)
         }
         else {
-            newListDelegate?.revokeAddCell()
+            newListDelegate?.revokeAddCell(date: date)
         }
         return true
     }

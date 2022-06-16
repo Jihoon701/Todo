@@ -10,8 +10,8 @@ import RealmSwift
 import UserNotifications
 
 protocol EditTodoDelegate: AnyObject {
-    func reorderDeletedList()
-    func alertAlarmComplete()
+    func reorderDeletedList(date: String)
+    func alertAlarmComplete(date: String)
 }
 
 class EditTodoListViewController: UIViewController, UITextFieldDelegate {
@@ -42,7 +42,8 @@ class EditTodoListViewController: UIViewController, UITextFieldDelegate {
     var currentTimeComponent = Calendar.current.dateComponents([.hour, .minute], from: Date())
     var currentComponent = Calendar.current.dateComponents([.year, .month, .day], from: Date())
     var todoContent = ""
-    var todoDate = ""
+    var todoSelectedDate = ""
+    var date = ""
     var todoId = 0
     var todoBookmark = false
     var todoAlarm = false
@@ -173,8 +174,8 @@ class EditTodoListViewController: UIViewController, UITextFieldDelegate {
     func saveAlarm() {
         todoAlarmTime = "\(timeSetHour):\(timeSetMinute)"
         todoAlarm = true
-        requestSendNotification(todoContent: todoListContentTextField.text ?? "", todoId: todoId, todoDate: todoDate, notiHour: timeSetHour, notiMinute: timeSetMinute)
-        editTodoDelegate?.alertAlarmComplete()
+        requestSendNotification(todoContent: todoListContentTextField.text ?? "", todoId: todoId, todoDate: todoSelectedDate, notiHour: timeSetHour, notiMinute: timeSetMinute)
+        editTodoDelegate?.alertAlarmComplete(date: date)
         
         try! realm.write {
             realm.create(TodoList.self, value: ["id": todoId, "todoContent": todoListContentTextField.text ?? "", "bookmark": todoBookmark, "alarm": todoAlarm, "alarmTime": todoAlarmTime], update: .modified)
@@ -241,13 +242,13 @@ class EditTodoListViewController: UIViewController, UITextFieldDelegate {
             realm.delete(TodoListToDelete)
         }
         print("5555")
-        editTodoDelegate?.reorderDeletedList()
+        editTodoDelegate?.reorderDeletedList(date: date)
         dismiss(animated: true, completion: nil)
     }
     
     func compareDate() -> Double {
         var todoWrittenDate = Date()
-        let dateString = todoDate.replacingOccurrences(of: "/", with: "-")
+        let dateString = todoSelectedDate.replacingOccurrences(of: "/", with: "-")
         todoWrittenDate = dateString.stringToDate()!
         
         currentComponent = Calendar.current.dateComponents([.year, .month, .day], from: Date())

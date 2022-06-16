@@ -60,7 +60,7 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 8
+        return 6
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -75,29 +75,29 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
+//        case 0:
+//            break
         case 0:
-            break
-        case 1:
             let vc = storyboard?.instantiateViewController(withIdentifier: "ScreenSettingViewController") as! ScreenSettingViewController
             self.navigationController?.pushViewController(vc, animated: true)
             
-        case 2:
+        case 1:
             let vc = storyboard?.instantiateViewController(withIdentifier: "DataSettingViewController") as! DataSettingViewController
             self.navigationController?.pushViewController(vc, animated: true)
             
-        case 3:
+        case 2:
             let vc = storyboard?.instantiateViewController(withIdentifier: "AlarmSettingViewController") as! AlarmSettingViewController
             self.navigationController?.pushViewController(vc, animated: true)
             
-        case 4:
+        case 3:
             sendEmail()
             
-        case 5:
+        case 4:
             rateThisApp()
             
-        case 6:
-            let vc = storyboard?.instantiateViewController(withIdentifier: "OpenSourceViewController") as! OpenSourceViewController
-            self.navigationController?.pushViewController(vc, animated: true)
+//        case 6:
+//            let vc = storyboard?.instantiateViewController(withIdentifier: "OpenSourceViewController") as! OpenSourceViewController
+//            self.navigationController?.pushViewController(vc, animated: true)
             
         default: break
         }

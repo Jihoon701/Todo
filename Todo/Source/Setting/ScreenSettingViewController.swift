@@ -17,15 +17,14 @@ class ScreenSettingViewController: UIViewController {
     @IBOutlet weak var bookmarkSettingLabel: UILabel!
     @IBOutlet weak var bookmarkColorCheckImage: UIImageView!
     @IBOutlet var bookmarkColorButtons: [UIButton]!
-    weak var screenSettingDelegate: ScreenSettingDelegate?
     let bookmarkColors = ["apricot", "green", "red", "turquoise", "yellow"]
     
     @IBAction func backToSettingVC(_ sender: Any) {
-        screenSettingDelegate?.reloadBookmarkImage()
+        NotificationCenter.default.post(name: Constant.reloadBookmark, object: nil)
         self.navigationController?.popViewController(animated: true)
     }
 
-    
+     
     override func viewDidLoad() {
         titleLabel.setupTitleLabel(text: "화면 설정")
         bookmarkSettingLabel.setupLabel(text: "북마크 색상 정하기")
@@ -45,9 +44,7 @@ class ScreenSettingViewController: UIViewController {
         print(sender.titleLabel?.text!)
         Constant.bookmarkColor = sender.titleLabel?.text!
         self.bookmarkColorCheckImage.image = UIImage.coloredBookmarkImage(self.bookmarkColorCheckImage.image!)()
-//        DispatchQueue.main.async {
-//            self.bookmarkColorCheckImage.image = UIImage.coloredBookmarkImage(self.bookmarkColorCheckImage.image!)()
-//        }
+
      
     }
 }

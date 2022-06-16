@@ -34,7 +34,6 @@ class CalendarCollectionViewCell: UICollectionViewCell {
         didSet{
             if isSelected {
                 DateLabel.font = .NanumSR(.extraBold, size: 15)
-                DateLabel.textColor = UIColor.black
                 DateLabel.textColor = #colorLiteral(red: 0.007843137255, green: 0.1725490196, blue: 0.2117647059, alpha: 1)
             }
             else {

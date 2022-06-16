@@ -43,6 +43,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         searchlist = realm.objects(TodoList.self).filter("todoContent CONTAINS[c] %@", SearchTextField.text ?? "").sorted(byKeyPath: "todoContent", ascending: true)
         cell.contentLabel.text = searchlist[indexPath.row].todoContent
         cell.dateLabel.text = searchlist[indexPath.row].date
+        cell.selectionStyle = .none
         return cell
     }
 }

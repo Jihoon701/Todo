@@ -35,6 +35,7 @@ class TodoCalendar {
         
         selectedTodoDate = "\(currentDate.year)/\(currentDate.month)/\(currentDate.day)"
         calculateCalendarDate()
+        print(checkCurrentDayMonth())
     }
     
     func calculateCalendarDate() {
@@ -52,6 +53,7 @@ class TodoCalendar {
         
         daysInWeekType = calculateDaysInWeekType(weekday: currentWeekday, daysCountInPrevMonth: daysCountInPrevMonth, daysCountInCurrentMonth: daysCountInCurrentMonth, daysCountInNextMonth: daysCountInNextMonth).map { String($0) }
         daysInMonthType = calculateDaysInMonthType(emptiedDaysInMonth: 2 - weekdayOfFirstDayInCurrentMonth, daysCountInMonth: daysCountInCurrentMonth)
+        
     }
     
     enum Month {
@@ -65,13 +67,14 @@ class TodoCalendar {
         return "\(calendarYear)년 \(calendarMonth)월"
     }
     
-    public func isTodayDate() -> Bool {
-        if calendarComponents.year! == currentDate.year && calendarComponents.month! == currentDate.month {
-            return true
+    
+    public func checkCurrentDayMonth() -> Bool {
+        if calendarComponents.year! == currentDate.year {
+            if calendarComponents.month! == currentDate.month {
+                return true
+            }
         }
-        else {
-            return false
-        }
+        return false
     }
     
     public func moveCalendarMonth(value: Int, calendarTitleLabel: UILabel) {
