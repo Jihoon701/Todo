@@ -20,7 +20,6 @@
 		E9235C95278EAA2300C73737 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9235C94278EAA2300C73737 /* AppDelegate.swift */; };
 		E9235C97278EAA2300C73737 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9235C96278EAA2300C73737 /* SceneDelegate.swift */; };
 		E9235C9E278EAA2500C73737 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9235C9D278EAA2500C73737 /* Assets.xcassets */; };
-		E9235CA1278EAA2500C73737 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9235C9F278EAA2500C73737 /* LaunchScreen.storyboard */; };
 		E9235CC5278EAB9500C73737 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9235CC4278EAB9500C73737 /* MainViewController.swift */; };
 		E9235CC9278EC87C00C73737 /* CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9235CC7278EC87C00C73737 /* CalendarCollectionViewCell.swift */; };
 		E9235CCA278EC87C00C73737 /* CalendarCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9235CC8278EC87C00C73737 /* CalendarCollectionViewCell.xib */; };
@@ -85,7 +84,6 @@
 		E9235C96278EAA2300C73737 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E9235C9B278EAA2300C73737 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Home.storyboard; sourceTree = "<group>"; };
 		E9235C9D278EAA2500C73737 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Todo/Assets.xcassets; sourceTree = SOURCE_ROOT; };
-		E9235CA0278EAA2500C73737 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E9235CA2278EAA2500C73737 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E9235CAB278EAA2600C73737 /* TodoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoTests.swift; sourceTree = "<group>"; };
 		E9235CB5278EAA2600C73737 /* TodoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoUITests.swift; sourceTree = "<group>"; };
@@ -194,7 +192,6 @@
 				E9235C94278EAA2300C73737 /* AppDelegate.swift */,
 				E9235C96278EAA2300C73737 /* SceneDelegate.swift */,
 				E9235C9D278EAA2500C73737 /* Assets.xcassets */,
-				E9235C9F278EAA2500C73737 /* LaunchScreen.storyboard */,
 				E9235CA2278EAA2500C73737 /* Info.plist */,
 			);
 			path = Todo;
@@ -399,7 +396,6 @@
 				E9235CCA278EC87C00C73737 /* CalendarCollectionViewCell.xib in Resources */,
 				E9235D572794176E00C73737 /* AddTodoListTableViewCell.xib in Resources */,
 				E90DAF2628170376001F33E4 /* SettingDetailTableViewCell.xib in Resources */,
-				E9235CA1278EAA2500C73737 /* LaunchScreen.storyboard in Resources */,
 				E9A4127B2814A8010030935F /* LaunchScreen.storyboard in Resources */,
 				E92E2D7827953FF40086E462 /* Home.storyboard in Resources */,
 				E932F4A3280BB6AD00231232 /* NanumSquareRoundOTFEB.otf in Resources */,
@@ -511,14 +507,6 @@
 				E9235C9B278EAA2300C73737 /* Base */,
 			);
 			name = Home.storyboard;
-			sourceTree = "<group>";
-		};
-		E9235C9F278EAA2500C73737 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E9235CA0278EAA2500C73737 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
