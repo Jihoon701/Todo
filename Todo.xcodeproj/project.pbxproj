@@ -49,6 +49,7 @@
 		E9584F9428066F3B00651C20 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9584F9328066F3B00651C20 /* UITextField.swift */; };
 		E97010E62848FC2600F32370 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97010E52848FC2600F32370 /* UIColor.swift */; };
 		E978BC2C2856FD9100A64CCB /* TodoDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E978BC2B2856FD9100A64CCB /* TodoDate.swift */; };
+		E978BCF2285C43F000A64CCB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E978BCF4285C43F000A64CCB /* InfoPlist.strings */; };
 		E9A41260281014D40030935F /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A4125F281014D40030935F /* SearchTableViewCell.swift */; };
 		E9A412622810BCA10030935F /* OpenSourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A412612810BCA10030935F /* OpenSourceViewController.swift */; };
 		E9A412642813ADB30030935F /* UIString.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A412632813ADB30030935F /* UIString.swift */; };
@@ -116,6 +117,8 @@
 		E9584F9328066F3B00651C20 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		E97010E52848FC2600F32370 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		E978BC2B2856FD9100A64CCB /* TodoDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDate.swift; sourceTree = "<group>"; };
+		E978BCF3285C43F000A64CCB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E978BCF5285C441A00A64CCB /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E9A4125F281014D40030935F /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		E9A412612810BCA10030935F /* OpenSourceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceViewController.swift; sourceTree = "<group>"; };
 		E9A412632813ADB30030935F /* UIString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIString.swift; sourceTree = "<group>"; };
@@ -193,6 +196,7 @@
 				E9235C96278EAA2300C73737 /* SceneDelegate.swift */,
 				E9235C9D278EAA2500C73737 /* Assets.xcassets */,
 				E9235CA2278EAA2500C73737 /* Info.plist */,
+				E978BCF4285C43F000A64CCB /* InfoPlist.strings */,
 			);
 			path = Todo;
 			sourceTree = "<group>";
@@ -376,6 +380,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ko,
 			);
 			mainGroup = E9235C88278EAA2300C73737;
 			productRefGroup = E9235C92278EAA2300C73737 /* Products */;
@@ -395,6 +400,7 @@
 				E932F4A0280BB6AD00231232 /* NanumSquareRoundOTFL.otf in Resources */,
 				E9235CCA278EC87C00C73737 /* CalendarCollectionViewCell.xib in Resources */,
 				E9235D572794176E00C73737 /* AddTodoListTableViewCell.xib in Resources */,
+				E978BCF2285C43F000A64CCB /* InfoPlist.strings in Resources */,
 				E90DAF2628170376001F33E4 /* SettingDetailTableViewCell.xib in Resources */,
 				E9A4127B2814A8010030935F /* LaunchScreen.storyboard in Resources */,
 				E92E2D7827953FF40086E462 /* Home.storyboard in Resources */,
@@ -509,6 +515,15 @@
 			name = Home.storyboard;
 			sourceTree = "<group>";
 		};
+		E978BCF4285C43F000A64CCB /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E978BCF3285C43F000A64CCB /* en */,
+				E978BCF5285C441A00A64CCB /* ko */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -516,6 +531,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -577,6 +593,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
