@@ -126,6 +126,8 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func toSettingVC(_ sender: Any) {
+        print("push SettingViewController")
+        print(self.navigationController)
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "SettingViewController")as! SettingViewController
         self.navigationController?.pushViewController(vc, animated: true)
     }

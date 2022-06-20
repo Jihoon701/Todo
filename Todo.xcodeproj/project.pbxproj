@@ -56,6 +56,8 @@
 		E9A412662813C6890030935F /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A412652813C6890030935F /* Date.swift */; };
 		E9A4127B2814A8010030935F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9A4127A2814A8010030935F /* LaunchScreen.storyboard */; };
 		E9AD3EF62850DE7F00F17700 /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AD3EF52850DE7F00F17700 /* UICollectionView.swift */; };
+		E9D4D0692860836F003B0985 /* WalkThrough.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9D4D0682860836F003B0985 /* WalkThrough.storyboard */; };
+		E9D4D06C28608433003B0985 /* WalkThroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D4D06B28608433003B0985 /* WalkThroughViewController.swift */; };
 		E9D845792824B652002DEF9E /* TodoCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D845782824B652002DEF9E /* TodoCalendar.swift */; };
 		E9D845BE282CD09F002DEF9E /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D845BD282CD09F002DEF9E /* RealmService.swift */; };
 		E9EE56162845C38C00315863 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EE56152845C38C00315863 /* UIImage.swift */; };
@@ -124,6 +126,8 @@
 		E9A412652813C6890030935F /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		E9A4127A2814A8010030935F /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E9AD3EF52850DE7F00F17700 /* UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
+		E9D4D0682860836F003B0985 /* WalkThrough.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WalkThrough.storyboard; sourceTree = "<group>"; };
+		E9D4D06B28608433003B0985 /* WalkThroughViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkThroughViewController.swift; sourceTree = "<group>"; };
 		E9D845782824B652002DEF9E /* TodoCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCalendar.swift; sourceTree = "<group>"; };
 		E9D845BD282CD09F002DEF9E /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		E9E72F30285CC23300E6B429 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Home.strings; sourceTree = "<group>"; };
@@ -224,6 +228,7 @@
 			children = (
 				E9235C9A278EAA2300C73737 /* Home.storyboard */,
 				E9A4127A2814A8010030935F /* LaunchScreen.storyboard */,
+				E9D4D06A28608409003B0985 /* WalkThrough */,
 				E932F4F0280C3A0800231232 /* Search */,
 				E92E2D792795414D0086E462 /* Edit */,
 				E932F51E280E60B200231232 /* Detail */,
@@ -337,6 +342,15 @@
 			path = Font;
 			sourceTree = "<group>";
 		};
+		E9D4D06A28608409003B0985 /* WalkThrough */ = {
+			isa = PBXGroup;
+			children = (
+				E9D4D0682860836F003B0985 /* WalkThrough.storyboard */,
+				E9D4D06B28608433003B0985 /* WalkThroughViewController.swift */,
+			);
+			path = WalkThrough;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -407,6 +421,7 @@
 				E92E2D7827953FF40086E462 /* Home.storyboard in Resources */,
 				E932F4A3280BB6AD00231232 /* NanumSquareRoundOTFEB.otf in Resources */,
 				E932F49E280BB6AD00231232 /* NanumSquareRoundOTFR.otf in Resources */,
+				E9D4D0692860836F003B0985 /* WalkThrough.storyboard in Resources */,
 				E932F49D280BB6AD00231232 /* NanumSquareRoundOTFB.otf in Resources */,
 				E9235D172794083000C73737 /* TodoListTableViewCell.xib in Resources */,
 				E90DAF1A2816A14C001F33E4 /* DetailTableViewCell.xib in Resources */,
@@ -488,6 +503,7 @@
 				E90DAF1C2816A158001F33E4 /* DetailTableViewCell.swift in Sources */,
 				E94B157F280FBB1700DA2E35 /* MonthlyDetailViewController.swift in Sources */,
 				E97010E62848FC2600F32370 /* UIColor.swift in Sources */,
+				E9D4D06C28608433003B0985 /* WalkThroughViewController.swift in Sources */,
 				E90DAF282817219C001F33E4 /* DataSettingViewController.swift in Sources */,
 				E93CDFDE27B2332C00F51899 /* UITableView.swift in Sources */,
 				E932F51D280E4C7600231232 /* SettingTableViewCell.swift in Sources */,

@@ -10,6 +10,7 @@ import UIKit
 
 extension UITableView {
     
+    //MARK: reload completion 확인하기
     func reloadData(completion:@escaping ()->()) {
         UIView.animate(withDuration: 0, animations: reloadData)
         { _ in completion() }
@@ -17,7 +18,6 @@ extension UITableView {
     
     func scrollToBottom() {
         let rows = self.numberOfRows(inSection: 0)
-        print("스크롤 바텀 row", rows)
         if rows > 0 {
             let indexPath = IndexPath(row: rows - 1, section: 0)
             self.scrollToRow(at: indexPath, at: .bottom, animated: true)

@@ -41,7 +41,6 @@ class ScreenSettingViewController: UIViewController {
     }
     
     @objc func bookmarkColorSelected (sender: UIButton) {
-        print(sender.titleLabel?.text!)
         Constant.bookmarkColor = sender.titleLabel?.text!
         self.bookmarkColorCheckImage.image = UIImage.coloredBookmarkImage(self.bookmarkColorCheckImage.image!)()
 

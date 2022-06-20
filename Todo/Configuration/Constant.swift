@@ -8,15 +8,15 @@
 import Foundation
 
 struct Constant {
-
+    
     static let reloadBookmark = Notification.Name("reloadBookmark")
     
     static var isWeekType: Bool?
-    = UserDefaults.standard.bool(forKey: "calendarMonthTypeCheck")
+    = UserDefaults.standard.bool(forKey: "isWeekType")
     {
         didSet {
-            guard let calendarWeekTypeCheck = isWeekType else { return }
-            UserDefaults.standard.set(calendarWeekTypeCheck, forKey: "calendarWeekTypeCheck")
+            guard let isWeekType = isWeekType else { return }
+            UserDefaults.standard.set(isWeekType, forKey: "isWeekType")
         }
     }
     
@@ -25,7 +25,6 @@ struct Constant {
     {
         didSet {
             let todoPrimaryKey = todoPrimaryKey
-            print("todoPrimaryKey:  \(todoPrimaryKey)")
             UserDefaults.standard.set(todoPrimaryKey, forKey: "todoPrimaryKey")
         }
     }
@@ -35,8 +34,18 @@ struct Constant {
     {
         didSet {
             let bookmarkColor = bookmarkColor
-//            print("bookmarkColor:  \(bookmarkColor)")
             UserDefaults.standard.set(bookmarkColor, forKey: "bookmarkColor")
+        }
+    }
+    
+    static var firstTimeLauncing: Bool? = {
+        UserDefaults.standard.register(defaults: ["firstTimeLauncing" : true])
+        return UserDefaults.standard.bool(forKey: "firstTimeLauncing")
+    }()
+    {
+        didSet {
+            guard let firstTimeLauncing = firstTimeLauncing else { return }
+            UserDefaults.standard.set(firstTimeLauncing, forKey: "firstTimeLauncing")
         }
     }
 }

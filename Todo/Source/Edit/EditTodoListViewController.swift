@@ -67,8 +67,6 @@ class EditTodoListViewController: UIViewController, UITextFieldDelegate {
         alarmTimeSetLabel.font = .NanumSR(.bold, size: 12)
         alarmTimeSetLabel.textColor = .darkGray
         setInitialAlarmTime()
-        
-        print("지금 시간", "\(timeSetHour):\(timeSetMinute)")
         alarmTimeSetLabel.text = "\(timeSetHour):\(timeSetMinute)"
         
         alarmPickerView.delegate = self
@@ -110,8 +108,6 @@ class EditTodoListViewController: UIViewController, UITextFieldDelegate {
             let aftIndex = todoAlarmTime.index(after: index)
             timeSetHour = Int(todoAlarmTime[..<index])!
             timeSetMinute = Int(todoAlarmTime[aftIndex..<todoAlarmTime.endIndex])!
-            print(timeSetHour)
-            print(timeSetMinute)
         }
         else {
             timeSetHour = Calendar.current.component(.hour, from: Date())
@@ -241,7 +237,6 @@ class EditTodoListViewController: UIViewController, UITextFieldDelegate {
         try! realm.write {
             realm.delete(TodoListToDelete)
         }
-        print("5555")
         editTodoDelegate?.reorderDeletedList(date: date)
         dismiss(animated: true, completion: nil)
     }

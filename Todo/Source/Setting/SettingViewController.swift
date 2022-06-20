@@ -74,24 +74,24 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
-//        case 0:
-//            break
         case 0:
+            break
+        case 1:
             let vc = storyboard?.instantiateViewController(withIdentifier: "ScreenSettingViewController") as! ScreenSettingViewController
             self.navigationController?.pushViewController(vc, animated: true)
             
-        case 1:
+        case 2:
             let vc = storyboard?.instantiateViewController(withIdentifier: "DataSettingViewController") as! DataSettingViewController
             self.navigationController?.pushViewController(vc, animated: true)
             
-        case 2:
+        case 3:
             let vc = storyboard?.instantiateViewController(withIdentifier: "AlarmSettingViewController") as! AlarmSettingViewController
             self.navigationController?.pushViewController(vc, animated: true)
             
-        case 3:
+        case 4:
             sendEmail()
             
-        case 4:
+        case 5:
             rateThisApp()
             
 //        case 6:
