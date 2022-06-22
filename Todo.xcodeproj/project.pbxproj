@@ -55,9 +55,9 @@
 		E9A412642813ADB30030935F /* UIString.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A412632813ADB30030935F /* UIString.swift */; };
 		E9A412662813C6890030935F /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A412652813C6890030935F /* Date.swift */; };
 		E9A4127B2814A8010030935F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9A4127A2814A8010030935F /* LaunchScreen.storyboard */; };
-		E9AD3EF62850DE7F00F17700 /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AD3EF52850DE7F00F17700 /* UICollectionView.swift */; };
 		E9D4D0692860836F003B0985 /* WalkThrough.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9D4D0682860836F003B0985 /* WalkThrough.storyboard */; };
 		E9D4D06C28608433003B0985 /* WalkThroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D4D06B28608433003B0985 /* WalkThroughViewController.swift */; };
+		E9D4D070286127CF003B0985 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D4D06F286127CF003B0985 /* UIApplication.swift */; };
 		E9D845792824B652002DEF9E /* TodoCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D845782824B652002DEF9E /* TodoCalendar.swift */; };
 		E9D845BE282CD09F002DEF9E /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D845BD282CD09F002DEF9E /* RealmService.swift */; };
 		E9EE56162845C38C00315863 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EE56152845C38C00315863 /* UIImage.swift */; };
@@ -125,9 +125,9 @@
 		E9A412632813ADB30030935F /* UIString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIString.swift; sourceTree = "<group>"; };
 		E9A412652813C6890030935F /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		E9A4127A2814A8010030935F /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		E9AD3EF52850DE7F00F17700 /* UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
 		E9D4D0682860836F003B0985 /* WalkThrough.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WalkThrough.storyboard; sourceTree = "<group>"; };
 		E9D4D06B28608433003B0985 /* WalkThroughViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkThroughViewController.swift; sourceTree = "<group>"; };
+		E9D4D06F286127CF003B0985 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		E9D845782824B652002DEF9E /* TodoCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCalendar.swift; sourceTree = "<group>"; };
 		E9D845BD282CD09F002DEF9E /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		E9E72F30285CC23300E6B429 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Home.strings; sourceTree = "<group>"; };
@@ -326,7 +326,7 @@
 				E90DAF4B281824D7001F33E4 /* UIViewController.swift */,
 				E9EE56152845C38C00315863 /* UIImage.swift */,
 				E97010E52848FC2600F32370 /* UIColor.swift */,
-				E9AD3EF52850DE7F00F17700 /* UICollectionView.swift */,
+				E9D4D06F286127CF003B0985 /* UIApplication.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -486,6 +486,7 @@
 				E9235C95278EAA2300C73737 /* AppDelegate.swift in Sources */,
 				E9EE56162845C38C00315863 /* UIImage.swift in Sources */,
 				E90DAF1E2816D59A001F33E4 /* UILabel.swift in Sources */,
+				E9D4D070286127CF003B0985 /* UIApplication.swift in Sources */,
 				E9D845792824B652002DEF9E /* TodoCalendar.swift in Sources */,
 				E9235D162794083000C73737 /* TodoListTableViewCell.swift in Sources */,
 				E9A412662813C6890030935F /* Date.swift in Sources */,
@@ -497,7 +498,6 @@
 				E9235C97278EAA2300C73737 /* SceneDelegate.swift in Sources */,
 				E978BC2C2856FD9100A64CCB /* TodoDate.swift in Sources */,
 				E90DAF4C281824D8001F33E4 /* UIViewController.swift in Sources */,
-				E9AD3EF62850DE7F00F17700 /* UICollectionView.swift in Sources */,
 				E932F520280E60C700231232 /* DetailViewController.swift in Sources */,
 				E9235CC5278EAB9500C73737 /* MainViewController.swift in Sources */,
 				E90DAF1C2816A158001F33E4 /* DetailTableViewCell.swift in Sources */,

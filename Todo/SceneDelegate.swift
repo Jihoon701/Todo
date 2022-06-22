@@ -12,12 +12,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        window = UIWindow(frame: UIScreen.main.bounds)
+//        guard let _ = (scene as? UIWindowScene) else { return }
+        
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+//
+//        window = UIWindow(frame: UIScreen.main.bounds)
         window?.windowScene = windowScene
 
-        Constant.firstTimeLauncing = true
+        Constant.firstTimeLauncing = false
 
         if Constant.firstTimeLauncing ?? false {
             Constant.firstTimeLauncing = false
@@ -29,10 +32,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let storyboard = UIStoryboard(name: "Home", bundle: nil)
             let mainVC = storyboard.instantiateViewController(withIdentifier: "MainViewController")
             let nav = UINavigationController(rootViewController: mainVC)
-   
+
             window?.rootViewController = nav
         }
-
+        window?.windowScene = windowScene
         window?.makeKeyAndVisible()
     }
 
