@@ -20,7 +20,19 @@ class WalkThroughViewController: UIViewController {
     @IBAction func toMainVC(_ sender: Any) {
         let homeStoryboard = UIStoryboard(name: "Home", bundle: nil)
         let vc = homeStoryboard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
-        changeRootViewController(vc)
+        changeRootVC(vc)
     }
     
+    func changeRootVC(_ vc: UIViewController) {
+        if let window = UIApplication.shared.windows.first {
+            let storyboard = UIStoryboard(name: "Home", bundle: nil)
+            let mainVC = storyboard.instantiateViewController(withIdentifier: "MainViewController")
+            let navigationController = UINavigationController(rootViewController: mainVC)
+            
+            navigationController.navigationBar.isHidden = true
+            window.rootViewController = navigationController
+        } else {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
 }

@@ -75,11 +75,11 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
-            break
+            let vc = storyboard?.instantiateViewController(withIdentifier: "TodoManualViewController") as! TodoManualViewController
+            self.navigationController?.pushViewController(vc, animated: true)
         case 1:
             let vc = storyboard?.instantiateViewController(withIdentifier: "ScreenSettingViewController") as! ScreenSettingViewController
             self.navigationController?.pushViewController(vc, animated: true)
-            
         case 2:
             let vc = storyboard?.instantiateViewController(withIdentifier: "DataSettingViewController") as! DataSettingViewController
             self.navigationController?.pushViewController(vc, animated: true)

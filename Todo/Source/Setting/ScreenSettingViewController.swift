@@ -22,7 +22,6 @@ class ScreenSettingViewController: UIViewController {
     @IBAction func backToSettingVC(_ sender: Any) {
         NotificationCenter.default.post(name: Constant.reloadBookmark, object: nil)
         self.navigationController?.popViewController(animated: true)
- 
     }
 
      
