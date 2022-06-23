@@ -12,11 +12,20 @@ import SnapKit
 extension UIViewController {
     func changeRootViewController(_ viewControllerToPresent: UIViewController) {
         if let window = UIApplication.shared.windows.first {
-            window.rootViewController = viewControllerToPresent
-            UIView.transition(with: window, duration: 0.5, options: .transitionCrossDissolve, animations: nil)
+            print("1")
+            let storyboard = UIStoryboard(name: "Home", bundle: nil)
+            let mainVC = storyboard.instantiateViewController(withIdentifier: "MainViewController")
+            let nav = UINavigationController(rootViewController: mainVC)
+            window.rootViewController = nav
+            nav.navigationBar.isHidden = true
+            
+//            window.rootViewController = viewControllerToPresent
+//            UIView.transition(with: window, duration: 0.5, options: .transitionCrossDissolve, animations: nil)
         } else {
-            viewControllerToPresent.modalPresentationStyle = .overFullScreen
-            self.present(viewControllerToPresent, animated: true, completion: nil)
+            print("2")
+//            viewControllerToPresent.modalPresentationStyle = .overFullScreen
+//            self.present(viewControllerToPresent, animated: true, completion: nil)
+            self.navigationController?.pushViewController(viewControllerToPresent, animated: true)
         }
     }
     

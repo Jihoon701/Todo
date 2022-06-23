@@ -55,6 +55,7 @@ class MainViewController: UIViewController {
     
     
     override func viewDidLoad() {
+        print(self)
         self.initialSetup()
         todoCalendar.initCalendar()
         todoListTableView.layer.cornerRadius = 10
@@ -127,9 +128,13 @@ class MainViewController: UIViewController {
     
     @IBAction func toSettingVC(_ sender: Any) {
         print("push SettingViewController")
-        print(UINavigationController(nibName: "MainNavigarionController", bundle: nil))
+//        print(UINavigationController(nibName: "MainNavigarionController", bundle: nil))
+        print(self)
         print(self.navigationController)
+//        let a = self.navigationController
+//
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "SettingViewController")as! SettingViewController
+//        a?.pushViewController(vc, animated: true)
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

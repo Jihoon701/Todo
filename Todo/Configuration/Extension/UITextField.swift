@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 extension UITextField {
+    
     func setupLeftImage(imageName:String) {
         let heightSize = self.frame.height
         let imageContainerView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: heightSize * 0.7, height: heightSize))

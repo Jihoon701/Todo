@@ -685,10 +685,10 @@
             </objects>
             <point key="canvasLocation" x="1431.8840579710145" y="-177.45535714285714"/>
         </scene>
-        <!--Main Navigation Controller-->
+        <!--Navigation Controller-->
         <scene sceneID="H3b-kH-vTI">
             <objects>
-                <navigationController storyboardIdentifier="MainNavigationController" navigationBarHidden="YES" id="mQx-h7-VB4" customClass="MainNavigationController" sceneMemberID="viewController">
+                <navigationController navigationBarHidden="YES" id="mQx-h7-VB4" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ec0-XC-5dY">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -698,7 +698,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yFZ-Lz-eAf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-558" y="-177"/>
+            <point key="canvasLocation" x="-629" y="-177"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="Mb9-ZR-NBB">
