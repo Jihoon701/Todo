@@ -16,8 +16,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.windowScene = windowScene
 
-        Constant.firstTimeLauncing = true
-
         if Constant.firstTimeLauncing ?? false {
             Constant.firstTimeLauncing = false
             let storyboard = UIStoryboard(name: "WalkThrough", bundle: nil)

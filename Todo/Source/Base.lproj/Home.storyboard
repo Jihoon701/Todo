@@ -358,9 +358,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="walkThrough" translatesAutoresizingMaskIntoConstraints="NO" id="7H6-1J-rSM">
-                                <rect key="frame" x="20" y="103" width="374" height="719"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dkw-8X-f4m">
                                 <rect key="frame" x="20" y="64" width="29" height="29"/>
                                 <constraints>
@@ -372,19 +369,36 @@
                                     <action selector="backToSettingVC:" destination="8Or-CZ-ot5" eventType="touchUpInside" id="O5J-HP-tHR"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Vb-EG-oim">
+                                <rect key="frame" x="112.5" y="68" width="189" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="0Vb-EG-oim" secondAttribute="height" multiplier="9:1" id="aTS-RW-BD0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="todoManual" translatesAutoresizingMaskIntoConstraints="NO" id="7H6-1J-rSM">
+                                <rect key="frame" x="0.0" y="93" width="414" height="769"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="g2O-hO-ShL"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="7H6-1J-rSM" firstAttribute="leading" secondItem="g2O-hO-ShL" secondAttribute="leading" constant="20" id="1PT-8Z-lGP"/>
+                            <constraint firstItem="7H6-1J-rSM" firstAttribute="leading" secondItem="g2O-hO-ShL" secondAttribute="leading" id="1PT-8Z-lGP"/>
                             <constraint firstItem="dkw-8X-f4m" firstAttribute="width" secondItem="lQg-Gi-zlI" secondAttribute="width" multiplier="0.07" id="8Ns-ey-bsw"/>
                             <constraint firstItem="dkw-8X-f4m" firstAttribute="leading" secondItem="g2O-hO-ShL" secondAttribute="leading" constant="20" id="BuB-FX-j4d"/>
-                            <constraint firstItem="7H6-1J-rSM" firstAttribute="top" secondItem="dkw-8X-f4m" secondAttribute="bottom" constant="10" id="LOf-mU-VAG"/>
-                            <constraint firstItem="g2O-hO-ShL" firstAttribute="trailing" secondItem="7H6-1J-rSM" secondAttribute="trailing" constant="20" id="aJd-1R-mYM"/>
-                            <constraint firstItem="g2O-hO-ShL" firstAttribute="bottom" secondItem="7H6-1J-rSM" secondAttribute="bottom" constant="40" id="mJh-ho-Jcc"/>
+                            <constraint firstItem="7H6-1J-rSM" firstAttribute="top" secondItem="dkw-8X-f4m" secondAttribute="bottom" id="LOf-mU-VAG"/>
+                            <constraint firstItem="0Vb-EG-oim" firstAttribute="centerY" secondItem="dkw-8X-f4m" secondAttribute="centerY" id="O9h-GL-EU1"/>
+                            <constraint firstItem="g2O-hO-ShL" firstAttribute="trailing" secondItem="7H6-1J-rSM" secondAttribute="trailing" id="aJd-1R-mYM"/>
+                            <constraint firstItem="g2O-hO-ShL" firstAttribute="bottom" secondItem="7H6-1J-rSM" secondAttribute="bottom" id="mJh-ho-Jcc"/>
+                            <constraint firstItem="0Vb-EG-oim" firstAttribute="centerX" secondItem="g2O-hO-ShL" secondAttribute="centerX" id="t3U-RT-FKo"/>
                             <constraint firstItem="dkw-8X-f4m" firstAttribute="top" secondItem="g2O-hO-ShL" secondAttribute="top" constant="20" id="t4r-Wn-DX3"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="titleLabel" destination="0Vb-EG-oim" id="8yF-4C-hr0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A8B-Uv-WU1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1218,8 +1232,8 @@
         <image name="plusBox" width="341" height="341"/>
         <image name="right" width="341" height="341"/>
         <image name="search" width="341" height="341"/>
+        <image name="todoManual" width="427" height="757"/>
         <image name="trash" width="341" height="341"/>
-        <image name="walkThrough" width="642" height="1389"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
