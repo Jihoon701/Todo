@@ -48,6 +48,10 @@ class MainViewController: UIViewController {
         todoListTableView.register(UINib(nibName: "AddTodoListTableViewCell", bundle: nil), forCellReuseIdentifier: "AddTodoListTableViewCell")
     }
     
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask{
+        return [.portrait]
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         addTodoListCellExist = false
         todoListTableView.reloadData()
@@ -55,7 +59,6 @@ class MainViewController: UIViewController {
     
     
     override func viewDidLoad() {
-        print(self)
         self.initialSetup()
         todoCalendar.initCalendar()
         todoListTableView.layer.cornerRadius = 10
@@ -84,11 +87,11 @@ class MainViewController: UIViewController {
     func changeCalendar(_ calendarType: Bool) {
         todoCalendar.initCalendar()
         changeCalendarLayout(calendarType: calendarType)
-        if calendarType {
-            createWeeklySelectedDate()
-        }
-        else {
+        if calendarType {   // week -> month
             createMonthlySelectedDate()
+        }
+        else {        // month -> week
+            createWeeklySelectedDate()
         }
         rearrangeCalendar()
     }
@@ -189,14 +192,14 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func createWeeklySelectedDate() {
         newSelectedDate = todoDate.changeDayStatus(checkCurrentDayMonth: todoCalendar.checkCurrentDayMonth())
-        selectedDate = "\(todoCalendar.checkWeekTypeCategory(weekTypeCategory: todoCalendar.weekTypeCategory))/"
+        selectedDate = "\(todoCalendar.calendarYear)/\(todoCalendar.calendarMonth)/"
         selectedDate += newSelectedDate
     }
     
     func createSelectedDate(indexPath: IndexPath, calendarType: Bool) {
         if calendarType {
             newSelectedDate = "\(todoCalendar.daysInWeekType[indexPath.item])"
-            selectedDate = "\(todoCalendar.checkWeekTypeCategory(weekTypeCategory: todoCalendar.weekTypeCategory))/"
+            selectedDate = "\(todoCalendar.checkWeekTypeCategory(weekTypeCategory: todoCalendar.weekTypeCategoryArray[indexPath.item]))/"
             selectedDate += newSelectedDate
         }
         else {
@@ -222,9 +225,9 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }
         
         if Constant.isWeekType! {     // MARK: Week Type
-            let weekTypeDate = todoCalendar.checkWeekTypeCategory(weekTypeCategory: todoCalendar.weekTypeCategory)
+            let weekTypeDate = todoCalendar.checkWeekTypeCategory(weekTypeCategory: todoCalendar.weekTypeCategoryArray[indexPath.item])
             daysInAccordanceWithType = todoCalendar.daysInWeekType[indexPath.item]
-            cell.initDayCell(currentDay: daysInAccordanceWithType, isTodayDate: todoCalendar.checkCurrentDayMonth(), date: weekTypeDate)
+            cell.initDayCell(currentDay: daysInAccordanceWithType, isTodayDate: true, date: weekTypeDate)
         }
         else {      // MARK: Month Type
             daysInAccordanceWithType = todoCalendar.daysInMonthType[indexPath.item]

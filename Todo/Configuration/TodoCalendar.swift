@@ -17,7 +17,9 @@ class TodoCalendar {
     var calendarYear = 0
     var calendarDay = 0
     var selectedTodoDate = ""
-    var weekTypeCategory = ""
+    var firstWeekTypeCategory = ""
+    var secondWeekTypeCategory = ""
+    var weekTypeCategoryArray = [String]()
     var weekTypePrevDayCount = 0
     var weekTypeNextDayCount = 0
     
@@ -117,12 +119,12 @@ class TodoCalendar {
         }
     }
     
-    private func createDays(startOfWeek: Int, endOfWeek: Int, initDaysInWeekType: inout Array<Int>, daysCountInFrontMonth: Int) -> Array<Int> {
+    private func createDays(startOfWeek: Int, endOfWeek: Int, initDaysInWeekType: inout Array<Int>, daysCountInFrontMonth: Int, firstWeekTypeCategory: String, secondWeekTypeCategory: String) -> Array<Int> {
         var daysCount = 0
-        
         for i in startOfWeek...daysCountInFrontMonth {
             initDaysInWeekType[i-startOfWeek] = i
             daysCount += 1
+            weekTypeCategoryArray.append(firstWeekTypeCategory)
         }
         
         weekTypePrevDayCount = daysCount
@@ -131,6 +133,7 @@ class TodoCalendar {
         for j in 1...endOfWeek {
             initDaysInWeekType[daysCount] = j
             daysCount += 1
+            weekTypeCategoryArray.append(secondWeekTypeCategory)
         }
         return initDaysInWeekType
     }
@@ -138,26 +141,29 @@ class TodoCalendar {
     private func calculateDaysInWeekType(weekday: Int, daysCountInPrevMonth: Int, daysCountInCurrentMonth: Int, daysCountInNextMonth: Int) -> Array<Int> {
         var initDaysInWeekType: Array<Int> = Array(repeating: 0, count: 7)
         let todayDate = Date().day
-        
+        weekTypeCategoryArray.removeAll()
         var startOfWeek = todayDate - weekday + 1
         var endOfWeek = todayDate - weekday + 7
-        weekTypeCategory = "ordinary"
+        
         // 달력 앞부분이 prevMonth와 합쳐질 때
         if startOfWeek < 1 {
             startOfWeek = daysCountInPrevMonth + startOfWeek
-            weekTypeCategory = "prev"
-            return createDays(startOfWeek: startOfWeek, endOfWeek: endOfWeek, initDaysInWeekType: &initDaysInWeekType, daysCountInFrontMonth: daysCountInPrevMonth)
+            firstWeekTypeCategory = "prev"
+            secondWeekTypeCategory = "ordinary"
+            return createDays(startOfWeek: startOfWeek, endOfWeek: endOfWeek, initDaysInWeekType: &initDaysInWeekType, daysCountInFrontMonth: daysCountInCurrentMonth, firstWeekTypeCategory: firstWeekTypeCategory, secondWeekTypeCategory: secondWeekTypeCategory)
         }
         
         // 달력 뒷부분이 nextMonth와 합쳐질 때
         if endOfWeek > daysCountInCurrentMonth {
             endOfWeek = endOfWeek - daysCountInCurrentMonth
-            weekTypeCategory = "next"
-            return createDays(startOfWeek: startOfWeek, endOfWeek: endOfWeek, initDaysInWeekType: &initDaysInWeekType, daysCountInFrontMonth: daysCountInCurrentMonth)
+            firstWeekTypeCategory = "ordinary"
+            secondWeekTypeCategory = "next"
+            return createDays(startOfWeek: startOfWeek, endOfWeek: endOfWeek, initDaysInWeekType: &initDaysInWeekType, daysCountInFrontMonth: daysCountInCurrentMonth, firstWeekTypeCategory: firstWeekTypeCategory, secondWeekTypeCategory: secondWeekTypeCategory)
         }
         
         // prevMonth와 nextMonth와 겹치지 않을 때
         for i in startOfWeek...endOfWeek {
+            weekTypeCategoryArray.append("ordinary")
             initDaysInWeekType[i-startOfWeek] = i
         }
         return initDaysInWeekType
