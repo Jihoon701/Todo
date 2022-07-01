@@ -37,7 +37,7 @@ class TodoCalendar {
         
         selectedTodoDate = "\(currentDate.year)/\(currentDate.month)/\(currentDate.day)"
         calculateCalendarDate()
-        print(checkCurrentDayMonth())
+        checkCurrentDayMonth()
     }
     
     func calculateCalendarDate() {
@@ -150,7 +150,7 @@ class TodoCalendar {
             startOfWeek = daysCountInPrevMonth + startOfWeek
             firstWeekTypeCategory = "prev"
             secondWeekTypeCategory = "ordinary"
-            return createDays(startOfWeek: startOfWeek, endOfWeek: endOfWeek, initDaysInWeekType: &initDaysInWeekType, daysCountInFrontMonth: daysCountInCurrentMonth, firstWeekTypeCategory: firstWeekTypeCategory, secondWeekTypeCategory: secondWeekTypeCategory)
+            return createDays(startOfWeek: startOfWeek, endOfWeek: endOfWeek, initDaysInWeekType: &initDaysInWeekType, daysCountInFrontMonth: daysCountInPrevMonth, firstWeekTypeCategory: firstWeekTypeCategory, secondWeekTypeCategory: secondWeekTypeCategory)
         }
         
         // 달력 뒷부분이 nextMonth와 합쳐질 때
