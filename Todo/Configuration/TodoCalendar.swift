@@ -69,7 +69,6 @@ class TodoCalendar {
         return "\(calendarYear)년 \(calendarMonth)월"
     }
     
-    
     public func checkCurrentDayMonth() -> Bool {
         if calendarComponents.year! == currentDate.year {
             if calendarComponents.month! == currentDate.month {

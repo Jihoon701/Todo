@@ -53,4 +53,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
         return UIInterfaceOrientationMask.portrait
     }
+    
+//    static func lockOrientation(_ orientation: UIInterfaceOrientationMask, andRotateTo rotateOrientation:UIInterfaceOrientation) {
+//      
+//           self.lockOrientation(orientation)
+//       
+//           UIDevice.current.setValue(rotateOrientation.rawValue, forKey: "orientation")
+//           UINavigationController.attemptRotationToDeviceOrientation()
+//       }
+    
 }

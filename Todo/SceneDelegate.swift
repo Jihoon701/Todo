@@ -12,13 +12,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-//        print("2")
-//        guard let _ = (scene as? UIWindowScene) else { return }
-
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        window = UIWindow(frame: UIScreen.main.bounds)
-        window?.windowScene = windowScene
-
 
         if Constant.firstTimeLauncing ?? false {
             Constant.firstTimeLauncing = false
@@ -33,6 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             navigationController.navigationBar.isHidden = true
             window?.rootViewController = navigationController
         }
+        
         window?.windowScene = windowScene
         window?.makeKeyAndVisible()
     }

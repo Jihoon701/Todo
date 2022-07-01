@@ -2,13 +2,16 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UISupportedInterfaceOrientations~iphone</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+	</array>
 	<key>UIAppFonts</key>
 	<array>
 		<string>NanumSquareRoundOTFL.otf</string>
 		<string>NanumSquareRoundOTFR.otf</string>
 		<string>NanumSquareRoundOTFB.otf</string>
 		<string>NanumSquareRoundOTFEB.otf</string>
-		<string>BM JUA_otf.otf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
