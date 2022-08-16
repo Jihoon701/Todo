@@ -48,7 +48,7 @@ class MainViewController: UIViewController {
         todoListTableView.register(UINib(nibName: "AddTodoListTableViewCell", bundle: nil), forCellReuseIdentifier: "AddTodoListTableViewCell")
     }
     
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask{
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return [.portrait]
     }
     
@@ -56,7 +56,6 @@ class MainViewController: UIViewController {
         addTodoListCellExist = false
         todoListTableView.reloadData()
     }
-    
     
     override func viewDidLoad() {
         self.initialSetup()

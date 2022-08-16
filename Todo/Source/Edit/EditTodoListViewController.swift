@@ -303,7 +303,7 @@ class EditTodoListViewController: UIViewController, UITextFieldDelegate {
     func requestSendNotification(todoContent: String, todoId: Int, todoDate: String, notiHour: Int, notiMinute: Int) {
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["todoAlarm_\(todoId)"])
         let notiContent = UNMutableNotificationContent()
-        notiContent.title = "TODO 알림"
+        notiContent.title = "투들리"
         notiContent.body = todoContent
         notiContent.badge = 1
         var date = Date()
