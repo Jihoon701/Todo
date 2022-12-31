@@ -179,9 +179,9 @@
 		E9235C88278EAA2300C73737 = {
 			isa = PBXGroup;
 			children = (
-				E9235C93278EAA2300C73737 /* Todo */,
-				E9235CAA278EAA2600C73737 /* TodoTests */,
-				E9235CB4278EAA2600C73737 /* TodoUITests */,
+				E9235C93278EAA2300C73737 /* Toudly */,
+				E9235CAA278EAA2600C73737 /* ToudlyTests */,
+				E9235CB4278EAA2600C73737 /* ToudlyUITests */,
 				E9235C92278EAA2300C73737 /* Products */,
 				2817DAE3057778FE5504590D /* Pods */,
 				5A33F1CF7BF67DBBCE94AA5B /* Frameworks */,
@@ -196,7 +196,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E9235C93278EAA2300C73737 /* Todo */ = {
+		E9235C93278EAA2300C73737 /* Toudly */ = {
 			isa = PBXGroup;
 			children = (
 				E9235CC6278EC84E00C73737 /* Source */,
@@ -207,26 +207,23 @@
 				E9235CA2278EAA2500C73737 /* Info.plist */,
 				E978BCF4285C43F000A64CCB /* InfoPlist.strings */,
 			);
-			name = Todo;
 			path = Toudly;
 			sourceTree = "<group>";
 		};
-		E9235CAA278EAA2600C73737 /* TodoTests */ = {
+		E9235CAA278EAA2600C73737 /* ToudlyTests */ = {
 			isa = PBXGroup;
 			children = (
 				E9235CAB278EAA2600C73737 /* TodoTests.swift */,
 			);
-			name = TodoTests;
 			path = ToudlyTests;
 			sourceTree = "<group>";
 		};
-		E9235CB4278EAA2600C73737 /* TodoUITests */ = {
+		E9235CB4278EAA2600C73737 /* ToudlyUITests */ = {
 			isa = PBXGroup;
 			children = (
 				E9235CB5278EAA2600C73737 /* TodoUITests.swift */,
 				E9235CB7278EAA2600C73737 /* TodoUITestsLaunchTests.swift */,
 			);
-			name = TodoUITests;
 			path = ToudlyUITests;
 			sourceTree = "<group>";
 		};
