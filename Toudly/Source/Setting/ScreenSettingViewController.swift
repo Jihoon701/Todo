@@ -23,11 +23,10 @@ class ScreenSettingViewController: UIViewController {
         NotificationCenter.default.post(name: Constant.reloadBookmark, object: nil)
         self.navigationController?.popViewController(animated: true)
     }
-
-     
+    
     override func viewDidLoad() {
-        titleLabel.setupTitleLabel(text: "화면 설정")
-        bookmarkSettingLabel.setupLabel(text: "북마크 색상 정하기")
+        titleLabel.setupTitleLabel(text: "Screen")
+        bookmarkSettingLabel.setupLabel(text: "Set Bookmark Color")
         initColorButtons()
         bookmarkColorCheckImage.image = UIImage(named: "bookmark_gray")
         bookmarkColorCheckImage.image = UIImage.coloredBookmarkImage(bookmarkColorCheckImage.image!)()
@@ -43,7 +42,5 @@ class ScreenSettingViewController: UIViewController {
     @objc func bookmarkColorSelected (sender: UIButton) {
         Constant.bookmarkColor = sender.titleLabel?.text!
         self.bookmarkColorCheckImage.image = UIImage.coloredBookmarkImage(self.bookmarkColorCheckImage.image!)()
-
-     
     }
 }

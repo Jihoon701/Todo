@@ -9,13 +9,12 @@ import UIKit
 
 class SettingTableViewCell: UITableViewCell {
     
-    
     @IBOutlet weak var settingIndexLabel: UILabel!
     @IBOutlet weak var settingDetailLabel: UILabel!
     @IBOutlet weak var rightImageView: UIImageView!
     
-    let settingIndex = ["사용 방법", "화면 설정", "데이터 관리", "알림", "문의", "리뷰", "버전"]
-//    let settingIndex = ["사용 방법", "화면 설정", "데이터 관리", "알림", "문의", "리뷰", "오픈소스", "버전"]
+    let settingIndex = ["Information", "Screen", "Data", "Notification", "Inquiry", "Review", "Version"]
+    //    let settingIndex = ["Information", "Screen", "Data", "Notification", "Inquiry", "Review", "Open Source", "Version"]
     let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
     
     override func awakeFromNib() {
@@ -37,10 +36,5 @@ class SettingTableViewCell: UITableViewCell {
             settingDetailLabel.font = .NanumSR(.extraBold, size: 12)
             settingDetailLabel.textColor = #colorLiteral(red: 0.3803921569, green: 0.3803921569, blue: 0.3803921569, alpha: 1)
         }
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-    
+    } 
 }

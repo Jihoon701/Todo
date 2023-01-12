@@ -15,6 +15,7 @@ protocol EditTodoDelegate: AnyObject {
 }
 
 class EditTodoListViewController: UIViewController, UITextFieldDelegate {
+    
     @IBOutlet weak var BackgroundView: UIView!
     @IBOutlet weak var editView: UIView!
     @IBOutlet weak var todoListContentTextField: UITextField!
@@ -59,11 +60,11 @@ class EditTodoListViewController: UIViewController, UITextFieldDelegate {
         
         todoListContentTextField.text = todoContent
         todoListContentTextField.font = .NanumSR(.regular, size: 14)
-        backButton.setupButtonTitleLabel(text: "닫기")
-        saveButton.setupButtonTitleLabel(text: "저장")
-        deleteButton.setupButtonTitleLabel(text: "삭제")
-        bookmarkLabel.setupLabel(text: "북마크")
-        alarmLabel.setupLabel(text: "알림")
+        backButton.setupButtonTitleLabel(text: "Close")
+        saveButton.setupButtonTitleLabel(text: "Save")
+        deleteButton.setupButtonTitleLabel(text: "Delete")
+        bookmarkLabel.setupLabel(text: "Bookmark")
+        alarmLabel.setupLabel(text: "Alarm")
         alarmTimeSetLabel.font = .NanumSR(.bold, size: 12)
         alarmTimeSetLabel.textColor = .darkGray
         setInitialAlarmTime()
@@ -148,7 +149,7 @@ class EditTodoListViewController: UIViewController, UITextFieldDelegate {
         if alarmSwitch.isOn {
             switch alarmTimeComparedToCurrentTime() {
             case .past:
-                presentErrorAlert(errorTitle: "알림", errorMessage: "이미 지난 시간에는 알람을 설정할 수 없습니다\n시간을 다시 설정해주세요")
+                presentErrorAlert(errorTitle: "Alarm Failed", errorMessage: "Alarm cannot be set in the past time\nPlease reset the time")
                 userNotiCenter.removeDeliveredNotifications(withIdentifiers: ["todoAlarm_\(todoId)"])
             case .present:
                 saveAlarm()
@@ -205,7 +206,7 @@ class EditTodoListViewController: UIViewController, UITextFieldDelegate {
             requestAuthNotification(authCheck: checkAuthNotification())
             // 알람 설정 날짜가 과거일 때
             if compareDate() < 0 {
-                let setAlarmErrorAlert = UIAlertController(title: "알람설정 실패", message: "이미 지난 시간에는 알람을 설정할 수 없습니다", preferredStyle: .alert)
+                let setAlarmErrorAlert = UIAlertController(title: "Alarm Failed", message: "Alarm cannot be set in the past time", preferredStyle: .alert)
                 let confirmAction = UIAlertAction(title: "확인", style: .default) { [self]
                     (action) in
                     alarmSwitch.setOn(false, animated: true)
@@ -287,7 +288,7 @@ class EditTodoListViewController: UIViewController, UITextFieldDelegate {
     
     func presentAlarmSettingAlert() {
         DispatchQueue.main.async {
-            self.presentAlert(title: "설정", message: "기기 설정에서 알림 설정을 허용으로 변경해주세요", isCancelActionIncluded: true) { [self] action in
+            self.presentAlert(title: "Setting", message: "Please change the notification setting to Allow in Device Settings", isCancelActionIncluded: true) { [self] action in
                 moveToAppSettingPage()
             }
         }
@@ -303,7 +304,7 @@ class EditTodoListViewController: UIViewController, UITextFieldDelegate {
     func requestSendNotification(todoContent: String, todoId: Int, todoDate: String, notiHour: Int, notiMinute: Int) {
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["todoAlarm_\(todoId)"])
         let notiContent = UNMutableNotificationContent()
-        notiContent.title = "투들리"
+        notiContent.title = "Toudly"
         notiContent.body = todoContent
         notiContent.badge = 1
         var date = Date()

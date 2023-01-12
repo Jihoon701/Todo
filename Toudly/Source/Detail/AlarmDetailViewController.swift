@@ -17,7 +17,7 @@ class AlarmDetailViewController: UIViewController, IndicatorInfoProvider, UITabl
     var alarmlist: Results<TodoList>!
     
     override func viewDidLoad() {
-        noticeLabel.setupNoticeLabel(labelText: "알림이 설정된 투두 리스트가 없습니다.\n알림을 추가해보세요!")
+        noticeLabel.setupNoticeLabel(labelText: "There are no todo lists with alarm set\nTry adding notifications!")
         AlarmTableView.delegate = self
         AlarmTableView.dataSource = self
         alarmlist = realm.objects(TodoList.self).filter("alarm = true").sorted(byKeyPath: "date", ascending: true)
@@ -36,7 +36,7 @@ class AlarmDetailViewController: UIViewController, IndicatorInfoProvider, UITabl
     }
     
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return IndicatorInfo(title: "알림")
+        return IndicatorInfo(title: "Notification")
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

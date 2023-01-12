@@ -9,8 +9,10 @@ import UIKit
 import RealmSwift
 
 class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
     @IBOutlet weak var SearchTextField: UITextField!
     @IBOutlet weak var SearchTableView: UITableView!
+    
     let realm = try! Realm()
     var searchlist: Results<TodoList>!
     

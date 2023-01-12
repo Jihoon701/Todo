@@ -16,9 +16,4 @@ class SettingDetailTableViewCell: UITableViewCell {
         titleLabel.font = .NanumSR(.regular, size: 14)
         settingSwitch.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
     }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-    
 }

@@ -15,7 +15,7 @@ class OpenSourceViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-        titleLabel.setupTitleLabel(text: "오픈소스")
+        titleLabel.setupTitleLabel(text: "Open Source")
         super.viewDidLoad()
     }
 }

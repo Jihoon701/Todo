@@ -16,7 +16,7 @@ class CompletedDetailViewController: UIViewController, IndicatorInfoProvider, UI
     var completeList: Results<TodoList>!
     
     override func viewDidLoad() {
-        noticeLabel.setupNoticeLabel(labelText: "완료한 투두 리스트가 없습니다.\n투두 리스트를 완료해보세요!")
+        noticeLabel.setupNoticeLabel(labelText: "There is no completed todo list\nTry completing a todo list!")
         completeTableView.delegate = self
         completeTableView.dataSource = self
         completeList = realm.objects(TodoList.self).filter("checkbox = true").sorted(byKeyPath: "date", ascending: true)
@@ -35,7 +35,7 @@ class CompletedDetailViewController: UIViewController, IndicatorInfoProvider, UI
     }
     
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return IndicatorInfo(title: "완료")
+        return IndicatorInfo(title: "Completed")
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -53,9 +53,6 @@ class CompletedDetailViewController: UIViewController, IndicatorInfoProvider, UI
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        if(UIScreen.main.bounds) {
-//
-//        }
         return completeTableView.frame.width * 1/6
     }
 }

@@ -16,7 +16,7 @@ class BookmarkDetailViewController: UIViewController, IndicatorInfoProvider, UIT
     var bookmarkList: Results<TodoList>!
     
     override func viewDidLoad() {
-        noticeLabel.setupNoticeLabel(labelText: "북마크가 설정된 투두 리스트가 없습니다.\n알림을 추가해보세요!")
+        noticeLabel.setupNoticeLabel(labelText: "There are no todo lists with bookmarks set\nTry adding a bookmark!")
         bookmarkTableView.delegate = self
         bookmarkTableView.dataSource = self
         bookmarkList = realm.objects(TodoList.self).filter("bookmark = true").sorted(byKeyPath: "date", ascending: true)
@@ -35,7 +35,7 @@ class BookmarkDetailViewController: UIViewController, IndicatorInfoProvider, UIT
     }
     
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return IndicatorInfo(title: "북마크")
+        return IndicatorInfo(title: "Bookmark")
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
