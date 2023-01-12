@@ -10,4 +10,5 @@ target 'Toudly' do
  pod 'XLPagerTabStrip', '~> 9.0'
  pod 'SnapKit', '~> 5.6.0'
  pod 'IQKeyboardManagerSwift'
+ pod 'Alamofire'
 end

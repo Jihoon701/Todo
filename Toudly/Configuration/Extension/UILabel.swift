@@ -21,13 +21,18 @@ extension UILabel {
         self.attributedText = attrString
     }
     
-    func setupLabel(text: String) {
-        self.font = .NanumSR(.regular, size: 14)    //14 or 15
+    func setupTitleLabel(text: String) {
+        self.font = .NanumSR(.bold, size: 16)
         self.text = text
     }
     
-    func setupTitleLabel(text: String) {
-        self.font = .NanumSR(.bold, size: 16)
+    func setupLabel(text: String) {
+        self.font = .NanumSR(.regular, size: 14) 
+        self.text = text
+    }
+ 
+    func setupTextLabel(text: String) {
+        self.font = .NanumSR(.light, size: 10)
         self.text = text
     }
 }

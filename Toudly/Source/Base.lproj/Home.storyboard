@@ -43,14 +43,14 @@
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="SettingTableViewCell" id="8ig-Xa-fhH" customClass="SettingTableViewCell" customModule="Toudly" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="374" height="34.5"/>
+                                        <rect key="frame" x="0.0" y="50" width="374" height="35"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8ig-Xa-fhH" id="pVV-oR-DMK">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="34.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="35"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jz1-UV-DAP">
-                                                    <rect key="frame" x="0.0" y="7" width="187" height="20.5"/>
+                                                    <rect key="frame" x="0.0" y="7" width="187" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -62,7 +62,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right" translatesAutoresizingMaskIntoConstraints="NO" id="lyi-Xu-6pG">
-                                                    <rect key="frame" x="335.5" y="8" width="18.5" height="18.5"/>
+                                                    <rect key="frame" x="335.5" y="8" width="18.5" height="19"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="lyi-Xu-6pG" secondAttribute="height" id="Rsx-ek-IRH"/>
                                                     </constraints>
@@ -254,14 +254,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PGE-An-epB">
+                                <rect key="frame" x="66.5" y="116" width="20.5" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="PGE-An-epB" secondAttribute="height" id="BUr-kt-uC0"/>
+                                </constraints>
+                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="10" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vtB-8t-r4r">
-                                <rect key="frame" x="20" y="153.5" width="140" height="20"/>
+                                <rect key="frame" x="20" y="148.5" width="140" height="20"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vkv-Kr-gIg">
                                         <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="vkv-Kr-gIg" secondAttribute="height" id="MLD-lM-rW5"/>
-                                        </constraints>
                                         <color key="tintColor" red="0.80784313725490198" green="0.60392156862745094" blue="0.53333333333333333" alpha="0.84705882352941175" colorSpace="custom" customColorSpace="displayP3"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="apricot" image="colorCircle"/>
@@ -311,35 +314,48 @@
                                     <constraint firstItem="upr-zy-pCd" firstAttribute="width" secondItem="upr-zy-pCd" secondAttribute="height" id="vEv-MQ-fJz"/>
                                 </constraints>
                             </stackView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PGE-An-epB">
-                                <rect key="frame" x="66.5" y="116" width="20.5" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="PGE-An-epB" secondAttribute="height" id="BUr-kt-uC0"/>
-                                </constraints>
-                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xMr-cy-ZeS">
+                                <rect key="frame" x="20" y="188.5" width="46.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I5V-L6-I6T">
+                                <rect key="frame" x="25" y="214" width="41.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="kmq-BR-Yt9"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="I5V-L6-I6T" firstAttribute="top" secondItem="xMr-cy-ZeS" secondAttribute="bottom" constant="5" id="2Tp-Qq-XoS"/>
                             <constraint firstItem="IMk-tT-S1V" firstAttribute="leading" secondItem="kmq-BR-Yt9" secondAttribute="leading" constant="20" id="FMb-Ea-zmh"/>
                             <constraint firstItem="g3h-76-t2G" firstAttribute="leading" secondItem="IMk-tT-S1V" secondAttribute="trailing" constant="50" id="GcN-q0-dJY"/>
                             <constraint firstItem="3Xj-9H-d4d" firstAttribute="leading" secondItem="kmq-BR-Yt9" secondAttribute="leading" constant="20" id="HJW-2N-HaR"/>
                             <constraint firstItem="PGE-An-epB" firstAttribute="centerY" secondItem="3Xj-9H-d4d" secondAttribute="centerY" id="IeE-zC-T12"/>
                             <constraint firstItem="IMk-tT-S1V" firstAttribute="width" secondItem="kEQ-Ls-Maz" secondAttribute="width" multiplier="0.07" id="Igs-tD-d62"/>
                             <constraint firstItem="g3h-76-t2G" firstAttribute="centerY" secondItem="IMk-tT-S1V" secondAttribute="centerY" id="NTM-cN-lGB"/>
+                            <constraint firstItem="I5V-L6-I6T" firstAttribute="leading" secondItem="xMr-cy-ZeS" secondAttribute="leading" constant="5" id="QEx-he-Qz0"/>
                             <constraint firstItem="3Xj-9H-d4d" firstAttribute="height" secondItem="g3h-76-t2G" secondAttribute="height" id="UBm-b0-ByG"/>
                             <constraint firstItem="g3h-76-t2G" firstAttribute="centerX" secondItem="kmq-BR-Yt9" secondAttribute="centerX" id="UEy-te-hM1"/>
                             <constraint firstItem="PGE-An-epB" firstAttribute="width" secondItem="kEQ-Ls-Maz" secondAttribute="width" multiplier="0.05" id="a8y-Jb-A52"/>
+                            <constraint firstItem="xMr-cy-ZeS" firstAttribute="leading" secondItem="3Xj-9H-d4d" secondAttribute="leading" id="atk-Rg-kUW"/>
                             <constraint firstItem="IMk-tT-S1V" firstAttribute="top" secondItem="kmq-BR-Yt9" secondAttribute="top" constant="20" id="cEf-yf-g9w"/>
-                            <constraint firstItem="vtB-8t-r4r" firstAttribute="top" secondItem="3Xj-9H-d4d" secondAttribute="bottom" constant="15" id="l9t-GN-EPc"/>
+                            <constraint firstItem="vtB-8t-r4r" firstAttribute="top" secondItem="3Xj-9H-d4d" secondAttribute="bottom" constant="10" id="l9t-GN-EPc"/>
                             <constraint firstItem="3Xj-9H-d4d" firstAttribute="top" secondItem="g3h-76-t2G" secondAttribute="bottom" constant="20" id="qbT-6K-1ZR"/>
+                            <constraint firstItem="I5V-L6-I6T" firstAttribute="trailing" secondItem="xMr-cy-ZeS" secondAttribute="trailing" id="vXj-sK-kb8"/>
                             <constraint firstItem="PGE-An-epB" firstAttribute="leading" secondItem="3Xj-9H-d4d" secondAttribute="trailing" constant="5" id="yJb-9F-p5r"/>
+                            <constraint firstItem="xMr-cy-ZeS" firstAttribute="top" secondItem="vtB-8t-r4r" secondAttribute="bottom" constant="20" id="yxn-W0-Jaa"/>
                             <constraint firstItem="vtB-8t-r4r" firstAttribute="leading" secondItem="3Xj-9H-d4d" secondAttribute="leading" id="zKq-3h-kWF"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="bookmarkColorCheckImage" destination="PGE-An-epB" id="xGM-gy-ekq"/>
                         <outlet property="bookmarkSettingLabel" destination="3Xj-9H-d4d" id="GaJ-Kg-p9u"/>
+                        <outlet property="holidayDescriptionLabel" destination="I5V-L6-I6T" id="1ls-5o-cBn"/>
+                        <outlet property="holidayLabel" destination="xMr-cy-ZeS" id="hri-gJ-6YB"/>
                         <outlet property="titleLabel" destination="g3h-76-t2G" id="Pea-9n-548"/>
                         <outletCollection property="bookmarkColorButtons" destination="vkv-Kr-gIg" collectionClass="NSMutableArray" id="TFX-8Y-hF5"/>
                         <outletCollection property="bookmarkColorButtons" destination="upr-zy-pCd" collectionClass="NSMutableArray" id="38n-Mt-pAK"/>

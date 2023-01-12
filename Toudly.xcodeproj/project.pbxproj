@@ -50,6 +50,8 @@
 		E97010E62848FC2600F32370 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97010E52848FC2600F32370 /* UIColor.swift */; };
 		E978BC2C2856FD9100A64CCB /* TodoDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E978BC2B2856FD9100A64CCB /* TodoDate.swift */; };
 		E978BCF2285C43F000A64CCB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E978BCF4285C43F000A64CCB /* InfoPlist.strings */; };
+		E97A602F29703BCB008EC72B /* HolidayDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97A602E29703BCB008EC72B /* HolidayDataManager.swift */; };
+		E97A603129703C7A008EC72B /* HolidayResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97A603029703C7A008EC72B /* HolidayResponse.swift */; };
 		E9A41260281014D40030935F /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A4125F281014D40030935F /* SearchTableViewCell.swift */; };
 		E9A412622810BCA10030935F /* OpenSourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A412612810BCA10030935F /* OpenSourceViewController.swift */; };
 		E9A412642813ADB30030935F /* UIString.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A412632813ADB30030935F /* UIString.swift */; };
@@ -124,6 +126,8 @@
 		E97010E52848FC2600F32370 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		E978BC2B2856FD9100A64CCB /* TodoDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDate.swift; sourceTree = "<group>"; };
 		E978BCF3285C43F000A64CCB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E97A602E29703BCB008EC72B /* HolidayDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayDataManager.swift; sourceTree = "<group>"; };
+		E97A603029703C7A008EC72B /* HolidayResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayResponse.swift; sourceTree = "<group>"; };
 		E9A4125F281014D40030935F /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		E9A412612810BCA10030935F /* OpenSourceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceViewController.swift; sourceTree = "<group>"; };
 		E9A412632813ADB30030935F /* UIString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIString.swift; sourceTree = "<group>"; };
@@ -263,6 +267,7 @@
 		E9235CCF278FC96800C73737 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				E97A602D29703AEA008EC72B /* Holiday */,
 				E9235CC4278EAB9500C73737 /* MainViewController.swift */,
 				E9235CC7278EC87C00C73737 /* CalendarCollectionViewCell.swift */,
 				E9235CC8278EC87C00C73737 /* CalendarCollectionViewCell.xib */,
@@ -337,6 +342,15 @@
 				E97010E52848FC2600F32370 /* UIColor.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		E97A602D29703AEA008EC72B /* Holiday */ = {
+			isa = PBXGroup;
+			children = (
+				E97A602E29703BCB008EC72B /* HolidayDataManager.swift */,
+				E97A603029703C7A008EC72B /* HolidayResponse.swift */,
+			);
+			path = Holiday;
 			sourceTree = "<group>";
 		};
 		E98C582B27D6A13300EF75A7 /* Font */ = {
@@ -514,6 +528,7 @@
 				E97010E62848FC2600F32370 /* UIColor.swift in Sources */,
 				E9D4D06C28608433003B0985 /* WalkThroughViewController.swift in Sources */,
 				E90DAF282817219C001F33E4 /* DataSettingViewController.swift in Sources */,
+				E97A602F29703BCB008EC72B /* HolidayDataManager.swift in Sources */,
 				E93CDFDE27B2332C00F51899 /* UITableView.swift in Sources */,
 				E932F51D280E4C7600231232 /* SettingTableViewCell.swift in Sources */,
 				E920C55F282FE50A00938497 /* UIButton.swift in Sources */,
@@ -521,6 +536,7 @@
 				E9A412622810BCA10030935F /* OpenSourceViewController.swift in Sources */,
 				E9A41260281014D40030935F /* SearchTableViewCell.swift in Sources */,
 				E9584F9428066F3B00651C20 /* UITextField.swift in Sources */,
+				E97A603129703C7A008EC72B /* HolidayResponse.swift in Sources */,
 				E94B157D280FBB0A00DA2E35 /* CompletedDetailViewController.swift in Sources */,
 				E9EE56182845CD0A00315863 /* ScreenSettingViewController.swift in Sources */,
 				E932F51B280E459F00231232 /* SettingViewController.swift in Sources */,

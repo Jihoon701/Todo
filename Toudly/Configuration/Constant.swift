@@ -9,6 +9,10 @@ import Foundation
 
 struct Constant {
     
+    static let HOLIDAY_BASE_URL = "http://apis.data.go.kr/B090041/openapi/service/SpcdeInfoService"
+    
+    static let HOLIDAY_SERVICE_KEY = "L34F9VdgOVpiXeH%2Fyhgl8t3BLRlhPCFQ5MnYkVdnzObZNfSVh6LP6LcbWX0UjMYlma6u%2FQJX6XlO31tH3MmfIg%3D%3D"
+    
     static let reloadBookmark = Notification.Name("reloadBookmark")
     
     static var isWeekType: Bool?

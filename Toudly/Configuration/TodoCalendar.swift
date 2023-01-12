@@ -37,7 +37,7 @@ class TodoCalendar {
         
         selectedTodoDate = "\(currentDate.year)/\(currentDate.month)/\(currentDate.day)"
         calculateCalendarDate()
-        checkCurrentDayMonth()
+        checkCurrentDayInMonth()
     }
     
     func calculateCalendarDate() {
@@ -56,6 +56,8 @@ class TodoCalendar {
         daysInWeekType = calculateDaysInWeekType(weekday: currentWeekday, daysCountInPrevMonth: daysCountInPrevMonth, daysCountInCurrentMonth: daysCountInCurrentMonth, daysCountInNextMonth: daysCountInNextMonth).map { String($0) }
         daysInMonthType = calculateDaysInMonthType(emptiedDaysInMonth: 2 - weekdayOfFirstDayInCurrentMonth, daysCountInMonth: daysCountInCurrentMonth)
         
+        print("daysInWeekType:  ", daysInWeekType)
+        print("daysInMonthType:  ", daysInMonthType)
     }
     
     enum Month {
@@ -69,7 +71,7 @@ class TodoCalendar {
         return "\(calendarYear)년 \(calendarMonth)월"
     }
     
-    public func checkCurrentDayMonth() -> Bool {
+    public func checkCurrentDayInMonth() -> Bool {
         if calendarComponents.year! == currentDate.year {
             if calendarComponents.month! == currentDate.month {
                 return true

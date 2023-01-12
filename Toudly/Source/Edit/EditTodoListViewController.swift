@@ -66,7 +66,7 @@ class EditTodoListViewController: UIViewController, UITextFieldDelegate {
         bookmarkLabel.setupLabel(text: "Bookmark")
         alarmLabel.setupLabel(text: "Alarm")
         alarmTimeSetLabel.font = .NanumSR(.bold, size: 12)
-        alarmTimeSetLabel.textColor = .darkGray
+        alarmTimeSetLabel.textColor = UIColor.darkGray
         setInitialAlarmTime()
         alarmTimeSetLabel.text = "\(timeSetHour):\(timeSetMinute)"
         

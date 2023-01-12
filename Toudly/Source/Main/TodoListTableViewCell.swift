@@ -29,11 +29,11 @@ class TodoListTableViewCell: UITableViewCell {
         self.bookmarkCheck = bookmarkCheck
         self.todoId = todoId
         self.selectionStyle = .none
+        
         let checkboxTapGesture = UITapGestureRecognizer(target: self, action: #selector(PressCheckbox))
         checkboxImage.addGestureRecognizer(checkboxTapGesture)
         checkboxImage.isUserInteractionEnabled = true
         todoListLabel.font = .NanumSR(.regular, size: 13)
-        
         bookmarkImage.isHidden = !bookmarkCheck
         alarmImage.isHidden = !alarmCheck
         
@@ -67,7 +67,9 @@ class TodoListTableViewCell: UITableViewCell {
         let strikethroughlineAttribute = [NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.thick.rawValue]
         let strikethroughlineAttributedString = NSAttributedString(string: todoListContent, attributes: strikethroughlineAttribute)
         todoListLabel.attributedText = strikethroughlineAttributedString
+        todoListLabel.sizeToFit()
         bookmarkImage.image = UIImage(named: "bookmark_gray")
+ 
     }
     
     func originalTodoList() {
@@ -75,6 +77,7 @@ class TodoListTableViewCell: UITableViewCell {
         let attributeString = NSMutableAttributedString(string: todoListContent)
         attributeString.removeAttribute(NSAttributedString.Key.strikethroughStyle, range: NSMakeRange(0, attributeString.length))
         todoListLabel.attributedText = attributeString
+        todoListLabel.sizeToFit()
         bookmarkImage.image = UIImage.coloredBookmarkImage(bookmarkImage.image!)()
     }
     

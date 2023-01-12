@@ -13,8 +13,27 @@ class CalendarCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var UnderLineView: UIView!
     @IBOutlet weak var DateLabel: UILabel!
     @IBOutlet weak var CircleImageView: UIImageView!
+    
     let todoCalendar = TodoCalendar()
     let realm = try! Realm()
+    var isHoliday = false
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
+    
+    override var isSelected: Bool {
+        didSet{
+            if isSelected {
+                DateLabel.font = .NanumSR(.extraBold, size: 15)
+                DateLabel.textColor = UIColor.mainDarkGreen
+            }
+            else {
+                DateLabel.textColor = isHoliday ? UIColor.burgundy : UIColor.black
+                DateLabel.font = .NanumSR(.regular, size: 13)
+            }
+        }
+    }
     
     func initWeekdayCell(text: String) {
         isUserInteractionEnabled = false
@@ -24,23 +43,14 @@ class CalendarCollectionViewCell: UICollectionViewCell {
         DateLabel.setupLabel(text: text)
     }
     
-    func initDayCell(currentDay: String, isTodayDate: Bool, date: String) {
+    // haveTodayDate: 해당 달에 오늘 날짜가 포함되어 있는지 확인하는 변수
+    // haveHolidayDate: 해당 달에 공휴일이 포함되어 있는지 확인하는 변수
+    func initDayCell(currentDay: String, haveTodayDate: Bool, date: String, haveHolidayDate: Bool) {
         DateLabel.text = currentDay
-        DarwCircleOnTodayDate(isTodayDate: isTodayDate, checkingDate: currentDay)
+        print("@@@  ", currentDay)
+        DrawCircleOnTodayDate(haveTodayDate: haveTodayDate, checkingDate: currentDay)
+        DrawCircleOnHolidayDate(haveHolidayDate: haveHolidayDate, checkingDate: currentDay)
         checkListExistingDate(date: "\(date)/\(currentDay)")
-    }
-    
-    override var isSelected: Bool {
-        didSet{
-            if isSelected {
-                DateLabel.font = .NanumSR(.extraBold, size: 15)
-                DateLabel.textColor = #colorLiteral(red: 0.007843137255, green: 0.1725490196, blue: 0.2117647059, alpha: 1)
-            }
-            else {
-                DateLabel.font = .NanumSR(.regular, size: 13)
-                DateLabel.textColor = UIColor.black
-            }
-        }
     }
     
     func checkListExistingDate(date: String) {
@@ -54,16 +64,22 @@ class CalendarCollectionViewCell: UICollectionViewCell {
         isUserInteractionEnabled = true
     }
     
-    func DarwCircleOnTodayDate(isTodayDate: Bool, checkingDate: String) {
-        if isTodayDate && checkingDate == String(Date().day) {
+    func DrawCircleOnTodayDate(haveTodayDate: Bool, checkingDate: String) {
+        if haveTodayDate && checkingDate == String(Date().day) {
             CircleImageView.isHidden = false
+            CircleImageView.tintColor = UIColor.black
         }
         else {
             CircleImageView.isHidden = true
         }
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    func DrawCircleOnHolidayDate(haveHolidayDate: Bool, checkingDate: String) {
+        if haveHolidayDate && checkingDate == String(Date().day) {
+            CircleImageView.isHidden = false
+        }
+        else {
+            CircleImageView.isHidden = true
+        }
     }
 }

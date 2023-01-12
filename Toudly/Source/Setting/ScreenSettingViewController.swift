@@ -17,6 +17,9 @@ class ScreenSettingViewController: UIViewController {
     @IBOutlet weak var bookmarkSettingLabel: UILabel!
     @IBOutlet weak var bookmarkColorCheckImage: UIImageView!
     @IBOutlet var bookmarkColorButtons: [UIButton]!
+    @IBOutlet weak var holidayLabel: UILabel!
+    @IBOutlet weak var holidayDescriptionLabel: UILabel!
+    
     let bookmarkColors = ["apricot", "green", "red", "turquoise", "yellow"]
     
     @IBAction func backToSettingVC(_ sender: Any) {
@@ -25,12 +28,21 @@ class ScreenSettingViewController: UIViewController {
     }
     
     override func viewDidLoad() {
+        setUI()
+        super.viewDidLoad()
+    }
+    
+    func setUI() {
         titleLabel.setupTitleLabel(text: "Screen")
         bookmarkSettingLabel.setupLabel(text: "Set Bookmark Color")
+        // 공휴일 날짜 표시
+        holidayLabel.setupLabel(text: "Show Holiday information")
+        // 오늘 날짜를 기준으로 1년 전부터 1년 후까지의 공휴일 정보를 제공합니다.
+        holidayDescriptionLabel.setupTextLabel(text: "Provides holiday information from a year\nago to a year later, based on today's date")
+        holidayDescriptionLabel.numberOfLines = 0
         initColorButtons()
         bookmarkColorCheckImage.image = UIImage(named: "bookmark_gray")
         bookmarkColorCheckImage.image = UIImage.coloredBookmarkImage(bookmarkColorCheckImage.image!)()
-        super.viewDidLoad()
     }
     
     func initColorButtons() {

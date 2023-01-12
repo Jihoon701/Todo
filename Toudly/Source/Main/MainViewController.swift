@@ -18,13 +18,14 @@ class MainViewController: UIViewController {
     @IBOutlet weak var nextMonthButton: UIButton!
     @IBOutlet weak var todoListTableView: UITableView!
     
+    lazy var holidayDataManager = HolidayDataManager()
     let todoCalendar = TodoCalendar()
     let todoDate = TodoDate()
     let realm = try! Realm()
     var list: Results<TodoList>!
     var realmNotificationToken: NotificationToken?
     
-    var weeks: [String] = ["일", "월", "화", "수", "목", "금", "토"]
+    var weeks: [String] = ["Su", "M", "Tu", "W", "Th", "F", "Sa"]
     var addTodoListCellExist = false
     var selectedRow = 0
     var selectedDateConfirmed = false
@@ -46,6 +47,8 @@ class MainViewController: UIViewController {
         CalendarCollectionView.register(UINib(nibName: "CalendarCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CalendarCollectionViewCell")
         todoListTableView.register( UINib(nibName: "TodoListTableViewCell", bundle: nil), forCellReuseIdentifier: "TodoListTableViewCell")
         todoListTableView.register(UINib(nibName: "AddTodoListTableViewCell", bundle: nil), forCellReuseIdentifier: "AddTodoListTableViewCell")
+        
+        holidayDataManager.getHolidayInfo(year: 2023, month: String(format: "%02d", 1))
     }
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
@@ -66,7 +69,7 @@ class MainViewController: UIViewController {
         nextMonthButton.isHidden = Constant.isWeekType!
         previousMonthButton.isHidden = Constant.isWeekType!
         NotificationCenter.default.addObserver(self, selector: #selector(reload), name: Constant.reloadBookmark, object: nil)
-        newSelectedDate = todoDate.changeDayStatus(checkCurrentDayMonth: todoCalendar.checkCurrentDayMonth())
+        newSelectedDate = todoDate.changeDayStatus(checkCurrentDayMonth: todoCalendar.checkCurrentDayInMonth())
         print(Realm.Configuration.defaultConfiguration.fileURL!)
         realmNotification()
         super.viewDidLoad()
@@ -184,13 +187,13 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func createMonthlySelectedDate() {
-        newSelectedDate = todoDate.changeDayStatus(checkCurrentDayMonth: todoCalendar.checkCurrentDayMonth())
+        newSelectedDate = todoDate.changeDayStatus(checkCurrentDayMonth: todoCalendar.checkCurrentDayInMonth())
         selectedDate = "\(todoCalendar.calendarYear)/\(todoCalendar.calendarMonth)/"
         selectedDate += newSelectedDate
     }
     
     func createWeeklySelectedDate() {
-        newSelectedDate = todoDate.changeDayStatus(checkCurrentDayMonth: todoCalendar.checkCurrentDayMonth())
+        newSelectedDate = todoDate.changeDayStatus(checkCurrentDayMonth: todoCalendar.checkCurrentDayInMonth())
         selectedDate = "\(todoCalendar.calendarYear)/\(todoCalendar.calendarMonth)/"
         selectedDate += newSelectedDate
     }
@@ -226,11 +229,11 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         if Constant.isWeekType! {     // MARK: Week Type
             let weekTypeDate = todoCalendar.checkWeekTypeCategory(weekTypeCategory: todoCalendar.weekTypeCategoryArray[indexPath.item])
             daysInAccordanceWithType = todoCalendar.daysInWeekType[indexPath.item]
-            cell.initDayCell(currentDay: daysInAccordanceWithType, isTodayDate: true, date: weekTypeDate)
+            cell.initDayCell(currentDay: daysInAccordanceWithType, haveTodayDate: true, date: weekTypeDate, haveHolidayDate: true)
         }
         else {      // MARK: Month Type
             daysInAccordanceWithType = todoCalendar.daysInMonthType[indexPath.item]
-            cell.initDayCell(currentDay: daysInAccordanceWithType, isTodayDate: todoCalendar.checkCurrentDayMonth(), date: "\(todoCalendar.calendarYear)/\(todoCalendar.calendarMonth)")
+            cell.initDayCell(currentDay: daysInAccordanceWithType, haveTodayDate: todoCalendar.checkCurrentDayInMonth(), date: "\(todoCalendar.calendarYear)/\(todoCalendar.calendarMonth)", haveHolidayDate: true)
         }
         
         if newSelectedDate == daysInAccordanceWithType {

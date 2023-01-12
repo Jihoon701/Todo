@@ -90,3 +90,13 @@
 "Inquiry" = "문의";
 "Review" = "리뷰";
 "Version" = "버전";
+
+
+// MainViewController
+"Su" = "일";
+"M" = "월";
+"Tu" = "화";
+"W" = "수";
+"Th" = "목";
+"F" = "금";
+"Sa" = "토";
