@@ -26,7 +26,7 @@ class DetailViewController: ButtonBarPagerTabStripViewController {
         settings.style.buttonBarRightContentInset = 20
         changeCurrentIndexProgressive = { [weak self] (oldCell: ButtonBarViewCell?, newCell: ButtonBarViewCell?, progressPercentage: CGFloat, changeCurrentIndex: Bool, animated: Bool) -> Void in
             guard changeCurrentIndex == true else { return }
-            oldCell?.label.textColor =  #colorLiteral(red: 0.7137254902, green: 0.7137254902, blue: 0.7137254902, alpha: 1)
+            oldCell?.label.textColor = UIColor.lightGray182
             newCell?.label.textColor = .black
         }
         

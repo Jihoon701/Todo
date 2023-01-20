@@ -11,6 +11,7 @@ import RealmSwift
 class DataSettingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var dataSettingTableView: UITableView!
     @IBOutlet weak var titleLabel: UILabel!
+    
     let dataSettingTitle = ["Delete completed todo data", "Delete in progress todo data", "Delete bookmarked todo data", "Delete all todo data"]
     let realm = try! Realm()
     
