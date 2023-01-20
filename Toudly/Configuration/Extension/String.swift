@@ -1,8 +1,8 @@
 //
-//  UIString.swift
-//  Todo
+//  String.swift
+//  Toudly
 //
-//  Created by 김지훈 on 2022/04/23.
+//  Created by 김지훈 on 2023/01/13.
 //
 
 import Foundation

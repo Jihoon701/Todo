@@ -52,9 +52,10 @@
 		E978BCF2285C43F000A64CCB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E978BCF4285C43F000A64CCB /* InfoPlist.strings */; };
 		E97A602F29703BCB008EC72B /* HolidayDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97A602E29703BCB008EC72B /* HolidayDataManager.swift */; };
 		E97A603129703C7A008EC72B /* HolidayResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97A603029703C7A008EC72B /* HolidayResponse.swift */; };
+		E97A60332971029C008EC72B /* HolidayCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97A60322971029C008EC72B /* HolidayCalendar.swift */; };
+		E97A603529710F43008EC72B /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97A603429710F43008EC72B /* String.swift */; };
 		E9A41260281014D40030935F /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A4125F281014D40030935F /* SearchTableViewCell.swift */; };
 		E9A412622810BCA10030935F /* OpenSourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A412612810BCA10030935F /* OpenSourceViewController.swift */; };
-		E9A412642813ADB30030935F /* UIString.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A412632813ADB30030935F /* UIString.swift */; };
 		E9A412662813C6890030935F /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A412652813C6890030935F /* Date.swift */; };
 		E9A4127B2814A8010030935F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9A4127A2814A8010030935F /* LaunchScreen.storyboard */; };
 		E9D4D0692860836F003B0985 /* WalkThrough.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9D4D0682860836F003B0985 /* WalkThrough.storyboard */; };
@@ -128,9 +129,10 @@
 		E978BCF3285C43F000A64CCB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E97A602E29703BCB008EC72B /* HolidayDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayDataManager.swift; sourceTree = "<group>"; };
 		E97A603029703C7A008EC72B /* HolidayResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayResponse.swift; sourceTree = "<group>"; };
+		E97A60322971029C008EC72B /* HolidayCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolidayCalendar.swift; sourceTree = "<group>"; };
+		E97A603429710F43008EC72B /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		E9A4125F281014D40030935F /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		E9A412612810BCA10030935F /* OpenSourceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSourceViewController.swift; sourceTree = "<group>"; };
-		E9A412632813ADB30030935F /* UIString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIString.swift; sourceTree = "<group>"; };
 		E9A412652813C6890030935F /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		E9A4127A2814A8010030935F /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E9D4D0682860836F003B0985 /* WalkThrough.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WalkThrough.storyboard; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 				E9235CCD278FBBBC00C73737 /* Constant.swift */,
 				E9D845782824B652002DEF9E /* TodoCalendar.swift */,
 				E9235D122792A57300C73737 /* TodoList.swift */,
+				E97A60322971029C008EC72B /* HolidayCalendar.swift */,
 				E9D845BD282CD09F002DEF9E /* RealmService.swift */,
 				E978BC2B2856FD9100A64CCB /* TodoDate.swift */,
 			);
@@ -333,13 +336,13 @@
 				E93CDFDD27B2332C00F51899 /* UITableView.swift */,
 				E9584F9328066F3B00651C20 /* UITextField.swift */,
 				E932F4A6280BB8AA00231232 /* UIFont.swift */,
-				E9A412632813ADB30030935F /* UIString.swift */,
 				E9A412652813C6890030935F /* Date.swift */,
 				E90DAF1D2816D59A001F33E4 /* UILabel.swift */,
 				E920C55E282FE50A00938497 /* UIButton.swift */,
 				E90DAF4B281824D7001F33E4 /* UIViewController.swift */,
 				E9EE56152845C38C00315863 /* UIImage.swift */,
 				E97010E52848FC2600F32370 /* UIColor.swift */,
+				E97A603429710F43008EC72B /* String.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -522,6 +525,7 @@
 				E90DAF4C281824D8001F33E4 /* UIViewController.swift in Sources */,
 				E932F520280E60C700231232 /* DetailViewController.swift in Sources */,
 				E9D4D0722864349A003B0985 /* TodoManualViewController.swift in Sources */,
+				E97A60332971029C008EC72B /* HolidayCalendar.swift in Sources */,
 				E9235CC5278EAB9500C73737 /* MainViewController.swift in Sources */,
 				E90DAF1C2816A158001F33E4 /* DetailTableViewCell.swift in Sources */,
 				E94B157F280FBB1700DA2E35 /* MonthlyDetailViewController.swift in Sources */,
@@ -534,13 +538,13 @@
 				E920C55F282FE50A00938497 /* UIButton.swift in Sources */,
 				E932F4F2280C3A1700231232 /* SearchViewController.swift in Sources */,
 				E9A412622810BCA10030935F /* OpenSourceViewController.swift in Sources */,
+				E97A603529710F43008EC72B /* String.swift in Sources */,
 				E9A41260281014D40030935F /* SearchTableViewCell.swift in Sources */,
 				E9584F9428066F3B00651C20 /* UITextField.swift in Sources */,
 				E97A603129703C7A008EC72B /* HolidayResponse.swift in Sources */,
 				E94B157D280FBB0A00DA2E35 /* CompletedDetailViewController.swift in Sources */,
 				E9EE56182845CD0A00315863 /* ScreenSettingViewController.swift in Sources */,
 				E932F51B280E459F00231232 /* SettingViewController.swift in Sources */,
-				E9A412642813ADB30030935F /* UIString.swift in Sources */,
 				E90DAF2528170376001F33E4 /* SettingDetailTableViewCell.swift in Sources */,
 				E9235D562794176E00C73737 /* AddTodoListTableViewCell.swift in Sources */,
 			);

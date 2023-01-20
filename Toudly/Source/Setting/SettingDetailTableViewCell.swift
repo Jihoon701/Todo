@@ -11,6 +11,7 @@ class SettingDetailTableViewCell: UITableViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var settingSwitch: UISwitch!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         titleLabel.font = .NanumSR(.regular, size: 14)

@@ -9,6 +9,8 @@ import Foundation
 import UIKit
 
 class TodoCalendar {
+    
+    let holidayCalendar = HolidayCalendar()
     let cal = Calendar.current
     let currentDate = Date()
     var firstDayOfCurrentMonth = Date()
@@ -78,6 +80,13 @@ class TodoCalendar {
             }
         }
         return false
+    }
+    
+    public func checkHolidayInMonth() -> Bool {
+        return holidayCalendar.holidayInfoArray.contains(where: {
+            $0.year == calendarComponents.year! &&
+            $0.month == calendarComponents.month!
+        })
     }
     
     public func moveCalendarMonth(value: Int, calendarTitleLabel: UILabel) {

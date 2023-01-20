@@ -18,9 +18,12 @@ class ScreenSettingViewController: UIViewController {
     @IBOutlet weak var bookmarkColorCheckImage: UIImageView!
     @IBOutlet var bookmarkColorButtons: [UIButton]!
     @IBOutlet weak var holidayLabel: UILabel!
+    @IBOutlet weak var holidaySwitch: UISwitch!
     @IBOutlet weak var holidayDescriptionLabel: UILabel!
     
+    lazy var holidayDataManager = HolidayDataManager()
     let bookmarkColors = ["apricot", "green", "red", "turquoise", "yellow"]
+    var holidayInformationSet = false
     
     @IBAction func backToSettingVC(_ sender: Any) {
         NotificationCenter.default.post(name: Constant.reloadBookmark, object: nil)
@@ -41,6 +44,9 @@ class ScreenSettingViewController: UIViewController {
         holidayDescriptionLabel.setupTextLabel(text: "Provides holiday information from a year\nago to a year later, based on today's date")
         holidayDescriptionLabel.numberOfLines = 0
         initColorButtons()
+        
+        holidaySwitch.setOn(holidayInformationSet, animated: false)
+        holidaySwitch.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
         bookmarkColorCheckImage.image = UIImage(named: "bookmark_gray")
         bookmarkColorCheckImage.image = UIImage.coloredBookmarkImage(bookmarkColorCheckImage.image!)()
     }
@@ -54,5 +60,16 @@ class ScreenSettingViewController: UIViewController {
     @objc func bookmarkColorSelected (sender: UIButton) {
         Constant.bookmarkColor = sender.titleLabel?.text!
         self.bookmarkColorCheckImage.image = UIImage.coloredBookmarkImage(self.bookmarkColorCheckImage.image!)()
+    }
+    
+    @IBAction func holidaySwitchTapped(_ sender: Any) {
+        if holidaySwitch.isOn {
+            // api 불러오기
+            print("asdfasfd")
+            holidayDataManager.getHolidayInfo(year: 2023)
+        }
+        else {
+            print("123")
+        }
     }
 }

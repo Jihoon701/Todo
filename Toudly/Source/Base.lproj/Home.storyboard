@@ -326,6 +326,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Aeg-ud-bhJ">
+                                <rect key="frame" x="345" y="183" width="51" height="31"/>
+                                <color key="onTintColor" red="0.23137254900000001" green="0.20000000000000001" blue="0.1843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="holidaySwitchTapped:" destination="659-Oz-N0A" eventType="touchUpInside" id="Jrc-xc-hI0"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="kmq-BR-Yt9"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -336,6 +343,7 @@
                             <constraint firstItem="3Xj-9H-d4d" firstAttribute="leading" secondItem="kmq-BR-Yt9" secondAttribute="leading" constant="20" id="HJW-2N-HaR"/>
                             <constraint firstItem="PGE-An-epB" firstAttribute="centerY" secondItem="3Xj-9H-d4d" secondAttribute="centerY" id="IeE-zC-T12"/>
                             <constraint firstItem="IMk-tT-S1V" firstAttribute="width" secondItem="kEQ-Ls-Maz" secondAttribute="width" multiplier="0.07" id="Igs-tD-d62"/>
+                            <constraint firstItem="Aeg-ud-bhJ" firstAttribute="centerY" secondItem="xMr-cy-ZeS" secondAttribute="centerY" id="Lgk-l2-2Ts"/>
                             <constraint firstItem="g3h-76-t2G" firstAttribute="centerY" secondItem="IMk-tT-S1V" secondAttribute="centerY" id="NTM-cN-lGB"/>
                             <constraint firstItem="I5V-L6-I6T" firstAttribute="leading" secondItem="xMr-cy-ZeS" secondAttribute="leading" constant="5" id="QEx-he-Qz0"/>
                             <constraint firstItem="3Xj-9H-d4d" firstAttribute="height" secondItem="g3h-76-t2G" secondAttribute="height" id="UBm-b0-ByG"/>
@@ -343,6 +351,7 @@
                             <constraint firstItem="PGE-An-epB" firstAttribute="width" secondItem="kEQ-Ls-Maz" secondAttribute="width" multiplier="0.05" id="a8y-Jb-A52"/>
                             <constraint firstItem="xMr-cy-ZeS" firstAttribute="leading" secondItem="3Xj-9H-d4d" secondAttribute="leading" id="atk-Rg-kUW"/>
                             <constraint firstItem="IMk-tT-S1V" firstAttribute="top" secondItem="kmq-BR-Yt9" secondAttribute="top" constant="20" id="cEf-yf-g9w"/>
+                            <constraint firstItem="kmq-BR-Yt9" firstAttribute="trailing" secondItem="Aeg-ud-bhJ" secondAttribute="trailing" constant="20" id="kV4-Co-3fx"/>
                             <constraint firstItem="vtB-8t-r4r" firstAttribute="top" secondItem="3Xj-9H-d4d" secondAttribute="bottom" constant="10" id="l9t-GN-EPc"/>
                             <constraint firstItem="3Xj-9H-d4d" firstAttribute="top" secondItem="g3h-76-t2G" secondAttribute="bottom" constant="20" id="qbT-6K-1ZR"/>
                             <constraint firstItem="I5V-L6-I6T" firstAttribute="trailing" secondItem="xMr-cy-ZeS" secondAttribute="trailing" id="vXj-sK-kb8"/>
@@ -356,6 +365,7 @@
                         <outlet property="bookmarkSettingLabel" destination="3Xj-9H-d4d" id="GaJ-Kg-p9u"/>
                         <outlet property="holidayDescriptionLabel" destination="I5V-L6-I6T" id="1ls-5o-cBn"/>
                         <outlet property="holidayLabel" destination="xMr-cy-ZeS" id="hri-gJ-6YB"/>
+                        <outlet property="holidaySwitch" destination="Aeg-ud-bhJ" id="s4F-DL-xn8"/>
                         <outlet property="titleLabel" destination="g3h-76-t2G" id="Pea-9n-548"/>
                         <outletCollection property="bookmarkColorButtons" destination="vkv-Kr-gIg" collectionClass="NSMutableArray" id="TFX-8Y-hF5"/>
                         <outletCollection property="bookmarkColorButtons" destination="upr-zy-pCd" collectionClass="NSMutableArray" id="38n-Mt-pAK"/>

@@ -8,8 +8,8 @@
 import Alamofire
 
 class HolidayDataManager {
-    func getHolidayInfo(year: Int, month: String) {
-        AF.request("\(Constant.HOLIDAY_BASE_URL)/getHoliDeInfo?serviceKey=\(Constant.HOLIDAY_SERVICE_KEY)&solYear=\(year)&solMonth=\(month)&_type=json", method: .get, parameters: nil, encoding: JSONEncoding(), headers: nil)
+    func getHolidayInfo(year: Int) {
+        AF.request("\(Constant.HOLIDAY_BASE_URL)/getHoliDeInfo?serviceKey=\(Constant.HOLIDAY_SERVICE_KEY)&solYear=\(year)&_type=json&numOfRows=30", method: .get, parameters: nil, encoding: JSONEncoding(), headers: nil)
             .validate()
             .responseDecodable(of: HolidayResponse.self) { response in
                 
@@ -18,8 +18,12 @@ class HolidayDataManager {
                     // 성공했을 때
                     print("성 공")
                     let holidayResultResponse = response.response
+                    let holidayResultItems = response.response.body.items.item
+                    let holidayCalendar = HolidayCalendar()
+                    
                     if holidayResultResponse.header.resultCode == .success {
-                        print(holidayResultResponse.body.items)
+                        holidayCalendar.setHolidayInfoArray(holidayItems: holidayResultItems)
+                  
                     }
                     // 실패했을 때
                     else {
