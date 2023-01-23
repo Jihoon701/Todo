@@ -28,6 +28,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             window?.rootViewController = navigationController
         }
         
+//        //MARK: 워크스루 테스트
+//        Constant.firstTimeLauncing = false
+//        let storyboard = UIStoryboard(name: "WalkThrough", bundle: nil)
+//        let walkThroughVC = storyboard.instantiateViewController(withIdentifier: "WalkThroughViewController")
+//        window?.rootViewController = walkThroughVC
+//        //MARK: 워크스루 테스트
+        
         window?.windowScene = windowScene
         window?.makeKeyAndVisible()
     }

@@ -309,8 +309,8 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource, UITabl
         }
         
         let listCell = todoListTableView.dequeueReusableCell(withIdentifier: "TodoListTableViewCell", for: indexPath) as! TodoListTableViewCell
-        let currentTodoList = list[indexPath.row]
-        listCell.initTodoCell(todolistDone: currentTodoList.checkbox, todoListContent: currentTodoList.todoContent, bookmarkCheck: currentTodoList.bookmark, alarmCheck: currentTodoList.alarm, todoId: currentTodoList.id)
+        listCell.configureTodoCell(todoList: list[indexPath.row])
+
         return listCell
     }
     

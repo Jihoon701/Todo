@@ -16,7 +16,7 @@ protocol EditTodoDelegate: AnyObject {
 
 class EditTodoListViewController: UIViewController, UITextFieldDelegate {
     
-    @IBOutlet weak var BackgroundView: UIView!
+    @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var editView: UIView!
     @IBOutlet weak var todoListContentTextField: UITextField!
     @IBOutlet weak var bookmarkSwitch: UISwitch!
@@ -50,13 +50,22 @@ class EditTodoListViewController: UIViewController, UITextFieldDelegate {
     var todoAlarm = false
     var todoAlarmTime = ""
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setUI()
+        setPickerView()
+        setGesture()
+    }
+    
     override func viewDidLoad() {
-        let backgroundTapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissEditView))
-        BackgroundView.addGestureRecognizer(backgroundTapGesture)
-        BackgroundView.isUserInteractionEnabled = true
-        
+        super.viewDidLoad()
+    }
+    
+    func setUI() {
+        editView.layer.cornerRadius = 15
         bookmarkSwitch.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
         alarmSwitch.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
+        bookmarkSwitch.setOn(todoBookmark, animated: false)
         
         todoListContentTextField.text = todoContent
         todoListContentTextField.font = .NanumSR(.regular, size: 14)
@@ -70,11 +79,26 @@ class EditTodoListViewController: UIViewController, UITextFieldDelegate {
         setInitialAlarmTime()
         alarmTimeSetLabel.text = "\(timeSetHour):\(timeSetMinute)"
         
-        alarmPickerView.delegate = self
-        alarmPickerView.dataSource = self
-        todoListContentTextField.delegate = self
         alarmPickerView.isHidden = true
         alarmTimeSetLabel.isHidden = true
+        
+        todoListContentTextField.delegate = self
+        
+        
+        if todoAlarm {
+            alarmSwitch.setOn(true, animated: false)
+            alarmTimeSetLabel.isHidden = false
+            alarmTimeSetLabel.text = todoAlarmTime
+        }
+        else {
+            alarmSwitch.setOn(false, animated: false)
+            alarmTimeSetLabel.isHidden = true
+        }
+    }
+    
+    func setPickerView() {
+        alarmPickerView.delegate = self
+        alarmPickerView.dataSource = self
         
         pickerViewHourMiddle = pickerViewRows * alarmHour.count / 2
         pickerViewMinuteMiddle = pickerViewRows * alarmMinute.count / 2
@@ -86,21 +110,12 @@ class EditTodoListViewController: UIViewController, UITextFieldDelegate {
         if let row = rowForMinuteValue(value: timeSetMinute) {
             alarmPickerView.selectRow(row, inComponent: 1, animated: false)
         }
-        
-        bookmarkSwitch.setOn(todoBookmark, animated: false)
-        
-        if todoAlarm {
-            alarmSwitch.setOn(true, animated: false)
-            alarmTimeSetLabel.isHidden = false
-            alarmTimeSetLabel.text = todoAlarmTime
-        }
-        else {
-            alarmSwitch.setOn(false, animated: false)
-            alarmTimeSetLabel.isHidden = true
-        }
-        
-        editView.layer.cornerRadius = 15
-        super.viewDidLoad()
+    }
+    
+    func setGesture() {
+        let backgroundTapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissEditView))
+        backgroundView.addGestureRecognizer(backgroundTapGesture)
+        backgroundView.isUserInteractionEnabled = true
     }
     
     func setInitialAlarmTime() {

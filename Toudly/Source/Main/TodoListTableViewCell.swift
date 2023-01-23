@@ -9,33 +9,37 @@ import UIKit
 import RealmSwift
 
 class TodoListTableViewCell: UITableViewCell {
+    
     @IBOutlet weak var checkboxImage: UIImageView!
     @IBOutlet weak var bookmarkImage: UIImageView!
+    @IBOutlet weak var alarmTimeLabel: UILabel!
     @IBOutlet weak var alarmImage: UIImageView!
     @IBOutlet weak var todoListLabel: UILabel!
+    
     private let realm = try! Realm()
     var todoListContent = ""
     var todoId = 0
-    var bookmarkCheck = false
     var todolistDone = false
     
     override func awakeFromNib() {
+        setUI()
         super.awakeFromNib()
     }
     
-    func initTodoCell(todolistDone: Bool, todoListContent: String, bookmarkCheck: Bool, alarmCheck: Bool, todoId: Int) {
-        self.todolistDone = todolistDone
-        self.todoListContent = todoListContent
-        self.bookmarkCheck = bookmarkCheck
-        self.todoId = todoId
+    func setUI() {
         self.selectionStyle = .none
-        
         let checkboxTapGesture = UITapGestureRecognizer(target: self, action: #selector(PressCheckbox))
         checkboxImage.addGestureRecognizer(checkboxTapGesture)
         checkboxImage.isUserInteractionEnabled = true
         todoListLabel.font = .NanumSR(.regular, size: 13)
-        bookmarkImage.isHidden = !bookmarkCheck
-        alarmImage.isHidden = !alarmCheck
+        alarmTimeLabel.font = .NanumSR(.regular, size: 12)
+        alarmTimeLabel.textColor = .lightGray
+    }
+    
+    func configureTodoCell(todoList: TodoList) {
+        self.todolistDone = todoList.checkbox
+        self.todoListContent = todoList.todoContent
+        self.todoId = todoList.id
         
         if todolistDone {
             strikeThroughTodoList()
@@ -43,7 +47,22 @@ class TodoListTableViewCell: UITableViewCell {
         else {
             originalTodoList()
         }
+        
+        if todoList.alarm {
+            alarmTimeLabel.text = todoList.alarmTime
+            alarmTimeLabel.sizeToFit()
+            alarmTimeLabel.isHidden = false
+            alarmImage.isHidden = false
+        }
+        else {
+            alarmTimeLabel.isHidden = true
+            alarmImage.isHidden = true
+        }
+        
         todoListLabel.sizeToFit()
+        bookmarkImage.isHidden = !todoList.bookmark
+        
+        self.layoutIfNeeded()
     }
     
     @objc func PressCheckbox(todoListDone: Bool) {
@@ -68,9 +87,8 @@ class TodoListTableViewCell: UITableViewCell {
         let strikethroughlineAttribute = [NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.thick.rawValue]
         let strikethroughlineAttributedString = NSAttributedString(string: todoListContent, attributes: strikethroughlineAttribute)
         todoListLabel.attributedText = strikethroughlineAttributedString
-        // check
         bookmarkImage.image = UIImage(named: "bookmark_gray")
- 
+        
     }
     
     func originalTodoList() {

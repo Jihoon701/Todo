@@ -10,10 +10,16 @@ import UIKit
 class WalkThroughViewController: UIViewController {
     
     @IBOutlet weak var toMainVCButton: UIButton!
+    
     override func viewDidLoad() {
-        toMainVCButton.setupButtonTitleLabel(text: "Start Toudly")
-        toMainVCButton.layer.cornerRadius = 15
+        setUI()
         super.viewDidLoad()
+    }
+    
+    func setUI() {
+        toMainVCButton.setTitle("Start Toudly", for: .normal)
+        toMainVCButton.titleLabel?.font = .NanumSR(.extraBold, size: 14)
+        toMainVCButton.layer.cornerRadius = 15
     }
     
     @IBAction func toMainVC(_ sender: Any) {

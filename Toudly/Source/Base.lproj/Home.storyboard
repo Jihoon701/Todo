@@ -834,7 +834,7 @@
                                     <action selector="toPreviousMonth:" destination="bnR-Uq-4PM" eventType="touchUpInside" id="cfl-KP-vWq"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="TNm-6m-Hz4">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="TNm-6m-Hz4">
                                 <rect key="frame" x="20" y="527.5" width="374" height="334.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
@@ -916,6 +916,10 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n7B-ob-Lf5">
                                 <rect key="frame" x="0.0" y="48" width="414" height="814"/>
                                 <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xqG-wp-IFg">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="814"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I08-LN-aQZ">
                                         <rect key="frame" x="41.5" y="200" width="331" height="414"/>
                                         <subviews>
@@ -1069,8 +1073,12 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="xqG-wp-IFg" firstAttribute="leading" secondItem="n7B-ob-Lf5" secondAttribute="leading" id="2Wu-PN-1vc"/>
+                                    <constraint firstAttribute="trailing" secondItem="xqG-wp-IFg" secondAttribute="trailing" id="7Q8-JQ-w1y"/>
                                     <constraint firstItem="I08-LN-aQZ" firstAttribute="centerX" secondItem="n7B-ob-Lf5" secondAttribute="centerX" id="E80-hf-R08"/>
+                                    <constraint firstAttribute="bottom" secondItem="xqG-wp-IFg" secondAttribute="bottom" id="PHw-Rq-TQ3"/>
                                     <constraint firstItem="I08-LN-aQZ" firstAttribute="centerY" secondItem="n7B-ob-Lf5" secondAttribute="centerY" id="UJo-Ek-eR7"/>
+                                    <constraint firstItem="xqG-wp-IFg" firstAttribute="top" secondItem="n7B-ob-Lf5" secondAttribute="top" id="fCI-bu-8hB"/>
                                     <constraint firstItem="I08-LN-aQZ" firstAttribute="width" secondItem="n7B-ob-Lf5" secondAttribute="width" multiplier="0.8" id="h57-SH-bry"/>
                                 </constraints>
                             </view>
@@ -1085,12 +1093,12 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="BackgroundView" destination="n7B-ob-Lf5" id="Uyq-AK-QQ0"/>
                         <outlet property="alarmLabel" destination="Jh6-H4-qp0" id="DvX-sP-amJ"/>
                         <outlet property="alarmPickerView" destination="scr-Ay-rSa" id="kCv-cy-B5U"/>
                         <outlet property="alarmSwitch" destination="6RB-83-c7m" id="DgG-bS-Y9Y"/>
                         <outlet property="alarmTimeSetLabel" destination="1ar-wx-y8k" id="crQ-Ek-6IM"/>
                         <outlet property="backButton" destination="oy8-Qg-c5e" id="qog-wt-GhQ"/>
+                        <outlet property="backgroundView" destination="xqG-wp-IFg" id="ekW-kp-YtA"/>
                         <outlet property="bookmarkLabel" destination="AhA-pf-d0J" id="7SV-KA-c87"/>
                         <outlet property="bookmarkSwitch" destination="1nt-x0-OBr" id="0m6-mc-boq"/>
                         <outlet property="deleteButton" destination="zcT-OC-AyC" id="x7I-Wy-74h"/>
