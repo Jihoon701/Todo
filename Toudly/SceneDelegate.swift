@@ -14,26 +14,26 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
-//        if Constant.firstTimeLauncing ?? false {
-//            Constant.firstTimeLauncing = false
-//            let storyboard = UIStoryboard(name: "WalkThrough", bundle: nil)
-//            let walkThroughVC = storyboard.instantiateViewController(withIdentifier: "WalkThroughViewController")
-//            window?.rootViewController = walkThroughVC
-//        }
-//        else {
-//            let storyboard = UIStoryboard(name: "Home", bundle: nil)
-//            let mainVC = storyboard.instantiateViewController(withIdentifier: "MainViewController")
-//            let navigationController = UINavigationController(rootViewController: mainVC)
-//            navigationController.navigationBar.isHidden = true
-//            window?.rootViewController = navigationController
-//        }
+        if Constant.firstTimeLauncing ?? false {
+            Constant.firstTimeLauncing = false
+            let storyboard = UIStoryboard(name: "WalkThrough", bundle: nil)
+            let walkThroughVC = storyboard.instantiateViewController(withIdentifier: "WalkThroughViewController")
+            window?.rootViewController = walkThroughVC
+        }
+        else {
+            let storyboard = UIStoryboard(name: "Home", bundle: nil)
+            let mainVC = storyboard.instantiateViewController(withIdentifier: "MainViewController")
+            let navigationController = UINavigationController(rootViewController: mainVC)
+            navigationController.navigationBar.isHidden = true
+            window?.rootViewController = navigationController
+        }
         
-        //MARK: 워크스루 테스트
-        Constant.firstTimeLauncing = false
-        let storyboard = UIStoryboard(name: "WalkThrough", bundle: nil)
-        let walkThroughVC = storyboard.instantiateViewController(withIdentifier: "WalkThroughViewController")
-        window?.rootViewController = walkThroughVC
-        //MARK: 워크스루 테스트
+//        //MARK: 워크스루 테스트
+//        Constant.firstTimeLauncing = false
+//        let storyboard = UIStoryboard(name: "WalkThrough", bundle: nil)
+//        let walkThroughVC = storyboard.instantiateViewController(withIdentifier: "WalkThroughViewController")
+//        window?.rootViewController = walkThroughVC
+//        //MARK: 워크스루 테스트
         
         window?.windowScene = windowScene
         window?.makeKeyAndVisible()
