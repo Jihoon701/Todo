@@ -18,7 +18,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wcN-Vd-Q7R">
-                        <rect key="frame" x="0.0" y="15" width="297.5" height="31"/>
+                        <rect key="frame" x="0.0" y="15" width="297.5" height="34"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -74,7 +74,7 @@
                     <constraint firstItem="VuO-P1-HSl" firstAttribute="centerY" secondItem="Tva-7S-MJ8" secondAttribute="centerY" id="Itw-E3-Nf2"/>
                     <constraint firstItem="wcN-Vd-Q7R" firstAttribute="leading" secondItem="Tva-7S-MJ8" secondAttribute="leading" id="Kga-VF-pWp"/>
                     <constraint firstAttribute="trailing" secondItem="uWt-bW-kra" secondAttribute="trailing" constant="10" id="WjX-nm-Wc4"/>
-                    <constraint firstItem="Yl0-X5-0Wb" firstAttribute="top" secondItem="wcN-Vd-Q7R" secondAttribute="bottom" constant="23" id="ZjQ-Dn-RSS"/>
+                    <constraint firstItem="Yl0-X5-0Wb" firstAttribute="top" secondItem="wcN-Vd-Q7R" secondAttribute="bottom" constant="20" id="ZjQ-Dn-RSS"/>
                     <constraint firstItem="uWt-bW-kra" firstAttribute="width" secondItem="Tva-7S-MJ8" secondAttribute="width" multiplier="0.15" id="hPP-36-rIV"/>
                     <constraint firstAttribute="bottom" secondItem="Yl0-X5-0Wb" secondAttribute="bottom" constant="5" id="if6-ej-IF9"/>
                     <constraint firstItem="uWt-bW-kra" firstAttribute="centerY" secondItem="Tva-7S-MJ8" secondAttribute="centerY" id="pQU-6S-NaA"/>
