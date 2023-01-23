@@ -19,6 +19,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var todoListTableView: UITableView!
     
     lazy var holidayDataManager = HolidayDataManager()
+    let holidayCalendar = HolidayCalendar()
     let todoCalendar = TodoCalendar()
     let todoDate = TodoDate()
     let realm = try! Realm()
@@ -47,17 +48,24 @@ class MainViewController: UIViewController {
         CalendarCollectionView.register(UINib(nibName: "CalendarCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CalendarCollectionViewCell")
         todoListTableView.register( UINib(nibName: "TodoListTableViewCell", bundle: nil), forCellReuseIdentifier: "TodoListTableViewCell")
         todoListTableView.register(UINib(nibName: "AddTodoListTableViewCell", bundle: nil), forCellReuseIdentifier: "AddTodoListTableViewCell")
-        
-        holidayDataManager.getHolidayInfo(year: 2023, month: String(format: "%02d", 1))
     }
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return [.portrait]
     }
     
+    
     override func viewWillDisappear(_ animated: Bool) {
-        addTodoListCellExist = false
         todoListTableView.reloadData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("왜 없지")
+        list = realm.objects(TodoList.self).filter("date == %@", selectedDate).sorted(byKeyPath: "order", ascending: true)
+        print(holidayCalendar.holidayInfoArray)
+        addTodoListCellExist = false
+        CalendarCollectionView.reloadData()
+        
     }
     
     override func viewDidLoad() {
@@ -72,6 +80,7 @@ class MainViewController: UIViewController {
         newSelectedDate = todoDate.changeDayStatus(checkCurrentDayMonth: todoCalendar.checkCurrentDayInMonth())
         print(Realm.Configuration.defaultConfiguration.fileURL!)
         realmNotification()
+        
         super.viewDidLoad()
     }
     
@@ -229,11 +238,11 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         if Constant.isWeekType! {     // MARK: Week Type
             let weekTypeDate = todoCalendar.checkWeekTypeCategory(weekTypeCategory: todoCalendar.weekTypeCategoryArray[indexPath.item])
             daysInAccordanceWithType = todoCalendar.daysInWeekType[indexPath.item]
-            cell.initDayCell(currentDay: daysInAccordanceWithType, haveTodayDate: true, date: weekTypeDate, haveHolidayDate: true)
+            cell.initDayCell(currentDay: daysInAccordanceWithType, haveTodayDate: true, date: weekTypeDate, haveHolidayDate: todoCalendar.checkHolidayInMonth())
         }
         else {      // MARK: Month Type
             daysInAccordanceWithType = todoCalendar.daysInMonthType[indexPath.item]
-            cell.initDayCell(currentDay: daysInAccordanceWithType, haveTodayDate: todoCalendar.checkCurrentDayInMonth(), date: "\(todoCalendar.calendarYear)/\(todoCalendar.calendarMonth)", haveHolidayDate: true)
+            cell.initDayCell(currentDay: daysInAccordanceWithType, haveTodayDate: todoCalendar.checkCurrentDayInMonth(), date: "\(todoCalendar.calendarYear)/\(todoCalendar.calendarMonth)", haveHolidayDate: todoCalendar.checkHolidayInMonth())
         }
         
         if newSelectedDate == daysInAccordanceWithType {
@@ -300,7 +309,6 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource, UITabl
         }
         
         let listCell = todoListTableView.dequeueReusableCell(withIdentifier: "TodoListTableViewCell", for: indexPath) as! TodoListTableViewCell
-        list = realm.objects(TodoList.self).filter("date == %@", selectedDate).sorted(byKeyPath: "order", ascending: true)
         let currentTodoList = list[indexPath.row]
         listCell.initTodoCell(todolistDone: currentTodoList.checkbox, todoListContent: currentTodoList.todoContent, bookmarkCheck: currentTodoList.bookmark, alarmCheck: currentTodoList.alarm, todoId: currentTodoList.id)
         return listCell

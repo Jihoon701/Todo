@@ -17,6 +17,10 @@ class DetailTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        setUI()
+    }
+    
+    func setUI() {
         contentLabel.font = .NanumSR(.regular, size: 14)
         contentLabel.textColor = .black
         dateLabel.font = .NanumSR(.light, size: 12)
@@ -26,30 +30,25 @@ class DetailTableViewCell: UITableViewCell {
         alarmSetTimeLabel.isHidden = true
     }
     
-    func detailCellInit(checkBox: Bool, alarm: Bool, alarmTime: String, bookmark: Bool) {
-        if alarm {
+    func configureDetailCell(target: TodoList) {
+        self.contentLabel.text = target.todoContent
+        contentLabel.numberOfLines = 0
+        self.contentLabel.sizeToFit()
+        self.dateLabel.text = target.date
+        self.selectionStyle = .none
+        
+        if target.alarm {
             alarmImage.image = UIImage(named: "alarm")
             alarmSetTimeLabel.isHidden = false
-            alarmSetTimeLabel.text = alarmTime
+            alarmSetTimeLabel.text = target.alarmTime
         }
         else {
             alarmImage.image = UIImage(named: "alarmdisabled")
             alarmSetTimeLabel.isHidden = true
         }
         
-        if checkBox {
-            boxImage.image = UIImage(named: "checkBox")
-        }
-        else {
-            boxImage.image = UIImage(named: "emptyBox")
-        }
+        boxImage.image = target.checkbox ? UIImage(named: "checkBox"): UIImage(named: "emptyBox")
         
-        if bookmark {
-            bookmarkImage.image = UIImage.coloredBookmarkImage(bookmarkImage.image!)()
-        }
-        else {
-            bookmarkImage.image = UIImage(named: "bookmark_gray")
-        }
-        
+        bookmarkImage.image = target.bookmark ? UIImage.coloredBookmarkImage(bookmarkImage.image!)(): UIImage(named: "bookmark_gray")
     }
 }

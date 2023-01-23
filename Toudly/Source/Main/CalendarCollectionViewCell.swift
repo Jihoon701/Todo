@@ -15,6 +15,7 @@ class CalendarCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var CircleImageView: UIImageView!
     
     let todoCalendar = TodoCalendar()
+    let holidayCalendar = HolidayCalendar()
     let realm = try! Realm()
     var isHoliday = false
     
@@ -47,10 +48,10 @@ class CalendarCollectionViewCell: UICollectionViewCell {
     // haveHolidayDate: 해당 달에 공휴일이 포함되어 있는지 확인하는 변수
     func initDayCell(currentDay: String, haveTodayDate: Bool, date: String, haveHolidayDate: Bool) {
         DateLabel.text = currentDay
-        print("@@@  ", currentDay)
-        DrawCircleOnTodayDate(haveTodayDate: haveTodayDate, checkingDate: currentDay)
-        DrawCircleOnHolidayDate(haveHolidayDate: haveHolidayDate, checkingDate: currentDay)
+        drawCircleOnTodayDate(haveTodayDate: haveTodayDate, checkingDate: currentDay)
+        changeTextColorOnHolidayDate(haveHolidayDate: haveHolidayDate, checkingDate: currentDay)
         checkListExistingDate(date: "\(date)/\(currentDay)")
+        print("^^   ", haveHolidayDate)
     }
     
     func checkListExistingDate(date: String) {
@@ -64,7 +65,7 @@ class CalendarCollectionViewCell: UICollectionViewCell {
         isUserInteractionEnabled = true
     }
     
-    func DrawCircleOnTodayDate(haveTodayDate: Bool, checkingDate: String) {
+    func drawCircleOnTodayDate(haveTodayDate: Bool, checkingDate: String) {
         if haveTodayDate && checkingDate == String(Date().day) {
             CircleImageView.isHidden = false
             CircleImageView.tintColor = UIColor.black
@@ -74,12 +75,16 @@ class CalendarCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    func DrawCircleOnHolidayDate(haveHolidayDate: Bool, checkingDate: String) {
-        if haveHolidayDate && checkingDate == String(Date().day) {
-            CircleImageView.isHidden = false
+    func changeTextColorOnHolidayDate(haveHolidayDate: Bool, checkingDate: String) {
+        print("공휴일  ", changeTextColorOnHolidayDate, checkingDate)
+        if haveHolidayDate && (holidayCalendar.holidayInfoArray.firstIndex(where: {String($0.day) == checkingDate}) != nil) {
+            print("공휴일 존재")
+            DateLabel.textColor = UIColor.burgundy
+            self.isHoliday = true
         }
         else {
-            CircleImageView.isHidden = true
+            DateLabel.textColor = UIColor.black
+            self.isHoliday = false
         }
     }
 }

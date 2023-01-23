@@ -49,15 +49,11 @@ class AlarmDetailViewController: UIViewController, IndicatorInfoProvider, UITabl
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = AlarmTableView.dequeueReusableCell(withIdentifier: "DetailTableViewCell", for: indexPath) as! DetailTableViewCell
-        alarmlist = realm.objects(TodoList.self).filter("alarm = true").sorted(byKeyPath: "date", ascending: true)
-        cell.selectionStyle = .none
-        cell.contentLabel.text = alarmlist[indexPath.row].todoContent
-        cell.dateLabel.text = alarmlist[indexPath.row].date
-        cell.detailCellInit(checkBox: alarmlist[indexPath.row].checkbox, alarm: alarmlist[indexPath.row].alarm, alarmTime: alarmlist[indexPath.row].alarmTime, bookmark: alarmlist[indexPath.row].bookmark)
+        cell.configureDetailCell(target: alarmlist[indexPath.row])
         return cell
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return AlarmTableView.frame.width * 1/6
-    }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return AlarmTableView.frame.width * 1/6
+//    }
 }

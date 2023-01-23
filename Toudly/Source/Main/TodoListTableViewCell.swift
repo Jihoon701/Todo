@@ -43,6 +43,7 @@ class TodoListTableViewCell: UITableViewCell {
         else {
             originalTodoList()
         }
+        todoListLabel.sizeToFit()
     }
     
     @objc func PressCheckbox(todoListDone: Bool) {
@@ -67,7 +68,7 @@ class TodoListTableViewCell: UITableViewCell {
         let strikethroughlineAttribute = [NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.thick.rawValue]
         let strikethroughlineAttributedString = NSAttributedString(string: todoListContent, attributes: strikethroughlineAttribute)
         todoListLabel.attributedText = strikethroughlineAttributedString
-        todoListLabel.sizeToFit()
+        // check
         bookmarkImage.image = UIImage(named: "bookmark_gray")
  
     }
@@ -77,7 +78,6 @@ class TodoListTableViewCell: UITableViewCell {
         let attributeString = NSMutableAttributedString(string: todoListContent)
         attributeString.removeAttribute(NSAttributedString.Key.strikethroughStyle, range: NSMakeRange(0, attributeString.length))
         todoListLabel.attributedText = attributeString
-        todoListLabel.sizeToFit()
         bookmarkImage.image = UIImage.coloredBookmarkImage(bookmarkImage.image!)()
     }
     
