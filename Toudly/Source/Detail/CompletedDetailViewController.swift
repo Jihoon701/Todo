@@ -44,15 +44,11 @@ class CompletedDetailViewController: UIViewController, IndicatorInfoProvider, UI
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = completeTableView.dequeueReusableCell(withIdentifier: "DetailTableViewCell", for: indexPath) as! DetailTableViewCell
-        completeList = realm.objects(TodoList.self).filter("checkbox = true").sorted(byKeyPath: "date", ascending: true)
-        cell.selectionStyle = .none
-        cell.contentLabel.text = completeList[indexPath.row].todoContent
-        cell.dateLabel.text = completeList[indexPath.row].date
-        cell.detailCellInit(checkBox: completeList[indexPath.row].checkbox, alarm: completeList[indexPath.row].alarm, alarmTime: completeList[indexPath.row].alarmTime, bookmark: completeList[indexPath.row].bookmark)
+        cell.configureDetailCell(target: completeList[indexPath.row])
         return cell
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return completeTableView.frame.width * 1/6
-    }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return completeTableView.frame.width * 1/6
+//    }
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct holidayInfo {
+struct HolidayInfo {
     let year: Int
     let month: Int
     let day: Int
@@ -15,7 +15,7 @@ struct holidayInfo {
 }
 
 class HolidayCalendar {
-    var holidayInfoArray = [holidayInfo]()
+    var holidayInfoArray = [HolidayInfo]()
     
     func setHolidayInfoArray(holidayItems: [Item]) {
         for item in holidayItems {
@@ -30,7 +30,7 @@ class HolidayCalendar {
             let holidayDay = Int(itemLocDate.suffix(2))
             let holidayName = setHolidayName(dateName: item.dateName)
             
-            holidayInfoArray.append(holidayInfo(year: holidayYear!, month: holidayMonth!, day: holidayDay!, name: holidayName))
+            holidayInfoArray.append(HolidayInfo(year: holidayYear!, month: holidayMonth!, day: holidayDay!, name: holidayName))
         }
         print(holidayInfoArray)
     }

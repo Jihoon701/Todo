@@ -54,15 +54,18 @@ class MainViewController: UIViewController {
         return [.portrait]
     }
     
+    
     override func viewWillDisappear(_ animated: Bool) {
-        addTodoListCellExist = false
         todoListTableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         print("왜 없지")
+        list = realm.objects(TodoList.self).filter("date == %@", selectedDate).sorted(byKeyPath: "order", ascending: true)
         print(holidayCalendar.holidayInfoArray)
+        addTodoListCellExist = false
         CalendarCollectionView.reloadData()
+        
     }
     
     override func viewDidLoad() {
@@ -77,6 +80,7 @@ class MainViewController: UIViewController {
         newSelectedDate = todoDate.changeDayStatus(checkCurrentDayMonth: todoCalendar.checkCurrentDayInMonth())
         print(Realm.Configuration.defaultConfiguration.fileURL!)
         realmNotification()
+        
         super.viewDidLoad()
     }
     
@@ -305,7 +309,6 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource, UITabl
         }
         
         let listCell = todoListTableView.dequeueReusableCell(withIdentifier: "TodoListTableViewCell", for: indexPath) as! TodoListTableViewCell
-        list = realm.objects(TodoList.self).filter("date == %@", selectedDate).sorted(byKeyPath: "order", ascending: true)
         let currentTodoList = list[indexPath.row]
         listCell.initTodoCell(todolistDone: currentTodoList.checkbox, todoListContent: currentTodoList.todoContent, bookmarkCheck: currentTodoList.bookmark, alarmCheck: currentTodoList.alarm, todoId: currentTodoList.id)
         return listCell

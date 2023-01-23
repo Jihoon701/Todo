@@ -69,8 +69,8 @@ class TodoCalendar {
     }
     
     public func CalendarTitle() -> String {
-        print("\(calendarYear)년 \(calendarMonth)월")
-        return "\(calendarYear)년 \(calendarMonth)월"
+        print("\(calendarYear)" + "년" + " " + "\(calendarMonth)월")
+        return "\(calendarYear)" + "년" + " " + "\(calendarMonth)월"
     }
     
     public func checkCurrentDayInMonth() -> Bool {

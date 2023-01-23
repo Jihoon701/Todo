@@ -45,14 +45,11 @@ class IncompleteDetailViewController: UIViewController, IndicatorInfoProvider, U
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = incompleteTableView.dequeueReusableCell(withIdentifier: "DetailTableViewCell", for: indexPath) as! DetailTableViewCell
         incompleteList = realm.objects(TodoList.self).filter("checkbox = false").sorted(byKeyPath: "date", ascending: true)
-        cell.selectionStyle = .none
-        cell.contentLabel.text = incompleteList[indexPath.row].todoContent
-        cell.dateLabel.text = incompleteList[indexPath.row].date
-        cell.detailCellInit(checkBox: incompleteList[indexPath.row].checkbox, alarm: incompleteList[indexPath.row].alarm, alarmTime: incompleteList[indexPath.row].alarmTime, bookmark: incompleteList[indexPath.row].bookmark)
+        cell.configureDetailCell(target: incompleteList[indexPath.row])
         return cell
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return incompleteTableView.frame.width * 1/6
-    }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return incompleteTableView.frame.width * 1/6
+//    }
 }
