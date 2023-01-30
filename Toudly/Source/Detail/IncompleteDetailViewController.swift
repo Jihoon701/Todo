@@ -16,7 +16,7 @@ class IncompleteDetailViewController: UIViewController, IndicatorInfoProvider, U
     var incompleteList: Results<TodoList>!
     
     override func viewDidLoad() {
-        noticeLabel.setupNoticeLabel(labelText: "There is no todo list in progress\nAdd a todo list!")
+        noticeLabel.setupNoticeLabel(labelText: "진행중인 투두 리스트가 없습니다.\n투두 리스트를 추가해보세요!")
         incompleteTableView.delegate = self
         incompleteTableView.dataSource = self
         incompleteList = realm.objects(TodoList.self).filter("checkbox = false").sorted(byKeyPath: "date", ascending: true)
@@ -35,7 +35,8 @@ class IncompleteDetailViewController: UIViewController, IndicatorInfoProvider, U
     }
     
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return IndicatorInfo(title: "In progress")
+        return IndicatorInfo(title: "진행중")
+//        return IndicatorInfo(title: "In progress")
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -131,12 +131,15 @@ class TodoCalendar {
     
     private func createDays(startOfWeek: Int, endOfWeek: Int, initDaysInWeekType: inout Array<Int>, daysCountInFrontMonth: Int, firstWeekTypeCategory: String, secondWeekTypeCategory: String) -> Array<Int> {
         var daysCount = 0
-        for i in startOfWeek...daysCountInFrontMonth {
-            initDaysInWeekType[i-startOfWeek] = i
-            daysCount += 1
-            weekTypeCategoryArray.append(firstWeekTypeCategory)
-        }
         
+        if startOfWeek <= daysCountInFrontMonth {
+            for i in startOfWeek...daysCountInFrontMonth {
+                initDaysInWeekType[i-startOfWeek] = i
+                daysCount += 1
+                weekTypeCategoryArray.append(firstWeekTypeCategory)
+            }
+        }
+ 
         weekTypePrevDayCount = daysCount
         weekTypeNextDayCount = 7 - daysCount
         

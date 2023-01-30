@@ -13,7 +13,8 @@ class SettingTableViewCell: UITableViewCell {
     @IBOutlet weak var settingDetailLabel: UILabel!
     @IBOutlet weak var rightImageView: UIImageView!
     
-    let settingIndex = ["Information", "Screen", "Data", "Notification", "Inquiry", "Review", "Version"]
+    let settingIndex = ["사용 방법", "화면 설정", "데이터 관리", "알림", "문의", "리뷰", "버전"]
+//    let settingIndex = ["Information", "Screen", "Data", "Notification", "Inquiry", "Review", "Version"]
     //    let settingIndex = ["Information", "Screen", "Data", "Notification", "Inquiry", "Review", "Open Source", "Version"]
     let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
     

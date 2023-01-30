@@ -14,14 +14,14 @@ class AlarmSettingViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var titleLabel: UILabel!
     let realm = try! Realm()
     let center = UNUserNotificationCenter.current()
-    let alarmSettingTitle = ["Allow notification", "Delete all notification"]
+    let alarmSettingTitle = ["알림 허용", "전체 알림 삭제"]
     
     @IBAction func backToSettingVC(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
     
     override func viewDidLoad() {
-        titleLabel.setupTitleLabel(text: "Notification")
+        titleLabel.setupTitleLabel(text: "알림 설정")
         alarmSettingTableView.delegate = self
         alarmSettingTableView.dataSource = self
         alarmSettingTableView.register( UINib(nibName: "SettingDetailTableViewCell", bundle: nil), forCellReuseIdentifier: "SettingDetailTableViewCell")
@@ -57,12 +57,12 @@ class AlarmSettingViewController: UIViewController, UITableViewDelegate, UITable
         case 0:
             break
         case 1:
-            self.presentAlert(title: "Notice", message: "Press OK button to delete notifications", isCancelActionIncluded: true) { [self] action in
+            self.presentAlert(title: "알림", message: "확인 버튼을 누르면 알림 데이터가 삭제됩니다", isCancelActionIncluded: true) { [self] action in
                 try! realm.write {
                     realm.delete(realm.objects(TodoList.self).filter("checkbox = true"))
                 }
                 center.removeAllPendingNotificationRequests()
-                self.presentBottomAlert(message: "Notification deleted")
+                self.presentBottomAlert(message: "알림 데이터가 삭제되었습니다")
             }
         default:
             break
