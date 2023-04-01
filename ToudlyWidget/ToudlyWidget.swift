@@ -10,6 +10,8 @@ import SwiftUI
 
 struct ColorManager {
     static let mainDarkGreen = Color("mainDarkGreen")
+    static let pastelGreen = Color("pastelGreen")
+    static let pearl = Color("pearl")
 }
 
 struct Provider: TimelineProvider {
@@ -47,25 +49,27 @@ struct ToudlyWidgetEntryView : View {
     
     var body: some View {
         ZStack {
-
             Color(.white)
             
             VStack(alignment: .leading, spacing: 5) {
                 TodoTitleView(date: "March 30")
+                    .background(Color("pastelGreen"))
+                    .background(.ultraThickMaterial, in: RoundedRectangle(cornerRadius: 5))
+                
                 Divider()
+                    .overlay(Color("pastelGreen"))
                 
                 VStack(alignment: .leading, spacing: 8) {
-                    TodoListView(content: "가나다라 루이 산책시키기 일주일 동안 2시간 이상 산책시키기")
-                    TodoListView(content: "라마바")
-                    TodoListView(content: "사아자차")
-                    TodoListView(content: "카타파하")
-                    TodoListView(content: "Hello")
-                    
+                    TodoListView(content: "보고서 제출하기")
+                    TodoListView(content: "테니스 재등록하기")
+                    TodoListView(content: "학교 과제 제출하기")
+                    TodoListView(content: "프로젝트 기획서 제출하기")
                 }
                 .padding(EdgeInsets(top: 5, leading: 5, bottom: 0, trailing: 5))
             }
-            .padding(EdgeInsets(top: 5, leading: 15, bottom: 5, trailing: 5))
+            .padding(EdgeInsets(top: 0, leading: 15, bottom: 8, trailing: 5))
         }
+       
     }
 }
 
@@ -74,7 +78,7 @@ struct TodoTitleView: View {
     
     var body: some View {
         HStack(alignment: .center, spacing: 15) {
-            Text("March 30")
+            Text("  \(date)  ")
                 .foregroundColor(Color("mainDarkGreen"))
                 .font(.custom("NanumSquareRoundOTFB", size: 19))
                 .multilineTextAlignment(.leading)
@@ -89,13 +93,14 @@ struct TodoListView: View {
     var body: some View {
         HStack(alignment: .center, spacing: 7) {
             
-            Image("colorCircle", bundle: nil)
+            Image("circle", bundle: nil)
+                .renderingMode(.original)
                 .resizable()
                 .frame(width: 5, height: 5)
             
             Text("\(content)")
                 .foregroundColor(Color.black)
-                .font(.custom("NanumSquareRoundOTFEB", size: 12))
+                .font(.custom("NanumSquareRoundOTFR", size: 12))
                 .lineLimit(1)
         }
     }
