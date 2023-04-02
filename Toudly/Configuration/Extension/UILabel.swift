@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 extension UILabel {
+    
     func setupNoticeLabel(labelText: String) {
         self.numberOfLines = 0
         self.font = .NanumSR(.regular, size: 15)

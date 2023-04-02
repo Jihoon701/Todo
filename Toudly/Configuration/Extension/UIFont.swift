@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 extension UIFont {
+    
     public enum NanumSquareRound: String {
         case light = "L"
         case regular = "R"

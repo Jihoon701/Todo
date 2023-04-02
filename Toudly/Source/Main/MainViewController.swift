@@ -26,7 +26,9 @@ class MainViewController: UIViewController {
     var list: Results<TodoList>!
     var realmNotificationToken: NotificationToken?
     
-    var weeks: [String] = ["Su", "M", "Tu", "W", "Th", "F", "Sa"]
+    // 확인
+//    var weeks: [String] = ["Su", "M", "Tu", "W", "Th", "F", "Sa"]
+    var weeks: [String] = ["일", "월", "화", "수", "목", "금", "토"]
     var addTodoListCellExist = false
     var selectedRow = 0
     var selectedDateConfirmed = false

@@ -16,7 +16,7 @@ class TodoManualViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-        titleLabel.setupTitleLabel(text: "Information")
+        titleLabel.setupTitleLabel(text: "사용 방법")
         super.viewDidLoad()
     }
 }

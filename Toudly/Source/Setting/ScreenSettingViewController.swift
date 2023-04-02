@@ -31,25 +31,33 @@ class ScreenSettingViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-        setUI()
+        setUINoHoliday()
         super.viewDidLoad()
     }
     
-    func setUI() {
-        titleLabel.setupTitleLabel(text: "Screen")
-        bookmarkSettingLabel.setupLabel(text: "Set Bookmark Color")
-        // 공휴일 날짜 표시
-        holidayLabel.setupLabel(text: "Show Holiday information")
-        // 오늘 날짜를 기준으로 1년 전부터 1년 후까지의 공휴일 정보를 제공합니다.
-        holidayDescriptionLabel.setupTextLabel(text: "Provides holiday information from a year\nago to a year later, based on today's date")
-        holidayDescriptionLabel.numberOfLines = 0
+    func setUINoHoliday() {
+        titleLabel.setupTitleLabel(text: "화면 설정")
+        bookmarkSettingLabel.setupLabel(text: "북마크 색상 정하기")
         initColorButtons()
-        
-        holidaySwitch.setOn(holidayInformationSet, animated: false)
-        holidaySwitch.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
         bookmarkColorCheckImage.image = UIImage(named: "bookmark_gray")
         bookmarkColorCheckImage.image = UIImage.coloredBookmarkImage(bookmarkColorCheckImage.image!)()
     }
+    
+//    func setUI() {
+//        titleLabel.setupTitleLabel(text: "화면 설정")
+//        bookmarkSettingLabel.setupLabel(text: "북마크 색상 정하기")
+//        // 공휴일 날짜 표시
+//        holidayLabel.setupLabel(text: "Show Holiday information")
+//        // 오늘 날짜를 기준으로 1년 전부터 1년 후까지의 공휴일 정보를 제공합니다.
+//        holidayDescriptionLabel.setupTextLabel(text: "Provides holiday information from a year\nago to a year later, based on today's date")
+//        holidayDescriptionLabel.numberOfLines = 0
+//        initColorButtons()
+//
+//        holidaySwitch.setOn(holidayInformationSet, animated: false)
+//        holidaySwitch.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
+//        bookmarkColorCheckImage.image = UIImage(named: "bookmark_gray")
+//        bookmarkColorCheckImage.image = UIImage.coloredBookmarkImage(bookmarkColorCheckImage.image!)()
+//    }
     
     func initColorButtons() {
         for colorButton in bookmarkColorButtons {
@@ -62,14 +70,14 @@ class ScreenSettingViewController: UIViewController {
         self.bookmarkColorCheckImage.image = UIImage.coloredBookmarkImage(self.bookmarkColorCheckImage.image!)()
     }
     
-    @IBAction func holidaySwitchTapped(_ sender: Any) {
-        if holidaySwitch.isOn {
-            // api 불러오기
-            print("asdfasfd")
-            holidayDataManager.getHolidayInfo(year: 2023)
-        }
-        else {
-            print("123")
-        }
-    }
+//    @IBAction func holidaySwitchTapped(_ sender: Any) {
+//        if holidaySwitch.isOn {
+//            // api 불러오기
+//            print("asdfasfd")
+//            holidayDataManager.getHolidayInfo(year: 2023)
+//        }
+//        else {
+//            print("123")
+//        }
+//    }
 }
