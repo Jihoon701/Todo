@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 extension UIButton {
+    
     func setupButtonTitleLabel(text: String) {
         self.titleLabel?.font = .NanumSR(.regular, size: 14)
         self.setTitle(text, for: .normal)
