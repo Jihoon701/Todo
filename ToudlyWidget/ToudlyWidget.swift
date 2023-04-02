@@ -60,12 +60,15 @@ struct ToudlyWidgetEntryView : View {
                     .overlay(Color("pastelGreen"))
                 
                 VStack(alignment: .leading, spacing: 8) {
-                    TodoListView(content: "보고서 제출하기")
+                    TodoListView(content: "보고서 제출하기 Aa")
                     TodoListView(content: "테니스 재등록하기")
                     TodoListView(content: "학교 과제 제출하기")
                     TodoListView(content: "프로젝트 기획서 제출하기")
                 }
                 .padding(EdgeInsets(top: 5, leading: 5, bottom: 0, trailing: 5))
+                
+                Divider()
+                    .overlay(Color("pastelGreen"))
             }
             .padding(EdgeInsets(top: 0, leading: 15, bottom: 8, trailing: 5))
         }
