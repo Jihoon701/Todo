@@ -56,13 +56,11 @@ class MainViewController: UIViewController {
         return [.portrait]
     }
     
-    
     override func viewWillDisappear(_ animated: Bool) {
         todoListTableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print("왜 없지")
         list = realm.objects(TodoList.self).filter("date == %@", selectedDate).sorted(byKeyPath: "order", ascending: true)
         print(holidayCalendar.holidayInfoArray)
         addTodoListCellExist = false

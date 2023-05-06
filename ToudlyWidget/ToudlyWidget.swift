@@ -7,6 +7,7 @@
 
 import WidgetKit
 import SwiftUI
+import RealmSwift
 
 struct ColorManager {
     static let mainDarkGreen = Color("mainDarkGreen")
@@ -60,7 +61,7 @@ struct ToudlyWidgetEntryView : View {
                     .overlay(Color("pastelGreen"))
                 
                 VStack(alignment: .leading, spacing: 8) {
-                    TodoListView(content: "보고서 제출하기 Aa")
+                    TodoListView(content: "보고서 제출하기 ")
                     TodoListView(content: "테니스 재등록하기")
                     TodoListView(content: "학교 과제 제출하기")
                     TodoListView(content: "프로젝트 기획서 제출하기")

@@ -11,4 +11,7 @@ target 'Toudly' do
  pod 'SnapKit', '~> 5.6.0'
  pod 'IQKeyboardManagerSwift'
  pod 'Alamofire'
+
+ target 'ToudlyWidgetExtension' do
+ end
 end

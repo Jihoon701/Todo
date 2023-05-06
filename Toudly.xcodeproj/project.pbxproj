@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7A9E347F215490CBA713883E /* Pods_Toudly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BF76B157984AF33612924B8 /* Pods_Toudly.framework */; };
+		AF84CAD3CB7EC420DDF0048B /* Pods_Toudly_ToudlyWidgetExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15EA839ACF77C51D2944AB6C /* Pods_Toudly_ToudlyWidgetExtension.framework */; };
 		E90DAF0E28165BEA001F33E4 /* AlarmSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90DAF0D28165BEA001F33E4 /* AlarmSettingViewController.swift */; };
 		E90DAF1A2816A14C001F33E4 /* DetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E90DAF192816A14C001F33E4 /* DetailTableViewCell.xib */; };
 		E90DAF1C2816A158001F33E4 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90DAF1B2816A158001F33E4 /* DetailTableViewCell.swift */; };
@@ -27,6 +28,8 @@
 		E91F642C29D56BD800993468 /* NanumSquareRoundOTFR.otf in Resources */ = {isa = PBXBuildFile; fileRef = E932F496280BB6AD00231232 /* NanumSquareRoundOTFR.otf */; };
 		E91F642D29D56BDC00993468 /* NanumSquareRoundOTFB.otf in Resources */ = {isa = PBXBuildFile; fileRef = E932F495280BB6AD00231232 /* NanumSquareRoundOTFB.otf */; };
 		E91F642E29D56BDE00993468 /* NanumSquareRoundOTFEB.otf in Resources */ = {isa = PBXBuildFile; fileRef = E932F49B280BB6AD00231232 /* NanumSquareRoundOTFEB.otf */; };
+		E91F647B29D9797A00993468 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91F647A29D9797A00993468 /* RealmManager.swift */; };
+		E91F647C29D97A5F00993468 /* TodoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9235D122792A57300C73737 /* TodoList.swift */; };
 		E920C55F282FE50A00938497 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E920C55E282FE50A00938497 /* UIButton.swift */; };
 		E9235C95278EAA2300C73737 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9235C94278EAA2300C73737 /* AppDelegate.swift */; };
 		E9235C97278EAA2300C73737 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9235C96278EAA2300C73737 /* SceneDelegate.swift */; };
@@ -105,16 +108,19 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		15EA839ACF77C51D2944AB6C /* Pods_Toudly_ToudlyWidgetExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Toudly_ToudlyWidgetExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3450CB8D28865A3E55646764 /* Pods-TodoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodoTests.release.xcconfig"; path = "Target Support Files/Pods-TodoTests/Pods-TodoTests.release.xcconfig"; sourceTree = "<group>"; };
 		4BF76B157984AF33612924B8 /* Pods_Toudly.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Toudly.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		780A60D5B720D2B374FC768A /* Pods-Todo-TodoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Todo-TodoUITests.release.xcconfig"; path = "Target Support Files/Pods-Todo-TodoUITests/Pods-Todo-TodoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		7E8DDA8FC16DC5CA1A069CF7 /* Pods-Toudly.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Toudly.debug.xcconfig"; path = "Target Support Files/Pods-Toudly/Pods-Toudly.debug.xcconfig"; sourceTree = "<group>"; };
 		80E27B916C28DC50E7E5E312 /* Pods-Todo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Todo.release.xcconfig"; path = "Target Support Files/Pods-Todo/Pods-Todo.release.xcconfig"; sourceTree = "<group>"; };
 		99AA18843D1F9B51E25964CD /* Pods_Todo_TodoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Todo_TodoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7675ED60C2A0D7D07DC3CCA /* Pods-Toudly-ToudlyWidgetExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Toudly-ToudlyWidgetExtension.release.xcconfig"; path = "Target Support Files/Pods-Toudly-ToudlyWidgetExtension/Pods-Toudly-ToudlyWidgetExtension.release.xcconfig"; sourceTree = "<group>"; };
 		B3B816C630AE00C583927AB2 /* Pods-Todo-TodoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Todo-TodoUITests.debug.xcconfig"; path = "Target Support Files/Pods-Todo-TodoUITests/Pods-Todo-TodoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C3CB0379D7C060B1992E7870 /* Pods-Toudly.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Toudly.release.xcconfig"; path = "Target Support Files/Pods-Toudly/Pods-Toudly.release.xcconfig"; sourceTree = "<group>"; };
 		CC39CA641BA42A88B20D8901 /* Pods_TodoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D22A47BD43E8639D2B9EF062 /* Pods-Todo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Todo.debug.xcconfig"; path = "Target Support Files/Pods-Todo/Pods-Todo.debug.xcconfig"; sourceTree = "<group>"; };
+		D66886BFDCD563E19EB3989C /* Pods-Toudly-ToudlyWidgetExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Toudly-ToudlyWidgetExtension.debug.xcconfig"; path = "Target Support Files/Pods-Toudly-ToudlyWidgetExtension/Pods-Toudly-ToudlyWidgetExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		E90DAF0D28165BEA001F33E4 /* AlarmSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmSettingViewController.swift; sourceTree = "<group>"; };
 		E90DAF192816A14C001F33E4 /* DetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailTableViewCell.xib; sourceTree = "<group>"; };
 		E90DAF1B2816A158001F33E4 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
@@ -130,6 +136,7 @@
 		E91F641D29D5559200993468 /* ToudlyWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToudlyWidget.swift; sourceTree = "<group>"; };
 		E91F641F29D5559300993468 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E91F642129D5559300993468 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E91F647A29D9797A00993468 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		E920C55E282FE50A00938497 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		E9235C91278EAA2300C73737 /* Toudly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Toudly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9235C94278EAA2300C73737 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -199,6 +206,7 @@
 			files = (
 				E91F641929D5559200993468 /* SwiftUI.framework in Frameworks */,
 				E91F641729D5559200993468 /* WidgetKit.framework in Frameworks */,
+				AF84CAD3CB7EC420DDF0048B /* Pods_Toudly_ToudlyWidgetExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,6 +232,8 @@
 				3450CB8D28865A3E55646764 /* Pods-TodoTests.release.xcconfig */,
 				7E8DDA8FC16DC5CA1A069CF7 /* Pods-Toudly.debug.xcconfig */,
 				C3CB0379D7C060B1992E7870 /* Pods-Toudly.release.xcconfig */,
+				D66886BFDCD563E19EB3989C /* Pods-Toudly-ToudlyWidgetExtension.debug.xcconfig */,
+				A7675ED60C2A0D7D07DC3CCA /* Pods-Toudly-ToudlyWidgetExtension.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -236,6 +246,7 @@
 				4BF76B157984AF33612924B8 /* Pods_Toudly.framework */,
 				E91F641629D5559200993468 /* WidgetKit.framework */,
 				E91F641829D5559200993468 /* SwiftUI.framework */,
+				15EA839ACF77C51D2944AB6C /* Pods_Toudly_ToudlyWidgetExtension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -247,6 +258,7 @@
 				E91F641D29D5559200993468 /* ToudlyWidget.swift */,
 				E91F641F29D5559300993468 /* Assets.xcassets */,
 				E91F642129D5559300993468 /* Info.plist */,
+				E91F647A29D9797A00993468 /* RealmManager.swift */,
 			);
 			path = ToudlyWidget;
 			sourceTree = "<group>";
@@ -452,6 +464,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E91F642829D5559300993468 /* Build configuration list for PBXNativeTarget "ToudlyWidgetExtension" */;
 			buildPhases = (
+				B4752B886F653105053564A0 /* [CP] Check Pods Manifest.lock */,
 				E91F641129D5559200993468 /* Sources */,
 				E91F641229D5559200993468 /* Frameworks */,
 				E91F641329D5559200993468 /* Resources */,
@@ -602,6 +615,28 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Toudly/Pods-Toudly-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		B4752B886F653105053564A0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Toudly-ToudlyWidgetExtension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -611,6 +646,8 @@
 			files = (
 				E91F641E29D5559200993468 /* ToudlyWidget.swift in Sources */,
 				E91F641C29D5559200993468 /* ToudlyWidgetBundle.swift in Sources */,
+				E91F647B29D9797A00993468 /* RealmManager.swift in Sources */,
+				E91F647C29D97A5F00993468 /* TodoList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -708,7 +745,9 @@
 /* Begin XCBuildConfiguration section */
 		E91F642629D5559300993468 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D66886BFDCD563E19EB3989C /* Pods-Toudly-ToudlyWidgetExtension.debug.xcconfig */;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -737,7 +776,9 @@
 		};
 		E91F642729D5559300993468 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A7675ED60C2A0D7D07DC3CCA /* Pods-Toudly-ToudlyWidgetExtension.release.xcconfig */;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
