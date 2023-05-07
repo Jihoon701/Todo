@@ -26,13 +26,6 @@ class SearchTableViewCell: UITableViewCell {
     
     func configureSearchCell(target: TodoList, searchLetter: String) {
         contentLabel.attributedText = changeAllOccurrence(entireString: target.todoContent, searchString: searchLetter)
-        
-//        let contentText = target.todoContent
-//        let attribtuedString = NSMutableAttributedString(string: contentText)
-//        let range = (contentText as NSString).range(of: searchLetter)
-//        attribtuedString.addAttributes([.font: UIFont.NanumSR(.extraBold, size: 14), .foregroundColor: UIColor.burgundy], range: range)
-//        contentLabel.attributedText = attribtuedString
-        
         contentLabel.sizeToFit()
         dateLabel.text = target.date
     }

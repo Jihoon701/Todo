@@ -95,6 +95,12 @@ class TodoCalendar {
         calendarTitleLabel.setupTitleLabel(text: CalendarTitle())
     }
     
+    public func moveCalendarToSpecificMonth(month: Int, calendarTitleLabel: UILabel) {
+        calendarComponents.month = month
+        calculateCalendarDate()
+        calendarTitleLabel.setupTitleLabel(text: CalendarTitle())
+    }
+    
     private func numberOfDaysInMonth(month: Month) -> Date {
         switch month {
         case .prevMonth:

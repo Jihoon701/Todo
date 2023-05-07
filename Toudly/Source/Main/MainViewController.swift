@@ -27,7 +27,8 @@ class MainViewController: UIViewController {
     var realmNotificationToken: NotificationToken?
     
     // 확인
-//    var weeks: [String] = ["Su", "M", "Tu", "W", "Th", "F", "Sa"]
+    // var weeks: [String] = ["Su", "M", "Tu", "W", "Th", "F", "Sa"]
+    
     var weeks: [String] = ["일", "월", "화", "수", "목", "금", "토"]
     var addTodoListCellExist = false
     var selectedRow = 0
@@ -136,14 +137,15 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func toSearchVC(_ sender: Any) {
-        let vc = self.storyboard!.instantiateViewController(withIdentifier: "SearchViewController")
+        let vc = self.storyboard!.instantiateViewController(withIdentifier: "SearchViewController") as! SearchViewController
+        vc.searchTodoListDelegate = self
         vc.modalPresentationStyle = .fullScreen
         vc.modalTransitionStyle = .coverVertical
         present(vc, animated: true)
     }
     
     @IBAction func toSettingVC(_ sender: Any) {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "SettingViewController")as! SettingViewController
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "SettingViewController") as! SettingViewController
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -312,7 +314,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource, UITabl
         
         let listCell = todoListTableView.dequeueReusableCell(withIdentifier: "TodoListTableViewCell", for: indexPath) as! TodoListTableViewCell
         listCell.configureTodoCell(todoList: list[indexPath.row])
-
+        
         return listCell
     }
     
@@ -384,7 +386,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource, UITabl
     }
 }
 
-extension MainViewController: NewTodoListDelegate, EditTodoDelegate {
+extension MainViewController: NewTodoListDelegate, EditTodoDelegate, SearchTodoListDelegate {
     func alertAlarmComplete(date: String) {
         self.presentBottomAlert(message: "알림이 설정되었습니다")
         newSelectedDate = todoDate.changeEditedDayStatus(editedDate: date)
@@ -409,5 +411,12 @@ extension MainViewController: NewTodoListDelegate, EditTodoDelegate {
         addTodoListCellExist = false
         newSelectedDate = todoDate.changeEditedDayStatus(editedDate: date)
         todoListTableView.reloadData()
+    }
+    
+    func moveToSelectedList(selectedDate: String, month: Int, date: String) {
+        todoCalendar.moveCalendarToSpecificMonth(month: month, calendarTitleLabel: calendarDateLabel)
+        self.newSelectedDate = date
+        self.selectedDate = selectedDate
+        rearrangeCalendar()
     }
 }
