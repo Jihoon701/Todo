@@ -14,6 +14,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var searchTableView: UITableView!
     
     let realm = try! Realm()
+    weak var searchTodoListDelegate: SearchTodoListDelegate?
     var searchlist: Results<TodoList>!
     var searchingLetter: String?
     
@@ -36,7 +37,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func setTextField() {
         searchTextField.setupLeftImage(imageName: "search")
         searchTextField.addTarget(self, action: #selector(SearchViewController.textFieldDidChange(_:)), for: .editingChanged)
-        
     }
     
     func setTableView() {
@@ -63,7 +63,20 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         else {
             cell.configureCell(target: searchlist[indexPath.row])
         }
-       
+        
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedDate = searchlist[indexPath.row].date
+        let selectedDateArray = selectedDate.components(separatedBy: "/")
+        let month = Int(selectedDateArray[1])!
+        let date = selectedDateArray[2]
+        dismiss(animated: true, completion: nil)
+        searchTodoListDelegate?.moveToSelectedList(selectedDate: selectedDate, month: month, date: date)
+    }
+}
+
+protocol SearchTodoListDelegate: AnyObject {
+    func moveToSelectedList(selectedDate: String, month: Int, date: String)
 }

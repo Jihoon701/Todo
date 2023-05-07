@@ -312,11 +312,11 @@
 				E9235C9A278EAA2300C73737 /* Home.storyboard */,
 				E9A4127A2814A8010030935F /* LaunchScreen.storyboard */,
 				E9D4D06A28608409003B0985 /* WalkThrough */,
+				E9235CCF278FC96800C73737 /* Main */,
 				E932F4F0280C3A0800231232 /* Search */,
 				E92E2D792795414D0086E462 /* Edit */,
 				E932F51E280E60B200231232 /* Detail */,
 				E932F513280D225B00231232 /* Setting */,
-				E9235CCF278FC96800C73737 /* Main */,
 			);
 			path = Source;
 			sourceTree = "<group>";
