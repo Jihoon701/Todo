@@ -42,5 +42,4 @@ class DetailViewController: ButtonBarPagerTabStripViewController {
         
         return [alarmVC, bookmarkVC, incompleteVC, completedVC]
     }
-    
 }

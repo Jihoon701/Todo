@@ -26,10 +26,8 @@ class MainViewController: UIViewController {
     var list: Results<TodoList>!
     var realmNotificationToken: NotificationToken?
     
-    // 확인
-    // var weeks: [String] = ["Su", "M", "Tu", "W", "Th", "F", "Sa"]
-    
-    var weeks: [String] = ["일", "월", "화", "수", "목", "금", "토"]
+    var weeks: [String] = ["Su".localized(), "M".localized(), "Tu".localized(),
+                           "W".localized(), "Th".localized(), "F".localized(), "Sa".localized()]
     var addTodoListCellExist = false
     var selectedRow = 0
     var selectedDateConfirmed = false
@@ -63,7 +61,6 @@ class MainViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print("왜 없지")
         list = realm.objects(TodoList.self).filter("date == %@", selectedDate).sorted(byKeyPath: "order", ascending: true)
         print(holidayCalendar.holidayInfoArray)
         addTodoListCellExist = false
@@ -388,7 +385,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource, UITabl
 
 extension MainViewController: NewTodoListDelegate, EditTodoDelegate, SearchTodoListDelegate {
     func alertAlarmComplete(date: String) {
-        self.presentBottomAlert(message: "알림이 설정되었습니다")
+        self.presentBottomAlert(message: "Notification Set".localized())
         newSelectedDate = todoDate.changeEditedDayStatus(editedDate: date)
     }
     

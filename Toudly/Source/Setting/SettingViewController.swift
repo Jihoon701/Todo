@@ -18,7 +18,7 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     override func viewDidLoad() {
-        titleLabel.setupTitleLabel(text: "설정")
+        titleLabel.setupTitleLabel(text: "Setting".localized())
         settingTableView.delegate = self
         settingTableView.dataSource = self
         settingTableView.allowsSelection = true
@@ -41,8 +41,8 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
             self.present(compseVC, animated: true, completion: nil)
         }
         else {
-            let sendMailErrorAlert = UIAlertController(title: "메일 전송 실패", message: "아이폰 메일 설정을 확인하고 다시 시도해주세요", preferredStyle: .alert)
-            let confirmAction = UIAlertAction(title: "확인", style: .default)
+            let sendMailErrorAlert = UIAlertController(title: "Failed to send mail".localized(), message: "Please check the iPhone email settings and try again".localized(), preferredStyle: .alert)
+            let confirmAction = UIAlertAction(title: "OK".localized(), style: .default)
             sendMailErrorAlert.addAction(confirmAction)
             self.present(sendMailErrorAlert, animated: true, completion: nil)
         }

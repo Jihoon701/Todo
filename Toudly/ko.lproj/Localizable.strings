@@ -1,109 +1,130 @@
-///*
+//
 //  Localizable.strings
 //  Toudly
 //
 //  Created by 김지훈 on 2023/01/09.
 //
-//*/
-//
-//// WalkThrough
-//"Start Toudly" = "투들리 시작하기";
-//
-//// EditTodoListViewController
-////TODO: alarm -> notification으로 변경하기
-//"Close" = "닫기";
-//"Save" = "저장";
-//"Delete" = "삭제";
-//"Bookmark" = "북마크";
-//"Alarm" = "알람";
-//
-//"Alarm Failed" = "알람 실패";
-//"Alarm cannot be set in the past time\nPlease reset the time" = "이미 지난 시간에는 알람을 설정할 수 없습니다\n시간을 다시 설정해주세요";
-//"Failed to set alarm" = "알람설정 실패";
-//"Alarm cannot be set in the past time" = "이미 지난 시간에는 알람을 설정할 수 없습니다";
-//"Setting" = "설정";
-//"Please change the notification setting to Allow in Device Settings" = "기기 설정에서 알림 설정을 허용으로 변경해주세요";
-//
-//"Toudly" = "투들리";
-//
-//// AlarmDetailViewController
-// "There are no todo lists with alarm set\nTry adding notifications!" = "알람이 설정된 투두 리스트가 없습니다.\n알림을 추가해보세요!";
-//"Notification" = "알림";
-//
-//// BookmarkDetailViewController
-//"There are no todo lists with bookmarks set\nTry adding a bookmark!" = "북마크가 설정된 투두 리스트가 없습니다.\n북마크를 추가해보세요!";
-//"Bookmark" = "북마크";
-//
-//// IncompleteDetailViewController
-//"There is no todo list in progress\nTry adding a todo list!" = "진행중인 투두 리스트가 없습니다.\n투두 리스트를 추가해보세요!";
-//"In progress" = "진행중";
-//
-//// CompletedDetailViewController
-//"There is no completed todo list\nTry completing a todo list!" = "완료한 투두 리스트가 없습니다.\n투두 리스트를 완료해보세요!";
-//"Completed" = "완료";
-//
-//// SettingViewController
-//"Setting" = "설정";
-//"Failed to send mail" = "메일 전송 실패";
-//"Please check the iPhone email settings and try again" = "아이폰 이메일 설정을 확인하고 다시 시도해주세요";
-//"OK" = "확인";
-//
-//// TodoManualViewController
-//"Information" = "사용 방법";
-//
-//// ScreenSettingViewController
-//"Screen" = "화면 설정";
-//"Set Bookmark Color" = "북마크 색상 정하기";
-//
-//// DataSettingViewController
-//"Delete completed todo data" = "완료된 투두 데이터 삭제";
-//"Delete in progress todo data" = "진행중인 투두 데이터 삭제";
-//"Delete bookmarked todo data" = "북마크 투두 데이터 삭제";
-//"Delete all todo data" = "전체 투두 데이터 삭제";
-//"Manage data" = "데이터 관리";
-//"Notice" = "알림";
-//// 확인하기
-//"Press OK button to delete" = "확인 버튼을 누르면 \(messageData) 데이터가 삭제됩니다";
-//"todo deleted" = "투두가 삭제되었습니다";
-//"completed" = "완료된";
-//"in progress" = "진행중인";
-//"bookmarked" = "북마크";
-//"Press OK button to delete all data" = "확인 버튼을 누르면 전체 데이터가 삭제됩니다";
-//"All todo deleted" = "모든 투두가 삭제되었습니다";
-//
-//// AlarmSettingViewController
-//"Allow notification" = "알림 허용";
-//"Delete all notification" = "전체 알림 삭제";
-//"Notification" = "알림 설정";
-//"Notice" = "알림";
-//"Press OK button to delete notifications" = "확인 버튼을 누르면 알림 데이터가 삭제됩니다";
-//"Notification deleted" = "알림 데이터가 삭제되었습니다";
-//
-//// OpenSourceViewController
-//"Open Source" = "오픈소스";
-//
-//// SettingTableViewCell
-//"Information" = "사용 방법";
-//"Screen" = "화면 설정";
-//"Data" = "데이터 관리";
-//"Notification" = "알림";
-//"Inquiry" = "문의";
-//"Review" = "리뷰";
-//"Version" = "버전";
-//
-//
-//// MainViewController
-////"년" = ""
-////"1월" = ""
-//
-//"Su" = "일";
-//"M" = "월";
-//"Tu" = "화";
-//"W" = "수";
-//"Th" = "목";
-//"F" = "금";
-//"Sa" = "토";
-//
-//
-//
-//"NOTIFICATION_BODY" = "투들리";
+
+
+// MARK: - WalkThrough
+
+// WalkThroughViewController
+"Start Toudly" = "투들리 시작하기";
+
+// MARK: - Edit
+
+// EditTodoListViewController
+//TODO: alarm -> notification으로 변경하기
+"Close" = "닫기";
+"Save" = "저장";
+"Delete" = "삭제";
+"Bookmark" = "북마크";
+"Alarm" = "알람";
+
+"Alarm Failed" = "알람 실패";
+"Alarm cannot be set in the past time\nPlease reset the time" = "이미 지난 시간에는 알람을 설정할 수 없습니다\n시간을 다시 설정해주세요";
+"Failed to set alarm" = "알람설정 실패";
+"Alarm cannot be set in the past time" = "이미 지난 시간에는 알람을 설정할 수 없습니다";
+"OK" = "확인";
+"Setting" = "설정";
+"Please change the notification setting to Allow in Device Settings" = "기기 설정에서 알림 설정을 허용으로 변경해주세요";
+
+"Toudly" = "투들리";
+
+// MARK: - Detail
+
+// AlarmDetailViewController
+"There are no todo lists with alarm set\nTry adding notifications!" = "알람이 설정된 투두 리스트가 없습니다.\n알림을 추가해보세요!";
+"Notification" = "알림";
+
+// BookmarkDetailViewController
+"There are no todo lists with bookmarks set\nTry adding a bookmark!" = "북마크가 설정된 투두 리스트가 없습니다.\n북마크를 추가해보세요!";
+"Bookmark" = "북마크";
+
+// IncompleteDetailViewController
+"There is no todo list in progress\nTry adding a todo list!" = "진행중인 투두 리스트가 없습니다.\n투두 리스트를 추가해보세요!";
+"In progress" = "진행중";
+
+// CompletedDetailViewController
+"There is no completed todo list\nTry completing a todo list!" = "완료한 투두 리스트가 없습니다.\n투두 리스트를 완료해보세요!";
+"Completed" = "완료";
+
+// MARK: - Setting
+
+// SettingViewController
+"Setting" = "설정";
+"Failed to send mail" = "메일 전송 실패";
+"Please check the iPhone email settings and try again" = "아이폰 이메일 설정을 확인하고 다시 시도해주세요";
+"OK" = "확인";
+
+// TodoManualViewController
+"Instruction" = "사용 방법";
+
+// ScreenSettingViewController
+"Screen" = "화면 설정";
+"Set Bookmark Color" = "북마크 색상 정하기";
+
+// DataSettingViewController
+"Delete completed todo data" = "완료된 투두 데이터 삭제";
+"Delete in progress todo data" = "진행중인 투두 데이터 삭제";
+"Delete bookmarked todo data" = "북마크 투두 데이터 삭제";
+"Delete all todo data" = "전체 투두 데이터 삭제";
+"Manage data" = "데이터 관리";
+"Notice" = "알림";
+"Press OK button to delete %@ data" = "확인 버튼을 누르면 %@ 데이터가 삭제됩니다";
+"%@ data deleted" = "%@ 데이터가 삭제되었습니다";
+"completed" = "완료된";
+"in progress" = "진행중인";
+"bookmarked" = "북마크된";
+"Press OK button to delete all data" = "확인 버튼을 누르면 전체 데이터가 삭제됩니다";
+"All data deleted" = "모든 데이터가 삭제되었습니다";
+
+// AlarmSettingViewController
+"Allow notification" = "알림 허용";
+"Delete all notification" = "전체 알림 삭제";
+"Notification" = "알림 설정";
+"Notice" = "알림";
+"Press OK button to delete notifications" = "확인 버튼을 누르면 알림 데이터가 삭제됩니다";
+"Notification data deleted" = "알림 데이터가 삭제되었습니다";
+
+// OpenSourceViewController
+"Open Source" = "오픈소스";
+
+// SettingTableViewCell
+"Instruction" = "사용 방법";
+"Screen" = "화면 설정";
+"Data" = "데이터 관리";
+"Notification" = "알림";
+"Inquiry" = "문의";
+"Review" = "리뷰";
+"Version" = "버전";
+
+// MARK: - Search
+
+// SearchViewController
+"Search TodoList!" = "투두리스트를 검색하세요!";
+
+
+// MARK: - Main
+
+// MainViewController
+"Su" = "일";
+"M" = "월";
+"Tu" = "화";
+"W" = "수";
+"Th" = "목";
+"F" = "금";
+"Sa" = "토";
+"Notification Set" = "알림이 설정되었습니다";
+"Toudly" = "투들리";
+
+// MARK: - Storyboard
+
+"Detail" = "상세 기록";
+"Search TodoList!" = "투두리스트를 검색하세요!";
+"Setting" = "설정";
+
+// MARK: - UIViewController
+
+"OK" = "확인";
+"Cancel" = "취소";
