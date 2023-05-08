@@ -12,7 +12,8 @@ class DataSettingViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var dataSettingTableView: UITableView!
     @IBOutlet weak var titleLabel: UILabel!
     
-    let dataSettingTitle = ["완료된 투두 데이터 삭제", "진행중인 투두 데이터 삭제", "북마크 투두 데이터 삭제", "전체 투두 데이터 삭제"]
+//    let dataSettingTitle = ["완료된 투두 데이터 삭제", "진행중인 투두 데이터 삭제", "북마크 투두 데이터 삭제", "전체 투두 데이터 삭제"]
+    let dataSettingTitle = ["Delete completed todo data".localized(), "Delete in progress todo data".localized(), "Delete bookmarked todo data".lowercased(), "Delete all todo data".localized()]
     let realm = try! Realm()
     
     @IBAction func backToSettingVC(_ sender: Any) {
@@ -20,7 +21,7 @@ class DataSettingViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     override func viewDidLoad() {
-        titleLabel.setupTitleLabel(text: "데이터 관리")
+        titleLabel.setupTitleLabel(text: "Manage data".localized())
         dataSettingTableView.delegate = self
         dataSettingTableView.dataSource = self
         dataSettingTableView.register( UINib(nibName: "SettingDetailTableViewCell", bundle: nil), forCellReuseIdentifier: "SettingDetailTableViewCell")
@@ -47,28 +48,28 @@ class DataSettingViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func deleteSelectedData(messageData: String, filterCondition: String) {
-        self.presentAlert(title: "알림", message: "확인 버튼을 누르면 \(messageData) 데이터가 삭제됩니다", isCancelActionIncluded: true) { [self] action in
+        self.presentAlert(title: "Notice".localized(), message: String(format: "Press OK button to delete %@ data", messageData), isCancelActionIncluded: true) { [self] action in
             try! realm.write {
                 realm.delete(realm.objects(TodoList.self).filter(filterCondition))
             }
-            self.presentBottomAlert(message: "\(messageData) 투두가 삭제되었습니다")
+            self.presentBottomAlert(message: String(format: "%@ data deleted", messageData))
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
-            deleteSelectedData(messageData: "완료된", filterCondition: "checkbox = true")
+            deleteSelectedData(messageData: "completed".localized(), filterCondition: "checkbox = true")
         case 1:
-            deleteSelectedData(messageData: "진행중인", filterCondition: "checkbox = false")
+            deleteSelectedData(messageData: "in progress".localized(), filterCondition: "checkbox = false")
         case 2:
-            deleteSelectedData(messageData: "북마크", filterCondition: "bookmark = true")
+            deleteSelectedData(messageData: "bookmarked".localized(), filterCondition: "bookmark = true")
         case 3:
-            self.presentAlert(title: "알림", message: "확인 버튼을 누르면 전체 데이터가 삭제됩니다", isCancelActionIncluded: true) { [self] action in
+            self.presentAlert(title: "Notice".localized(), message: "Press OK button to delete all data".localized(), isCancelActionIncluded: true) { [self] action in
                 try! realm.write {
                     realm.deleteAll()
                 }
-                self.presentBottomAlert(message: "모든 투두가 삭제되었습니다")
+                self.presentBottomAlert(message: "All todo deleted".localized())
             }
         default:
             break

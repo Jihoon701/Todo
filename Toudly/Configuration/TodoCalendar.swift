@@ -28,6 +28,8 @@ class TodoCalendar {
     var daysInWeekType: [String] = []
     var daysInMonthType: [String] = []
     
+    let monthInEnglish = ["Jan", "Feb", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+    
     func initCalendar() {
         calendarComponents.year = currentDate.year
         calendarComponents.month = currentDate.month
@@ -62,6 +64,11 @@ class TodoCalendar {
         print("daysInMonthType:  ", daysInMonthType)
     }
     
+    private func EnglishMonth(month: Int) -> String {
+        print("month in integer: ", month)
+        return monthInEnglish[month - 1]
+    }
+    
     enum Month {
         case prevMonth
         case currentMonth
@@ -70,7 +77,19 @@ class TodoCalendar {
     
     public func CalendarTitle() -> String {
         print("\(calendarYear)" + "년" + " " + "\(calendarMonth)월")
-        return "\(calendarYear)" + "년" + " " + "\(calendarMonth)월"
+
+        print("영어 확인")
+        print(Locale.current.languageCode)
+        print(EnglishMonth(month: calendarMonth))
+
+        if Locale.current.languageCode == "en" {
+            return "\(EnglishMonth(month: calendarMonth)) " + "\(calendarYear)"
+        }
+        if Locale.current.languageCode == "ko" {
+            return "\(calendarYear)" + "년" + " " + "\(calendarMonth)월"
+        }
+        
+        return "\(EnglishMonth(month: calendarMonth)) " + "\(calendarYear)"
     }
     
     public func checkCurrentDayInMonth() -> Bool {

@@ -26,10 +26,10 @@ extension UIViewController {
     func presentAlert(title: String, message: String? = nil, isCancelActionIncluded: Bool = false, preferredStyle style: UIAlertController.Style = .alert, handler: ((UIAlertAction) -> Void)? = nil) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: style)
         
-        let actionDone = UIAlertAction(title: "확인", style: .default, handler: handler)
+        let actionDone = UIAlertAction(title: "OK".localized(), style: .default, handler: handler)
         alert.addAction(actionDone)
         if isCancelActionIncluded {
-            let actionCancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+            let actionCancel = UIAlertAction(title: "Cancel".localized(), style: .cancel, handler: nil)
             alert.addAction(actionCancel)
         }
         self.present(alert, animated: true, completion: nil)
@@ -37,7 +37,7 @@ extension UIViewController {
     
     func presentErrorAlert(errorTitle: String, errorMessage: String) {
         let setAlarmErrorAlert = UIAlertController(title: errorTitle, message: errorMessage, preferredStyle: .alert)
-        let confirmAction = UIAlertAction(title: "확인", style: .default)
+        let confirmAction = UIAlertAction(title: "OK".localized(), style: .default)
         setAlarmErrorAlert.addAction(confirmAction)
         self.present(setAlarmErrorAlert, animated: true, completion: nil)
     }

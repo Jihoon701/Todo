@@ -36,8 +36,8 @@ class ScreenSettingViewController: UIViewController {
     }
     
     func setUINoHoliday() {
-        titleLabel.setupTitleLabel(text: "화면 설정")
-        bookmarkSettingLabel.setupLabel(text: "북마크 색상 정하기")
+        titleLabel.setupTitleLabel(text: "Screen".localized())
+        bookmarkSettingLabel.setupLabel(text: "Set Bookmark Color".localized())
         initColorButtons()
         bookmarkColorCheckImage.image = UIImage(named: "bookmark_gray")
         bookmarkColorCheckImage.image = UIImage.coloredBookmarkImage(bookmarkColorCheckImage.image!)()

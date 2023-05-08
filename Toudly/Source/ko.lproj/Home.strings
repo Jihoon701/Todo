@@ -47,7 +47,7 @@
 /* Class = "UILabel"; text = "Label"; ObjectID = "bHl-2o-CMG"; */
 "bHl-2o-CMG.text" = "Label";
 
-/* Class = "UILabel"; text = "상세 기록"; ObjectID = "fjX-ub-kKJ"; */
+/* Class = "UILabel"; text = "Detail"; ObjectID = "fjX-ub-kKJ"; */
 "fjX-ub-kKJ.text" = "상세 기록";
 
 /* Class = "UIButton"; normalTitle = "turquoise"; ObjectID = "ftn-nW-4Jc"; */
@@ -56,10 +56,10 @@
 /* Class = "UILabel"; text = "Label"; ObjectID = "g3h-76-t2G"; */
 "g3h-76-t2G.text" = "Label";
 
-/* Class = "UITextField"; placeholder = "투두리스트를 검색하세요!"; ObjectID = "hVH-Ch-nST"; */
+/* Class = "UITextField"; placeholder = "Search TodoList!"; ObjectID = "hVH-Ch-nST"; */
 "hVH-Ch-nST.placeholder" = "투두리스트를 검색하세요!";
 
-/* Class = "UILabel"; text = "설정"; ObjectID = "kx2-eF-wLo"; */
+/* Class = "UILabel"; text = "Setting"; ObjectID = "kx2-eF-wLo"; */
 "kx2-eF-wLo.text" = "설정";
 
 /* Class = "UITextField"; text = "TodoList Content"; ObjectID = "los-wj-9sS"; */
