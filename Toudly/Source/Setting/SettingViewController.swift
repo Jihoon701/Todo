@@ -103,6 +103,9 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return settingTableView.frame.width * 1/8
+        print("setting height = ", settingTableView.frame.width * 1/8)
+        print("setting width = ", settingTableView.frame.width)
+//        return settingTableView.frame.width * 1/8
+        return 45
     }
 }
