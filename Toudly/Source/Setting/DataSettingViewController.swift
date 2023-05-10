@@ -13,7 +13,7 @@ class DataSettingViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var titleLabel: UILabel!
     
 //    let dataSettingTitle = ["완료된 투두 데이터 삭제", "진행중인 투두 데이터 삭제", "북마크 투두 데이터 삭제", "전체 투두 데이터 삭제"]
-    let dataSettingTitle = ["Delete completed todo data".localized(), "Delete in progress todo data".localized(), "Delete bookmarked todo data".lowercased(), "Delete all todo data".localized()]
+    let dataSettingTitle = ["Delete completed data".localized(), "Delete in progress data".localized(), "Delete bookmarked data".localized(), "Delete all data".localized()]
     let realm = try! Realm()
     
     @IBAction func backToSettingVC(_ sender: Any) {
