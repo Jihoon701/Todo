@@ -13,7 +13,7 @@ class SettingTableViewCell: UITableViewCell {
     @IBOutlet weak var settingDetailLabel: UILabel!
     @IBOutlet weak var rightImageView: UIImageView!
     
-    let settingIndex = ["Instruction".localized(), "Screen".localized(), "Data".localized(),
+    let settingIndex = ["Instruction".localized(), "Display".localized(), "Data".localized(),
                         "Notification".localized(), "Inquiry".localized(), "Review".localized(), "Version".localized()]
     let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
     
