@@ -9,7 +9,7 @@
 // MARK: - WalkThrough
 
 // WalkThroughViewController
-"Start Toudly" = "투들리 시작하기";
+"Let's Toudly" = "투들리 시작하기";
 
 // MARK: - Edit
 
@@ -19,14 +19,14 @@
 "Save" = "저장";
 "Delete" = "삭제";
 "Bookmark" = "북마크";
-"Alarm" = "알람";
+"Notification" = "알림";
 
-"Alarm Failed" = "알람 실패";
-"Alarm cannot be set in the past time\nPlease reset the time" = "이미 지난 시간에는 알람을 설정할 수 없습니다\n시간을 다시 설정해주세요";
-"Failed to set alarm" = "알람설정 실패";
-"Alarm cannot be set in the past time" = "이미 지난 시간에는 알람을 설정할 수 없습니다";
+"Notification Failed" = "알림 실패";
+"Notification cannot be set in the past time\nPlease reset the time" = "이미 지난 시간에는 알림을 설정할 수 없습니다.\n시간을 다시 설정해주세요";
+"Notification setting failed" = "알림설정 실패";
+"Notification cannot be set in the past time" = "이미 지난 시간에는 알림을 설정할 수 없습니다";
 "OK" = "확인";
-"Setting" = "설정";
+"Notification Setting" = "설정";
 "Please change the notification setting to Allow in Device Settings" = "기기 설정에서 알림 설정을 허용으로 변경해주세요";
 
 "Toudly" = "투들리";
@@ -34,25 +34,25 @@
 // MARK: - Detail
 
 // AlarmDetailViewController
-"There are no todo lists with alarm set\nTry adding notifications!" = "알람이 설정된 투두 리스트가 없습니다.\n알림을 추가해보세요!";
+"There are no todo lists with notification\nTry adding notifications!" = "알람이 설정된 투두 리스트가 없습니다.\n알림을 추가해보세요!";
 "Notification" = "알림";
 
 // BookmarkDetailViewController
-"There are no todo lists with bookmarks set\nTry adding a bookmark!" = "북마크가 설정된 투두 리스트가 없습니다.\n북마크를 추가해보세요!";
+"There are no todo lists with bookmarks\nTry adding bookmarks!" = "북마크가 설정된 투두 리스트가 없습니다.\n북마크를 추가해보세요!";
 "Bookmark" = "북마크";
 
 // IncompleteDetailViewController
-"There is no todo list in progress\nTry adding a todo list!" = "진행중인 투두 리스트가 없습니다.\n투두 리스트를 추가해보세요!";
+"There are no todo lists in progress\nTry adding todo lists!" = "진행중인 투두 리스트가 없습니다.\n투두 리스트를 추가해보세요!";
 "In progress" = "진행중";
 
 // CompletedDetailViewController
-"There is no completed todo list\nTry completing a todo list!" = "완료한 투두 리스트가 없습니다.\n투두 리스트를 완료해보세요!";
+"There are no completed todo lists\nTry completing todo lists!" = "완료한 투두 리스트가 없습니다.\n투두 리스트를 완료해보세요!";
 "Completed" = "완료";
 
 // MARK: - Setting
 
 // SettingViewController
-"Setting" = "설정";
+"Settings" = "설정";
 "Failed to send mail" = "메일 전송 실패";
 "Please check the iPhone email settings and try again" = "아이폰 이메일 설정을 확인하고 다시 시도해주세요";
 "OK" = "확인";
@@ -61,7 +61,7 @@
 "Instruction" = "사용 방법";
 
 // ScreenSettingViewController
-"Screen" = "화면 설정";
+"Display" = "화면 설정";
 "Set Bookmark Color" = "북마크 색상 정하기";
 
 // DataSettingViewController
@@ -92,8 +92,8 @@
 
 // SettingTableViewCell
 "Instruction" = "사용 방법";
-"Screen" = "화면 설정";
-"Data" = "데이터 관리";
+"Display" = "화면 설정";
+"Data Manage" = "데이터 관리";
 "Notification" = "알림";
 "Inquiry" = "문의";
 "Review" = "리뷰";
@@ -102,7 +102,7 @@
 // MARK: - Search
 
 // SearchViewController
-"Search TodoList!" = "투두리스트를 검색하세요!";
+"Find your TodoList!" = "투두리스트를 검색하세요!";
 
 
 // MARK: - Main
@@ -121,8 +121,8 @@
 // MARK: - Storyboard
 
 "Detail" = "상세 기록";
-"Search TodoList!" = "투두리스트를 검색하세요!";
-"Setting" = "설정";
+"Find your TodoList!" = "투두리스트를 검색하세요!";
+"Settings" = "설정";
 
 // MARK: - UIViewController
 
