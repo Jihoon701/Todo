@@ -11,8 +11,7 @@ import RealmSwift
 class DataSettingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var dataSettingTableView: UITableView!
     @IBOutlet weak var titleLabel: UILabel!
-    
-//    let dataSettingTitle = ["완료된 투두 데이터 삭제", "진행중인 투두 데이터 삭제", "북마크 투두 데이터 삭제", "전체 투두 데이터 삭제"]
+
     let dataSettingTitle = ["Delete completed data".localized(), "Delete in progress data".localized(), "Delete bookmarked data".localized(), "Delete all data".localized()]
     let realm = try! Realm()
     

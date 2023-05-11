@@ -65,10 +65,10 @@
 "Set Bookmark Color" = "북마크 색상 정하기";
 
 // DataSettingViewController
-"Delete completed todo data" = "완료된 투두 데이터 삭제";
-"Delete in progress todo data" = "진행중인 투두 데이터 삭제";
-"Delete bookmarked todo data" = "북마크 투두 데이터 삭제";
-"Delete all todo data" = "전체 투두 데이터 삭제";
+"Delete completed data" = "완료된 투두 데이터 삭제";
+"Delete in progress data" = "진행중인 투두 데이터 삭제";
+"Delete bookmarked data" = "북마크 투두 데이터 삭제";
+"Delete all data" = "전체 투두 데이터 삭제";
 "Manage data" = "데이터 관리";
 "Notice" = "알림";
 "Press OK button to delete %@ data" = "확인 버튼을 누르면 %@ 데이터가 삭제됩니다";

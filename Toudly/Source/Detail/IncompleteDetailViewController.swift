@@ -16,7 +16,7 @@ class IncompleteDetailViewController: UIViewController, IndicatorInfoProvider, U
     var incompleteList: Results<TodoList>!
     
     override func viewDidLoad() {
-        noticeLabel.setupNoticeLabel(labelText: "There is no todo list in progress\nTry adding a todo list!".localized())
+        noticeLabel.setupNoticeLabel(labelText: "There are no todo lists in progress\nTry adding todo lists!".localized())
         incompleteTableView.delegate = self
         incompleteTableView.dataSource = self
         incompleteList = realm.objects(TodoList.self).filter("checkbox = false").sorted(byKeyPath: "date", ascending: true)

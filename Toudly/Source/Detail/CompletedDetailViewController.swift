@@ -16,7 +16,7 @@ class CompletedDetailViewController: UIViewController, IndicatorInfoProvider, UI
     var completeList: Results<TodoList>!
     
     override func viewDidLoad() {
-        noticeLabel.setupNoticeLabel(labelText: "There is no completed todo list\nTry completing a todo list!".localized())
+        noticeLabel.setupNoticeLabel(labelText: "There are no completed todo lists\nTry completing todo lists!".localized())
         completeTableView.delegate = self
         completeTableView.dataSource = self
         completeList = realm.objects(TodoList.self).filter("checkbox = true").sorted(byKeyPath: "date", ascending: true)

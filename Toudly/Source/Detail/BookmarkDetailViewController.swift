@@ -16,7 +16,7 @@ class BookmarkDetailViewController: UIViewController, IndicatorInfoProvider, UIT
     var bookmarkList: Results<TodoList>!
     
     override func viewDidLoad() {
-        noticeLabel.setupNoticeLabel(labelText: "There are no todo lists with bookmarks set\nTry adding a bookmark!".localized())
+        noticeLabel.setupNoticeLabel(labelText: "There are no todo lists with bookmarks\nTry adding bookmarks!".localized())
         bookmarkTableView.delegate = self
         bookmarkTableView.dataSource = self
         bookmarkList = realm.objects(TodoList.self).filter("bookmark = true").sorted(byKeyPath: "date", ascending: true)
