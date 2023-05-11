@@ -74,12 +74,7 @@ class EditTodoListViewController: UIViewController, UITextFieldDelegate {
         saveButton.setupButtonTitleLabel(text: "Save".localized())
         deleteButton.setupButtonTitleLabel(text: "Delete".localized())
         bookmarkLabel.setupLabel(text: "Bookmark".localized())
-        alarmLabel.setupLabel(text: "Alarm".localized())
-
-//        saveButton.setupButtonTitleLabel(text: "저장")
-//        deleteButton.setupButtonTitleLabel(text: "삭제")
-//        bookmarkLabel.setupLabel(text: "북마크")
-//        alarmLabel.setupLabel(text: "알람")
+        alarmLabel.setupLabel(text: "Notification".localized())
 
         alarmTimeSetLabel.font = .NanumSR(.bold, size: 12)
         alarmTimeSetLabel.textColor = UIColor.darkGray
@@ -170,7 +165,7 @@ class EditTodoListViewController: UIViewController, UITextFieldDelegate {
         if alarmSwitch.isOn {
             switch alarmTimeComparedToCurrentTime() {
             case .past:
-                presentErrorAlert(errorTitle: "Alarm Failed".localized(), errorMessage: "Alarm cannot be set in the past time\nPlease reset the time".localized())
+                presentErrorAlert(errorTitle: "Notification Failed".localized(), errorMessage: "Notification cannot be set in the past time\nPlease reset the time".localized())
                 userNotiCenter.removeDeliveredNotifications(withIdentifiers: ["todoAlarm_\(todoId)"])
             case .present:
                 saveAlarm()
@@ -227,7 +222,7 @@ class EditTodoListViewController: UIViewController, UITextFieldDelegate {
             requestAuthNotification(authCheck: checkAuthNotification())
             // 알람 설정 날짜가 과거일 때
             if compareDate() < 0 {
-                let setAlarmErrorAlert = UIAlertController(title: "Failed to set alarm".localized(), message: "Alarm cannot be set in the past time".localized(), preferredStyle: .alert)
+                let setAlarmErrorAlert = UIAlertController(title: "Notification setting failed".localized(), message: "Notification cannot be set in the past time".localized(), preferredStyle: .alert)
                 let confirmAction = UIAlertAction(title: "OK".localized(), style: .default) { [self]
                     (action) in
                     alarmSwitch.setOn(false, animated: true)
@@ -309,7 +304,7 @@ class EditTodoListViewController: UIViewController, UITextFieldDelegate {
     
     func presentAlarmSettingAlert() {
         DispatchQueue.main.async {
-            self.presentAlert(title: "Setting".localized(), message: "Please change the notification setting to Allow in Device Settings".localized(), isCancelActionIncluded: true) { [self] action in
+            self.presentAlert(title: "Notification Setting".localized(), message: "Please change the notification setting to Allow in Device Settings".localized(), isCancelActionIncluded: true) { [self] action in
                 moveToAppSettingPage()
             }
         }

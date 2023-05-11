@@ -17,7 +17,7 @@ class AlarmDetailViewController: UIViewController, IndicatorInfoProvider, UITabl
     var alarmlist: Results<TodoList>!
     
     override func viewDidLoad() {
-        noticeLabel.setupNoticeLabel(labelText: "There are no todo lists with alarm set\nTry adding notifications!".localized())
+        noticeLabel.setupNoticeLabel(labelText: "There are no todo lists with notification\nTry adding notifications!".localized())
         AlarmTableView.delegate = self
         AlarmTableView.dataSource = self
         alarmlist = realm.objects(TodoList.self).filter("alarm = true").sorted(byKeyPath: "date", ascending: true)

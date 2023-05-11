@@ -17,7 +17,7 @@ class WalkThroughViewController: UIViewController {
     }
     
     func setUI() {
-        toMainVCButton.setTitle("Start Toudly".localized(), for: .normal)
+        toMainVCButton.setTitle("Let's Toudly".localized(), for: .normal)
         toMainVCButton.titleLabel?.font = .NanumSR(.extraBold, size: 14)
         toMainVCButton.layer.cornerRadius = 15
     }

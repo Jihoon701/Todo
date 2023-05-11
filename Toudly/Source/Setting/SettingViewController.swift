@@ -18,7 +18,7 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     override func viewDidLoad() {
-        titleLabel.setupTitleLabel(text: "Setting".localized())
+        titleLabel.setupTitleLabel(text: "Settings".localized())
         settingTableView.delegate = self
         settingTableView.dataSource = self
         settingTableView.allowsSelection = true
