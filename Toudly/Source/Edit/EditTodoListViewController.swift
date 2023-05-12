@@ -264,7 +264,6 @@ class EditTodoListViewController: UIViewController, UITextFieldDelegate {
         todoWrittenDate = dateString.stringToDate()!
         
         currentComponent = Calendar.current.dateComponents([.year, .month, .day], from: Date())
-        currentComponent.timeZone = TimeZone(abbreviation: "UTC")
         let currentTime = Calendar.current.date(from: currentComponent)!
         
         let selectedDateInterval = todoWrittenDate.timeIntervalSince1970

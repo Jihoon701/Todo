@@ -17,10 +17,15 @@ extension String {
         return String(format: self.localized(comment: comment), argument)
     }
     
+    //MARK: 날짜 형식 확인
     func stringToDate() -> Date? {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        dateFormatter.timeZone = TimeZone(identifier: "UTC")
+        dateFormatter.dateFormat = "dd-MM-yyyy"
+        
+        if Locale.current.languageCode == "ko" {
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+        }
+        
         if let date = dateFormatter.date(from: self) {
             return date
         }
