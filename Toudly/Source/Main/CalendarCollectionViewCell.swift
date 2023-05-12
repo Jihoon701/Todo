@@ -49,9 +49,9 @@ class CalendarCollectionViewCell: UICollectionViewCell {
     func initDayCell(currentDay: String, haveTodayDate: Bool, date: String, haveHolidayDate: Bool) {
         DateLabel.text = currentDay
         drawCircleOnTodayDate(haveTodayDate: haveTodayDate, checkingDate: currentDay)
-        changeTextColorOnHolidayDate(haveHolidayDate: haveHolidayDate, checkingDate: currentDay)
+//        changeTextColorOnHolidayDate(haveHolidayDate: haveHolidayDate, checkingDate: currentDay)
         checkListExistingDate(date: "\(date)/\(currentDay)")
-        print("^^   ", haveHolidayDate)
+//        print("^^   ", haveHolidayDate)
     }
     
     func checkListExistingDate(date: String) {

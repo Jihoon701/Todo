@@ -10,7 +10,11 @@ import XLPagerTabStrip
 
 class DetailViewController: ButtonBarPagerTabStripViewController {
     @IBOutlet weak var TitleLabel: UILabel!
-    @IBAction func BackToHomeVC(_ sender: Any) {
+
+//    var mainVC: MainViewController?
+    var detailDelegate: SearchTodoListDelegate?
+    
+    @IBAction func backToHomeVC(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     
@@ -29,7 +33,6 @@ class DetailViewController: ButtonBarPagerTabStripViewController {
             oldCell?.label.textColor = UIColor.lightGray182
             newCell?.label.textColor = .black
         }
-        
         super.viewDidLoad()
     }
     
@@ -40,6 +43,22 @@ class DetailViewController: ButtonBarPagerTabStripViewController {
         let incompleteVC = self.storyboard?.instantiateViewController(withIdentifier: "IncompleteDetailViewController") as! IncompleteDetailViewController
         let completedVC = self.storyboard?.instantiateViewController(withIdentifier: "CompletedDetailViewController") as! CompletedDetailViewController
         
+        alarmVC.delegate = self
         return [alarmVC, bookmarkVC, incompleteVC, completedVC]
     }
+}
+
+extension DetailViewController: MoveToMainDetailDelegate {
+    func moveToMainDetail(selectedDate: String) {
+        var array = [selectedDate]
+        let selectedDateArray = selectedDate.components(separatedBy: "/")
+        let month = Int(selectedDateArray[1])!
+        let date = selectedDateArray[2]
+        dismiss(animated: true, completion: nil)
+        detailDelegate?.moveToSelectedList(selectedDate: selectedDate, month: month, date: date)
+    }    
+}
+
+protocol MoveToMainDetailDelegate: AnyObject {
+    func moveToMainDetail(selectedDate: String)
 }

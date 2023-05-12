@@ -128,8 +128,10 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func toDetailVC(_ sender: Any) {
-        let vc = self.storyboard!.instantiateViewController(withIdentifier: "DetailViewController")
+        let vc = self.storyboard!.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
         vc.modalPresentationStyle = .fullScreen
+        vc.detailDelegate = self
+//        vc.mainVC = self
         present(vc, animated: true)
     }
     
