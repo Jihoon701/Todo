@@ -77,11 +77,6 @@ class TodoCalendar {
     
     public func CalendarTitle() -> String {
         print("\(calendarYear)" + "년" + " " + "\(calendarMonth)월")
-
-        print("영어 확인")
-        print(Locale.current.languageCode)
-        print(EnglishMonth(month: calendarMonth))
-
         if Locale.current.languageCode == "en" {
             return "\(EnglishMonth(month: calendarMonth)) " + "\(calendarYear)"
         }

@@ -28,6 +28,10 @@ class SearchTableViewCell: UITableViewCell {
         contentLabel.attributedText = changeAllOccurrence(entireString: target.todoContent, searchString: searchLetter)
         contentLabel.sizeToFit()
         dateLabel.text = target.date
+        
+        if Locale.current.languageCode == "en" {
+            self.dateLabel.text = changeToEnglishDateFormat(date: target.date)
+        }
     }
     
     func configureCell(target: TodoList) {
@@ -56,5 +60,15 @@ class SearchTableViewCell: UITableViewCell {
         }
         
         return attributedString
+    }
+    
+    func changeToEnglishDateFormat(date: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let date = dateFormatter.date(from: date)
+        dateFormatter.dateFormat = "d/M/yyyy"
+        let resultString = dateFormatter.string(from: date!)
+        print(resultString)
+        return resultString
     }
 }

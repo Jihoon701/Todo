@@ -35,6 +35,11 @@ class DetailTableViewCell: UITableViewCell {
         contentLabel.numberOfLines = 0
         self.contentLabel.sizeToFit()
         self.dateLabel.text = target.date
+        
+        if Locale.current.languageCode == "en" {
+            self.dateLabel.text = changeToEnglishDateFormat(date: target.date)
+        }
+        
         self.selectionStyle = .none
         
         if target.alarm {
@@ -50,5 +55,15 @@ class DetailTableViewCell: UITableViewCell {
         boxImage.image = target.checkbox ? UIImage(named: "checkBox"): UIImage(named: "emptyBox")
         
         bookmarkImage.image = target.bookmark ? UIImage.coloredBookmarkImage(bookmarkImage.image!)(): UIImage(named: "bookmark_gray")
+    }
+    
+    func changeToEnglishDateFormat(date: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let date = dateFormatter.date(from: date)
+        dateFormatter.dateFormat = "d/M/yyyy"
+        let resultString = dateFormatter.string(from: date!)
+        print(resultString)
+        return resultString
     }
 }
