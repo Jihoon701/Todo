@@ -15,6 +15,7 @@ class AlarmDetailViewController: UIViewController, IndicatorInfoProvider, UITabl
     @IBOutlet weak var AlarmTableView: UITableView!
     let realm = try! Realm()
     var alarmlist: Results<TodoList>!
+    weak var delegate: MoveToMainDetailDelegate?
     
     override func viewDidLoad() {
         noticeLabel.setupNoticeLabel(labelText: "There are no todo lists with notification\nTry adding notifications!".localized())
@@ -52,8 +53,8 @@ class AlarmDetailViewController: UIViewController, IndicatorInfoProvider, UITabl
         cell.configureDetailCell(target: alarmlist[indexPath.row])
         return cell
     }
-    
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return AlarmTableView.frame.width * 1/6
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("HIHI")
+        delegate?.moveToMainDetail(selectedDate: alarmlist[indexPath.row].date)
+    }
 }
