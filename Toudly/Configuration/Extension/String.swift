@@ -20,11 +20,13 @@ extension String {
     //MARK: 날짜 형식 확인
     func stringToDate() -> Date? {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd-MM-yyyy"
+//        dateFormatter.dateFormat = "dd-MM-yyyy"
         
-        if Locale.current.languageCode == "ko" {
-            dateFormatter.dateFormat = "yyyy-MM-dd"
-        }
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        
+//        if Locale.current.languageCode == "ko" {
+//            dateFormatter.dateFormat = "yyyy-MM-dd"
+//        }
         
         if let date = dateFormatter.date(from: self) {
             return date

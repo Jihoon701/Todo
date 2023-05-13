@@ -14,6 +14,7 @@ class IncompleteDetailViewController: UIViewController, IndicatorInfoProvider, U
     @IBOutlet weak var noticeLabel: UILabel!
     let realm = try! Realm()
     var incompleteList: Results<TodoList>!
+    weak var delegate: MoveToMainDetailDelegate?
     
     override func viewDidLoad() {
         noticeLabel.setupNoticeLabel(labelText: "There are no todo lists in progress\nTry adding todo lists!".localized())
@@ -49,7 +50,7 @@ class IncompleteDetailViewController: UIViewController, IndicatorInfoProvider, U
         return cell
     }
     
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return incompleteTableView.frame.width * 1/6
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        delegate?.moveToMainDetail(selectedDate: incompleteList[indexPath.row].date)
+    }
 }

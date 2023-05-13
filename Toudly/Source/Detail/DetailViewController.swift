@@ -44,6 +44,10 @@ class DetailViewController: ButtonBarPagerTabStripViewController {
         let completedVC = self.storyboard?.instantiateViewController(withIdentifier: "CompletedDetailViewController") as! CompletedDetailViewController
         
         alarmVC.delegate = self
+        bookmarkVC.delegate = self
+        incompleteVC.delegate = self
+        completedVC.delegate = self
+        
         return [alarmVC, bookmarkVC, incompleteVC, completedVC]
     }
 }

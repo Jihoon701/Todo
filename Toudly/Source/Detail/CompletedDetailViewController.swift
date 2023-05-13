@@ -14,6 +14,7 @@ class CompletedDetailViewController: UIViewController, IndicatorInfoProvider, UI
     @IBOutlet weak var noticeLabel: UILabel!
     let realm = try! Realm()
     var completeList: Results<TodoList>!
+    weak var delegate: MoveToMainDetailDelegate?
     
     override func viewDidLoad() {
         noticeLabel.setupNoticeLabel(labelText: "There are no completed todo lists\nTry completing todo lists!".localized())
@@ -48,7 +49,7 @@ class CompletedDetailViewController: UIViewController, IndicatorInfoProvider, UI
         return cell
     }
     
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return completeTableView.frame.width * 1/6
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        delegate?.moveToMainDetail(selectedDate: completeList[indexPath.row].date)
+    }
 }
