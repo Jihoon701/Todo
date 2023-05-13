@@ -53,8 +53,8 @@ class AlarmDetailViewController: UIViewController, IndicatorInfoProvider, UITabl
         cell.configureDetailCell(target: alarmlist[indexPath.row])
         return cell
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("HIHI")
         delegate?.moveToMainDetail(selectedDate: alarmlist[indexPath.row].date)
     }
 }

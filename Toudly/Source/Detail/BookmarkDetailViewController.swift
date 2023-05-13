@@ -14,6 +14,7 @@ class BookmarkDetailViewController: UIViewController, IndicatorInfoProvider, UIT
     @IBOutlet weak var noticeLabel: UILabel!
     let realm = try! Realm()
     var bookmarkList: Results<TodoList>!
+    weak var delegate: MoveToMainDetailDelegate?
     
     override func viewDidLoad() {
         noticeLabel.setupNoticeLabel(labelText: "There are no todo lists with bookmarks\nTry adding bookmarks!".localized())
@@ -48,7 +49,7 @@ class BookmarkDetailViewController: UIViewController, IndicatorInfoProvider, UIT
         return cell
     }
     
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return bookmarkTableView.frame.width * 1/6
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        delegate?.moveToMainDetail(selectedDate: bookmarkList[indexPath.row].date)
+    }
 }
