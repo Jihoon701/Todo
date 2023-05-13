@@ -80,6 +80,7 @@ class TodoCalendar {
         if Locale.current.languageCode == "en" {
             return "\(EnglishMonth(month: calendarMonth)) " + "\(calendarYear)"
         }
+        
         if Locale.current.languageCode == "ko" {
             return "\(calendarYear)" + "년" + " " + "\(calendarMonth)월"
         }

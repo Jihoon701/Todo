@@ -9,6 +9,7 @@ import UIKit
 
 class WalkThroughViewController: UIViewController {
     
+    @IBOutlet weak var walkThroughImageView: UIImageView!
     @IBOutlet weak var toMainVCButton: UIButton!
     
     override func viewDidLoad() {
@@ -17,6 +18,12 @@ class WalkThroughViewController: UIViewController {
     }
     
     func setUI() {
+        walkThroughImageView.image = UIImage(named: "walkThrough_en")
+        
+        if Locale.current.languageCode == "ko" {
+            walkThroughImageView.image = UIImage(named: "walkThrough")
+        }
+        
         toMainVCButton.setTitle("Let's Toudly".localized(), for: .normal)
         toMainVCButton.titleLabel?.font = .NanumSR(.extraBold, size: 14)
         toMainVCButton.layer.cornerRadius = 15
