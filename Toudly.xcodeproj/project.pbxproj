@@ -21,7 +21,6 @@
 		E91F641C29D5559200993468 /* ToudlyWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91F641B29D5559200993468 /* ToudlyWidgetBundle.swift */; };
 		E91F641E29D5559200993468 /* ToudlyWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91F641D29D5559200993468 /* ToudlyWidget.swift */; };
 		E91F642029D5559300993468 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E91F641F29D5559300993468 /* Assets.xcassets */; };
-		E91F642429D5559300993468 /* ToudlyWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = E91F641529D5559200993468 /* ToudlyWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		E91F642A29D56AD200993468 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9235C9D278EAA2500C73737 /* Assets.xcassets */; };
 		E91F642B29D56BD500993468 /* NanumSquareRoundOTFL.otf in Resources */ = {isa = PBXBuildFile; fileRef = E9F94E8829500C670017129A /* NanumSquareRoundOTFL.otf */; };
 		E91F642C29D56BD800993468 /* NanumSquareRoundOTFR.otf in Resources */ = {isa = PBXBuildFile; fileRef = E932F496280BB6AD00231232 /* NanumSquareRoundOTFR.otf */; };
@@ -79,30 +78,6 @@
 		E9EE56182845CD0A00315863 /* ScreenSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EE56172845CD0A00315863 /* ScreenSettingViewController.swift */; };
 		E9F94E8929500C670017129A /* NanumSquareRoundOTFL.otf in Resources */ = {isa = PBXBuildFile; fileRef = E9F94E8829500C670017129A /* NanumSquareRoundOTFL.otf */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		E91F642229D5559300993468 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E9235C89278EAA2300C73737 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E91F641429D5559200993468;
-			remoteInfo = ToudlyWidgetExtension;
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		E91F642529D5559300993468 /* Embed Foundation Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 12;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				E91F642429D5559300993468 /* ToudlyWidgetExtension.appex in Embed Foundation Extensions */,
-			);
-			name = "Embed Foundation Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		3450CB8D28865A3E55646764 /* Pods-TodoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodoTests.release.xcconfig"; path = "Target Support Files/Pods-TodoTests/Pods-TodoTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -474,12 +449,10 @@
 				E9235C8E278EAA2300C73737 /* Frameworks */,
 				E9235C8F278EAA2300C73737 /* Resources */,
 				A2B7081CDD83E7D08325BB66 /* [CP] Embed Pods Frameworks */,
-				E91F642529D5559300993468 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				E91F642329D5559300993468 /* PBXTargetDependency */,
 			);
 			name = Toudly;
 			productName = Todo;
@@ -666,14 +639,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		E91F642329D5559300993468 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E91F641429D5559200993468 /* ToudlyWidgetExtension */;
-			targetProxy = E91F642229D5559300993468 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		E9235C9A278EAA2300C73737 /* Home.storyboard */ = {
@@ -886,7 +851,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7E8DDA8FC16DC5CA1A069CF7 /* Pods-Toudly.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -920,7 +884,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C3CB0379D7C060B1992E7870 /* Pods-Toudly.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
