@@ -64,6 +64,13 @@
 "Display" = "화면 설정";
 "Set Bookmark Color" = "북마크 색상 정하기";
 
+// FontSettingViewController
+"Font" = "폰트";
+"NanumSquareRound" = "나눔스퀘어라운드";
+"Manrope" = "Manrope";
+"NanumBarunGothic" = "나눔바른고딕";
+"Suit" = "수트";
+
 // DataSettingViewController
 "Delete completed data" = "완료된 투두 데이터 삭제";
 "Delete in progress data" = "진행중인 투두 데이터 삭제";

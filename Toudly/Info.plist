@@ -9,6 +9,25 @@
 	</dict>
 	<key>UIAppFonts</key>
 	<array>
+		<string>NanumBarunGothic.ttf</string>
+		<string>NanumBarunGothicBold.ttf</string>
+		<string>NanumBarunGothicLight.ttf</string>
+		<string>NanumBarunGothicUltraLight.ttf</string>
+		<string>SUIT-Bold.otf</string>
+		<string>SUIT-ExtraBold.otf</string>
+		<string>SUIT-ExtraLight.otf</string>
+		<string>SUIT-Heavy.otf</string>
+		<string>SUIT-Medium.otf</string>
+		<string>SUIT-Regular.otf</string>
+		<string>SUIT-semiBold.otf</string>
+		<string>SUIT-Thin.otf</string>
+		<string>Manrope-Bold.ttf</string>
+		<string>Manrope-ExtraBold.ttf</string>
+		<string>Manrope-ExtraLight.ttf</string>
+		<string>Manrope-Light.ttf</string>
+		<string>Manrope-Medium.ttf</string>
+		<string>Manrope-Regular.ttf</string>
+		<string>Manrope-SemiBold.ttf</string>
 		<string>NanumSquareRoundOTFL.otf</string>
 		<string>NanumSquareRoundOTFR.otf</string>
 		<string>NanumSquareRoundOTFB.otf</string>
