@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bnR-Uq-4PM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bnR-Uq-4PM">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -1266,7 +1266,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MNM-zH-fKJ">
-                                <rect key="frame" x="108" y="71.5" width="198" height="22"/>
+                                <rect key="frame" x="99" y="70.5" width="216" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="MNM-zH-fKJ" secondAttribute="height" multiplier="9:1" id="Edm-p1-Tbz"/>
                                 </constraints>
@@ -1275,7 +1275,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tZ8-Nn-LaY">
-                                <rect key="frame" x="29" y="68" width="29" height="29"/>
+                                <rect key="frame" x="20" y="68" width="29" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="tZ8-Nn-LaY" secondAttribute="height" id="DEh-XZ-rT1"/>
+                                </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" image="left"/>
                                 <connections>
@@ -1283,7 +1286,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="DIE-Pb-c8A">
-                                <rect key="frame" x="20" y="113.5" width="374" height="728.5"/>
+                                <rect key="frame" x="20" y="114.5" width="374" height="727.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </tableView>
@@ -1291,14 +1294,13 @@
                         <viewLayoutGuide key="safeArea" id="IHZ-mt-Iay"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="tZ8-Nn-LaY" firstAttribute="width" secondItem="tZ8-Nn-LaY" secondAttribute="height" id="DEh-XZ-rT1"/>
                             <constraint firstItem="MNM-zH-fKJ" firstAttribute="centerY" secondItem="tZ8-Nn-LaY" secondAttribute="centerY" id="EXD-RP-AmY"/>
                             <constraint firstItem="IHZ-mt-Iay" firstAttribute="bottom" secondItem="DIE-Pb-c8A" secondAttribute="bottom" constant="20" id="GCJ-hB-852"/>
                             <constraint firstItem="tZ8-Nn-LaY" firstAttribute="top" secondItem="IHZ-mt-Iay" secondAttribute="top" constant="20" id="MHl-Xm-KX2"/>
                             <constraint firstItem="MNM-zH-fKJ" firstAttribute="leading" secondItem="tZ8-Nn-LaY" secondAttribute="trailing" constant="50" id="PcU-e1-Ltl"/>
                             <constraint firstItem="DIE-Pb-c8A" firstAttribute="leading" secondItem="IHZ-mt-Iay" secondAttribute="leading" constant="20" id="QHI-ae-egf"/>
                             <constraint firstItem="tZ8-Nn-LaY" firstAttribute="width" secondItem="yUE-pO-FFX" secondAttribute="width" multiplier="0.07" id="aRn-Zr-uZu"/>
-                            <constraint firstItem="tZ8-Nn-LaY" firstAttribute="leading" secondItem="IHZ-mt-Iay" secondAttribute="leading" constant="29" id="anW-Yn-Ufe"/>
+                            <constraint firstItem="tZ8-Nn-LaY" firstAttribute="leading" secondItem="IHZ-mt-Iay" secondAttribute="leading" constant="20" id="anW-Yn-Ufe"/>
                             <constraint firstItem="MNM-zH-fKJ" firstAttribute="centerX" secondItem="IHZ-mt-Iay" secondAttribute="centerX" id="cjF-Al-hq7"/>
                             <constraint firstItem="DIE-Pb-c8A" firstAttribute="top" secondItem="MNM-zH-fKJ" secondAttribute="bottom" constant="20" id="fXC-XT-Eyg"/>
                             <constraint firstItem="IHZ-mt-Iay" firstAttribute="trailing" secondItem="DIE-Pb-c8A" secondAttribute="trailing" constant="20" id="iTF-hq-yOG"/>

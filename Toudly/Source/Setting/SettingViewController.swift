@@ -19,6 +19,7 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewWillAppear(_ animated: Bool) {
         settingTableView.reloadData()
+        titleLabel.setupTitleLabel(text: "Settings".localized())
     }
     
     override func viewDidLoad() {
