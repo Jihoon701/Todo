@@ -48,7 +48,6 @@ class FontSettingViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("문재")
         let cell = fontSettingTableView.dequeueReusableCell(withIdentifier: "SettingDetailTableViewCell", for: indexPath) as! SettingDetailTableViewCell
         cell.titleLabel.text = fontSettingTitle[indexPath.row]
         let labelText = fontSettingTitle[indexPath.row]
